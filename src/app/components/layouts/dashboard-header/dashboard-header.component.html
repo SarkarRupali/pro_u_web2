@@ -1,0 +1,53 @@
+<div class="dashboard-header"  [ngClass]="{'dashboard': addclass=='dashboard'}">
+    <div class="header_logo" *ngIf="addclass=='dashboard'">
+        <img src="./assets/img/logo.png" alt="Image" class="logo">
+    </div>
+    
+    
+
+
+    <span *ngIf="backClass">  <a class="back_btn" (click)="backPage()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></a></span>
+    <div class="header-title" [ngClass]="userDetails?.user?.is_prime==0?'titlealign' :''" *ngIf="addclass==''">
+        {{title}}</div>
+        <span *ngIf="backClass"><a class="back_btn"></a></span>
+
+    <!-- <div class="menu-toggle" (click)="clickEvent()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+    <div class="header-title" [ngClass]="userDetails?.user?.is_prime==0?'titlealign' :''">{{title}}</div> -->
+    <!-- <div class="dashboard-header-left">
+        <div class="bars">
+            <i class="fas fa-bars bars-icon"></i>
+            <i class="fas fa-times times-icon"></i>
+        </div>
+        <ul class="list-unstyled p-0 m-0 breadcrumb-dashboard">
+            <li><a href="">home </a></li>
+            <li><a href="#" class="active-breadcrumb">{{title}}</a></li>
+        </ul>
+    </div> -->
+    <!-- <button routerLink="/user/pricing" class="btn btn-prime" slot="end" *ngIf="userDetails?.user?.is_prime==0">Prime</button> -->
+    <!-- <div class="header-btn" routerLink="/user/help_feedback">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+    </div> -->
+    <!-- <div class="header-btn" routerLink="/user/search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    </div> -->
+    <!-- <div class="header-btn" routerLink="/user/notification">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        <span class="noti-count">{{notificationLength}}</span>
+    </div> -->
+    <!-- <div class="dashboard-header-right">
+        <div class="notificaton" routerLink="/user/search">
+            
+        </div>
+        <div class="notificaton" routerLink="/user/notification">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="noti-count">{{notificationLength}}</span>
+        </div>
+        <div class="notificaton">
+            <i class="fas fa-search" routerLink="/user/notification"></i>
+            <span class="noti-count">{{notificationLength}}</span>
+        </div>
+    </div> -->
+</div>

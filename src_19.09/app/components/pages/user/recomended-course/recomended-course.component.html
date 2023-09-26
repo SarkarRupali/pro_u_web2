@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="proMba p-0 search_result">
+      
+      <div class="proMbaslide">
+        <div class="row">
+          <div class="col-12 col-sm-6 col-md-6 col-lg-4 search_card" size="6"  *ngFor="let rec of rec_course">
+
+            <!-- <a (click)="courseDetails(rec.id)">
+              <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="card-img">
+                  <img src="{{rec.image}}" alt="">
+                </div>
+                <div class="card-content">
+                  <h4>{{rec.name}}</h4>
+                  <div class="pro_descripotion" [innerHTML]="rec.description"></div>
+                </div>
+                <div class="prime" *ngIf="rec.is_prime==1">
+                  <img src="./assets/img/crown.png" alt="">
+                  <span>PRIME</span>
+                </div>
+                <div class="free" *ngIf="rec.is_prime==0">
+                  <span>FREE</span>
+                </div>
+              </div>
+            </a> -->
+
+            <a (click)="courseDetails(rec.id)">
+              <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="card-img">
+                  <img src="{{rec.image}}" alt="">
+                </div>
+                <div class="card-content">
+                  <div class="course_title">
+                    <h4>{{rec.name}}</h4>
+                    <div class="subscription_badge prime" *ngIf="rec.is_prime==1">
+                      Prime
+                    </div>
+                    <div class="subscription_badge free" *ngIf="rec.is_prime==0">
+                      Free
+                    </div>
+                  </div>
+                  <ul class="course-duration">
+                    <li>Postgraduate</li>
+                    <li>Full Time</li>
+                    <li>1 Years</li>
+                  </ul>
+                  <div class="course_info">
+                    <p>Internship at Meet7 Limited | 4 Weeks | 10 Topics</p>
+                  </div>
+                </div>
+                
+              </div>
+            </a>
+            
+
+
+            <!-- <div class="proMbaslide_item" (click)="goToCourseDetialsPage(course.id, course.is_prime)">
+              <div class="slide">
+                <h3>{{course.name}}</h3>
+                <button class="btn btn-primeicon btn-cardtop" *ngIf="course.is_prime==1">
+                  <img src="../../assets/img/crown.png">
+                    Prime
+                </button>
+                </div>
+            </div> -->
+         </div>
+         </div>
+      </div>
+    </div>
+</div>

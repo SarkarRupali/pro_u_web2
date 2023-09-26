@@ -1,0 +1,148 @@
+<section class="become-instructor-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000">
+                <h2 *ngIf="!edit">Add Education</h2>
+                <h2 *ngIf="edit">Edit Education</h2>
+            </div>
+        </div>
+        <div class="row mt-0 mt-sm-3">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1600">
+                <div class="become-instructor-form">
+                    <form #documnetForm="ngForm" (ngSubmit)="submitDocuments(documnetForm)" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-sm-4 mb-3">
+                                <select placeholder="Select" interface="action-sheet" [(ngModel)]="edu.country" #countryCtrl="ngModel" name="country" required class="form-control">
+                                    <option value="" disabled selected>Select Country</option>
+                                    <option value="India">India</option>
+                                    <option value='Nigeria'>Nigeria</option>
+                                    <option value='UAE'>UAE</option>
+                                    <option value='Others'>Others</option>
+                                </select>
+                                
+                                <p *ngIf="!countryCtrl.valid && countryCtrl.touched">
+                                    <span class="alert alert-danger">Country is required</span>
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <input type="text" placeholder="Name of Institution" class="form-control" [ngModel]="edu.name" #nameCtrl="ngModel" name="name" pattern="[A-Za-z ]{2,40}" (ngModelChange)="addInstitution($event)">
+                                  
+                                <div *ngIf="nameValid">
+                                    <p class="alert alert-danger">Institution is required</p>
+                                </div>
+                                <div *ngIf="nameCtrl.touched && nameCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid institution.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <select class="form-control" [(ngModel)]="edu.degree"  #degreeCtrl="ngModel" name="degree" required placeholder="Degree">
+                                    <option value='Higher Secondary'>Higher Secondary</option>
+                                    <option value='Diploma'>Diploma</option>
+                                    <option value='PG Diploma'>PG Diploma</option>
+                                    <option value='Postgraduate'>Postgraduate</option>
+                                    <option value='Undergraduate'>Undergraduate</option>
+                                    <option value='Doctoral'>Doctoral</option>
+                                    <option value='Others'>Others</option>
+                                </select>
+
+                                <p *ngIf="!degreeCtrl.valid && degreeCtrl.touched">
+                                    <span class="alert alert-danger">Degree is required</span>
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <input type="text" placeholder="Field of Study" class="form-control" [ngModel]="edu.fieldOfStudy" #fieldOfStudyCtrl="ngModel" name="fieldOfStudy" pattern="[^\s].+[^\s]" (ngModelChange)="addInstitution($event)">
+
+                                <p *ngIf="fieldValid">
+                                    <span class="alert alert-danger">Field Of Study is required</span>
+                                </p>
+                                <p *ngIf="fieldOfStudyCtrl.touched && fieldOfStudyCtrl.errors?.['pattern']">
+                                    <span class="alert alert-danger">Please enter valid Field Of Study.</span>
+                                </p>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <!-- <input type="date" placeholder="Start Date" class="form-control" formControlName="title" /> -->
+
+                                <select class="form-control" [(ngModel)]="edu.gradding"  #graddingCtrl="ngModel" name="gradding" required placeholder="Gradding" (change)="gradeChange($any($event).target.value)">
+                                    <option value='Letter Grade'>Letter Grade</option>
+                                    <option value='Percentage'>Percentage</option>
+                                    <option value='CGPA'>CGPA</option>
+                                    <option value='GPA'>GPA</option>
+                                </select>
+
+                                <p *ngIf="!graddingCtrl.valid && graddingCtrl.touched" class="alert alert-danger">
+                                    <span>Gradding is required</span>
+                                </p>
+
+                            </div>
+
+                          
+                            <ng-container *ngIf="!selectScore">
+                                <div class="col-12 col-sm-4 mb-3">
+                                    <input type="text" placeholder="Score" class="form-control" [(ngModel)]="edu.score" #scoreCtrl="ngModel" pattern="[0-9]{1,3}" name="score" required/>
+
+                                        
+                                    <p *ngIf="!scoreCtrl.valid && scoreCtrl.touched" class="alert alert-danger">Score is required</p>
+                                </div>
+                            </ng-container>
+                            
+                            <ng-container *ngIf="selectScore">
+                                <div class="col-12 col-sm-4 mb-3">
+                                    <select class="form-control" [(ngModel)]="edu.letter"  #lettergradCtrl="ngModel" name="letter" required placeholder="Score">
+                                        <option value='A+'>A+</option>
+                                        <option value='A-'>A-</option>
+                                        <option value='B+'>B+</option>
+                                        <option value='B-'>B-</option>
+                                        <option value='C+'>C+</option>
+                                        <option value='C-'>C-</option>
+                                        <option value='D+'>D+</option>
+                                        <option value='D-'>D-</option>
+                                        <option value='E+'>E+</option>
+                                        <option value='E-'>E-</option>
+                                        <option value='F+'>F+</option>
+                                        <option value='F-'>F-</option>
+                                    </select>
+                                    <p *ngIf="!lettergradCtrl.valid && lettergradCtrl.touched" class="alert alert-danger">Score is required</p>
+                                </div>
+                            </ng-container>
+                            <div class="col-12 col-sm-4 mb-3">
+                                <div class="form-group form_block">
+                                    <!-- <label position="stacked">Upload Resume <sup>*</sup></label> -->
+                                    <div class="upload_file">
+                                    <input type="file" accept=".pdf,.doc,.docx" id="uploadResume" class="form-control" (change)="onFileSelected($event)">
+                                    <!-- <input class="form-control" type="file" accept=".jpg,.jpeg, .png, .svg, .gif,.bmp"  (change)="onFileSelected($event)" class="form-control"> -->
+                                    <a *ngIf="uploadBtn" class="upload_btn" (click)="upload()"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M11.3332 5.33333L7.99984 2L4.6665 5.33333" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M8 2V10" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <p *ngIf="docValid" class="alert alert-danger">Please upload document</p>
+                            </div>
+        
+                            <div class="col-12 col-sm-4 mb-3" *ngIf="edu.doc!==undefined">
+                                <div class="resumeData">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    <p>{{edu.doc}}</p>
+                                    <div class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <button type="submit" class="become-instructor-btn">Save</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                   
+            </div>
+        </div>
+    </div>
+</section>

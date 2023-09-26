@@ -1,0 +1,81 @@
+<section class="refer-friend">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="refer-friend-content" data-aos="fade-up" data-aos-duration="1000">
+          <div class="refer-friend-top">
+            <div class="reffer-img">
+              <img src="./assets/img/reffer_earn.png" alt="">
+            </div>
+
+            <div class="refer-friend-btm">
+              <h5>Refer A friend &amp; Get 1 month free!</h5>
+              <div class="share_option">
+                <div class="copy-btn">
+                  <div class="copy-icon" (click)="copyText(userDetails.referral_code)">
+                    <span>{{userDetails.referral_code}}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                      <path d="M10.4465 7.10547C10.7639 4.08417 12.2194 3.10547 15.877 3.10547C20.0829 3.10547 21.377 4.39959 21.377 8.60547C21.377 12.2631 20.3983 13.7186 17.377 14.0359M3.37695 15.6055C3.37695 11.3996 4.67107 10.1055 8.87695 10.1055C13.0828 10.1055 14.377 11.3996 14.377 15.6055C14.377 19.8114 13.0828 21.1055 8.87695 21.1055C4.67107 21.1055 3.37695 19.8114 3.37695 15.6055Z" stroke="#011F20" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="sharebtn">
+                  <a href="javascript:void(0)" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Facebook.png" alt="" />
+                  </a>
+                  <a href="https://api.whatsapp.com/send?text=Refer or Invite others using link: https://app.proueducation.com . Referral Code : {{userDetails.referral_code}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Whatsapp.png" alt="" />
+                  </a>
+                  <a href="javascript:void(0)" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Twitter.png" alt="" />
+                  </a>
+                  <a href="javascript:void(0)" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Linkedin.png" alt="" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="rate_app">
+              <h4>Rate ProUApp</h4>
+              <svg width="171" height="39" viewBox="0 0 171 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.7771 5.88708L16.8314 15.2874H26.7155L18.7191 21.0971L21.7734 30.4974L13.7771 24.6877L5.78072 30.4974L8.83505 21.0971L0.83869 15.2874H10.7227L13.7771 5.88708Z" fill="#FBBC05"/>
+                <path d="M46.9519 5.88708L50.0062 15.2874H59.8903L51.8939 21.0971L54.9482 30.4974L46.9519 24.6877L38.9555 30.4974L42.0099 21.0971L34.0135 15.2874H43.8975L46.9519 5.88708Z" fill="#FBBC05"/>
+                <path d="M85.5006 0.512695L89.7615 13.6266H103.55L92.3949 21.7314L96.6559 34.8453L85.5006 26.7405L74.3452 34.8453L78.6062 21.7314L67.4509 13.6266H81.2396L85.5006 0.512695Z" fill="#FBBC05"/>
+                <path d="M124.05 5.88708L127.104 15.2874H136.988L128.992 21.0971L132.046 30.4974L124.05 24.6877L116.053 30.4974L119.108 21.0971L111.111 15.2874H120.995L124.05 5.88708Z" fill="#FBBC05"/>
+                <path d="M157.224 5.88708L160.278 15.2874H170.162L162.166 21.0971L165.22 30.4974L157.224 24.6877L149.227 30.4974L152.282 21.0971L144.285 15.2874H154.17L157.224 5.88708Z" fill="#DDDDDD"/>
+              </svg>                
+            </div>
+
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid member_list" *ngIf="user_points.length>0">
+    <div class="row">
+      <div class="col-12"><h4 class="mb-3">Join Member List</h4></div>
+        <div class="col-lg-4 col-md-6 col-12" *ngFor="let points of user_points">
+            <div class="range_block">
+              <div class="range_content">
+                <div class="range_content_img">
+                  <img src="https://ui-avatars.com/api/?name={{points.note}}&background=ffffff&color=000" alt="" />
+                </div>
+                <div class="range_content_left">
+                  <h3>{{points.note}}</h3>
+                  <p>{{points.created_at | date:'MMM d, yyyy'}}</p>
+                </div>
+                <div class="range_content_right">
+                  <p *ngIf="points.is_prime ==0"><span class="non-prime">Non-Prime</span></p>
+                  <p *ngIf="points.is_prime ==1"><span class="prime"><img src="../../../../../assets/img/crown.png">Prime</span></p>
+                  <span class="prime_point">{{points.point}}</span>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>    
+</div>

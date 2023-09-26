@@ -1,0 +1,217 @@
+
+    <section class="topics my-classes-ongoing">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 top-heading aos-init" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                    <h2>Ongoing</h2>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 aos-init" data-aos="fade-up" data-aos-duration="2000" data-delay="1100">
+                    <div class="row">
+                        <ng-container *ngIf="ongoingCourse.length>0;else ongoingBlock">
+                            <div class="col-12 col-sm-6 col-md-6 col-lg-4 "  *ngFor="let course of ongoingCourse">
+                                <div class="course-details-header-content" *ngIf="course.completion_percentage!=100">
+                                    <!-- <div class="col-auto col-lg-2 col-md-2">
+                                        <div class="course-details-header-img">
+                                            <img src="{{course.image}}" alt="" class="img-fluid">
+                                        </div>
+                                    </div> -->
+                                    <div class="course-details-header-info">
+                                        <h4  (click)="gotoDetailsPage(course.course_id, course.is_prime)">
+                                            <span>{{course.course_name}}</span>
+                                            <svg _ngcontent-osj-c158="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path _ngcontent-osj-c158="" fill-rule="evenodd" clip-rule="evenodd" d="M6 2.66666C5.9385 2.60299 5.86494 2.5522 5.7836 2.51726C5.70227 2.48232 5.61479 2.46393 5.52627 2.46316C5.43775 2.46239 5.34996 2.47926 5.26803 2.51278C5.1861 2.5463 5.11166 2.5958 5.04907 2.6584C4.98647 2.72099 4.93697 2.79543 4.90345 2.87736C4.86993 2.95929 4.85306 3.04707 4.85383 3.13559C4.8546 3.22411 4.87299 3.31159 4.90793 3.39293C4.94287 3.47427 4.99366 3.54783 5.05733 3.60933L8.97667 7.52866C9.10165 7.65368 9.17186 7.82322 9.17186 7.99999C9.17186 8.17677 9.10165 8.34631 8.97667 8.47133L5.05666 12.3907C4.93166 12.5158 4.86147 12.6854 4.86153 12.8622C4.86159 13.0391 4.93191 13.2087 5.057 13.3337C5.18209 13.4587 5.35172 13.5289 5.52857 13.5288C5.70541 13.5287 5.87499 13.4584 6 13.3333L10.862 8.47133C10.987 8.34631 11.0572 8.17677 11.0572 7.99999C11.0572 7.82322 10.987 7.65368 10.862 7.52866L6 2.66666Z" fill="black"></path>
+                                            </svg>
+                                        </h4>
+                                        <div class="percentage">{{course.completion_percentage}}% complete</div>
+                                        <div class="progress">
+                                            <div class="progress-inner" [ngStyle]="{'width':course.completion_percentage+'%'}"></div>
+                                        </div>
+                                        <div class="class-topic">
+                                            <p>Total Topic: <span class="total-topic">{{course.topic_count}}</span></p>
+                                            <p>Completed Topic: <span class="completed-topic">{{course.completed_topics}}</span></p>
+                                        </div>
+                                        <div class="course_bottom"  (click)="gotoresumeTopic(course.course_id, course)"> 
+                                            <div class="university">
+                                                <img src="./assets/img/tcd-logo-2.png">
+                                                <span>University of Liverpond</span>
+                                            </div>
+                                            <span class="resume-btn">Resume</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                        <ng-template #ongoingBlock>
+                            <!-- <p>There is no ongoing course</p> -->
+                            <div class="container">
+                                <div class="alert alert-danger text-center">
+                                    There is no ongoing course
+                                 </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    
+                    <!-- <div class="course-details-header-content">
+                        <owl-carousel-o class="topic-slider" [options]="courseOptions">
+                            <ng-container *ngFor="let course of ongoingCourse">
+                                <ng-template carouselSlide >
+                                    <div class="row align-items-center">
+                                        <div class="col-12 col-lg-5 col-md-6 mb-4 mb-md-0">
+                                            <div class="course-details-header-img">
+                                                <img src="{{course.image}}" alt="" class="img-fluid">
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-lg-6 col-md-6">
+                                            <div class="course-details-header-info">
+                                                <h4>{{course.course_name}}</h4>
+                                                <span>{{course.completion_percentage}}% complete</span>
+                                                <div class="progress">
+                                                    <div class="progress-inner" style="width:01"></div>
+                                                </div>
+                                                <div class="class-topic">
+                                                    <span>Total Topic: <small class="total-topic">5</small></span>
+                                                    <span>Completed Topic: <small class="completed-topic">9</small></span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-template>  
+                            </ng-container>
+                            <ng-container>
+                                <ng-template carouselSlide>
+                                    <div class="te">test</div>
+                                </ng-template>
+                                <ng-template carouselSlide>
+                                    <div class="te">test</div>
+                                </ng-template>
+                                <ng-template carouselSlide>
+                                    <div class="te">test</div>
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="topics my-classes-complete" *ngIf="ongoingCourse.length>0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 top-heading aos-init" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                    <h2>Completed</h2>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <ng-container *ngIf="completeCourse.length>0;else completePage">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 aos-init" data-aos="fade-up" data-aos-duration="2000" data-delay="1100" *ngFor="let course of completeCourse; let i=index">
+                    
+                        <div class="completed-course-content" (click)="gotoDetailsPage(course.course_id, course.is_prime)">
+                            <!-- <div class="completed-img">
+                                <img src="{{course.image}}" alt="">
+                            </div> -->
+
+                            <div class="completed-info">
+                                <h5>
+                                    <span>{{course.course_name}}</span>
+                                    <svg _ngcontent-osj-c158="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path _ngcontent-osj-c158="" fill-rule="evenodd" clip-rule="evenodd" d="M6 2.66666C5.9385 2.60299 5.86494 2.5522 5.7836 2.51726C5.70227 2.48232 5.61479 2.46393 5.52627 2.46316C5.43775 2.46239 5.34996 2.47926 5.26803 2.51278C5.1861 2.5463 5.11166 2.5958 5.04907 2.6584C4.98647 2.72099 4.93697 2.79543 4.90345 2.87736C4.86993 2.95929 4.85306 3.04707 4.85383 3.13559C4.8546 3.22411 4.87299 3.31159 4.90793 3.39293C4.94287 3.47427 4.99366 3.54783 5.05733 3.60933L8.97667 7.52866C9.10165 7.65368 9.17186 7.82322 9.17186 7.99999C9.17186 8.17677 9.10165 8.34631 8.97667 8.47133L5.05666 12.3907C4.93166 12.5158 4.86147 12.6854 4.86153 12.8622C4.86159 13.0391 4.93191 13.2087 5.057 13.3337C5.18209 13.4587 5.35172 13.5289 5.52857 13.5288C5.70541 13.5287 5.87499 13.4584 6 13.3333L10.862 8.47133C10.987 8.34631 11.0572 8.17677 11.0572 7.99999C11.0572 7.82322 10.987 7.65368 10.862 7.52866L6 2.66666Z" fill="black"></path>
+                                    </svg>
+                                </h5>
+                                <div class="percentage">100% complete</div>
+                                <div class="progress">
+                                    <div class="progress-inner" [ngStyle]="{'width':'100%'}"></div>
+                                </div>
+                                <div class="class-topic">
+                                    <p>Total Topic: <span class="total-topic">{{course.topic_count}}</span></p>
+                                    <p>Completed Topic: <span class="completed-topic">{{course.completed_topics}}</span></p>
+                                </div>
+                                <div class="course_bottom">
+                                    <div class="university">
+                                        <img src="./assets/img/tcd-logo-2.png">
+                                        <span>University of Liverpond</span>
+                                    </div>
+                                    <span class="complete-tag">complete</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #completePage> 
+                    <!-- <div class="no-list-found">
+                      <p> There is no completed course.</p>
+                    </div> -->
+                    <div class="container">
+                        <div class="alert alert-danger text-center">
+                            There is no completed course
+                         </div>
+                    </div>
+                  </ng-template>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="topics my-classes-complete" *ngIf="testPrepList.length>0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 top-heading aos-init" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                    <h2>Test Prep</h2>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <ng-container *ngIf="testPrepList.length>0;else page">
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 aos-init" data-aos="fade-up" data-aos-duration="2000" data-delay="1100" *ngFor="let test of testPrepList; let i=index">
+                    
+                        <div class="completed-course-content" (click)="goToTestDetialsPage(test.id)">
+                            <!-- <div class="completed-img">
+                                <img src="{{course.image}}" alt="">
+                            </div> -->
+
+                            <div class="completed-info">
+                                <h5>
+                                    <span>{{test.exam_name}}</span>
+                                    <svg _ngcontent-osj-c158="" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path _ngcontent-osj-c158="" fill-rule="evenodd" clip-rule="evenodd" d="M6 2.66666C5.9385 2.60299 5.86494 2.5522 5.7836 2.51726C5.70227 2.48232 5.61479 2.46393 5.52627 2.46316C5.43775 2.46239 5.34996 2.47926 5.26803 2.51278C5.1861 2.5463 5.11166 2.5958 5.04907 2.6584C4.98647 2.72099 4.93697 2.79543 4.90345 2.87736C4.86993 2.95929 4.85306 3.04707 4.85383 3.13559C4.8546 3.22411 4.87299 3.31159 4.90793 3.39293C4.94287 3.47427 4.99366 3.54783 5.05733 3.60933L8.97667 7.52866C9.10165 7.65368 9.17186 7.82322 9.17186 7.99999C9.17186 8.17677 9.10165 8.34631 8.97667 8.47133L5.05666 12.3907C4.93166 12.5158 4.86147 12.6854 4.86153 12.8622C4.86159 13.0391 4.93191 13.2087 5.057 13.3337C5.18209 13.4587 5.35172 13.5289 5.52857 13.5288C5.70541 13.5287 5.87499 13.4584 6 13.3333L10.862 8.47133C10.987 8.34631 11.0572 8.17677 11.0572 7.99999C11.0572 7.82322 10.987 7.65368 10.862 7.52866L6 2.66666Z" fill="black"></path>
+                                    </svg>
+                                </h5>
+                                <!-- <div class="percentage">{{test.completion_percentage}}% complete</div>
+                                <div class="progress">
+                                    <div class="progress-inner" [ngStyle]="{'width':test.completion_percentage+'%'}"></div>
+                                </div> -->
+                                <div class="class-topic prep">
+                                    <p>Total Questions: <span class="total-topic">{{test.total_questions}}</span></p>
+                                    <p>Total Marks: <span class="total-topic">{{test.total_marks}}</span></p>
+                                    
+                                </div>
+
+                                <div class="class-topic prep last">
+                                    <p>Answered: <span class="completed-topic">{{test.answered_questions}}</span></p>
+                                    <p>Marks Obtained: <span class="completed-topic">{{test.marks_obtained}}</span></p>
+                                </div>
+                              
+                            </div>
+
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #page> 
+                    <div class="container">
+                        <div class="alert alert-danger text-center">
+                            There is no test prep list
+                         </div>
+                    </div>
+                    
+                  </ng-template>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,553 @@
+  <div class="search_area">
+    <div class="search_bar">
+      <input type="text" placeholder="Find courses and institute" name="searchTopic" class="searchTopic" (click)="search()">
+      <span class="search_icon">
+        <img src="./assets/img/search.png" alt="">
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter_area">
+      <select class="filter_select" (change)="goToCoursePage($any($event).target.value)">
+        <option>Subject</option>
+        <option *ngFor="let cat of coursesWithCategories" value="{{cat.id}}">{{cat.name}}</option>
+      </select>
+      <select class="filter_select" (change)="goToCountryDetails($any($event).target.value)">
+        <option>Country</option>
+        <option *ngFor="let list of countryList" value="{{list.id}}" >{{list.name}}</option>
+      </select>
+      <button class="filter_btn" routerLink="/user/filter">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.1668 4.16663C14.1668 3.67217 14.3135 3.18882 14.5882 2.7777C14.8629 2.36658 15.2533 2.04615 15.7101 1.85693C16.1669 1.66771 16.6696 1.6182 17.1546 1.71466C17.6395 1.81113 18.085 2.04923 18.4346 2.39886C18.7842 2.74849 19.0223 3.19395 19.1188 3.6789C19.2153 4.16385 19.1658 4.66652 18.9765 5.12334C18.7873 5.58015 18.4669 5.9706 18.0558 6.2453C17.6446 6.52 17.1613 6.66663 16.6668 6.66663C16.0038 6.66663 15.3679 6.40323 14.8991 5.93439C14.4302 5.46555 14.1668 4.82967 14.1668 4.16663ZM1.66683 4.99996H11.6668C11.8878 4.99996 12.0998 4.91216 12.2561 4.75588C12.4124 4.5996 12.5002 4.38764 12.5002 4.16663C12.5002 3.94561 12.4124 3.73365 12.2561 3.57737C12.0998 3.42109 11.8878 3.33329 11.6668 3.33329H1.66683C1.44582 3.33329 1.23385 3.42109 1.07757 3.57737C0.921293 3.73365 0.833496 3.94561 0.833496 4.16663C0.833496 4.38764 0.921293 4.5996 1.07757 4.75588C1.23385 4.91216 1.44582 4.99996 1.66683 4.99996ZM6.66683 7.49996C6.15104 7.50141 5.64833 7.66236 5.22761 7.96074C4.80689 8.25913 4.48876 8.68034 4.31683 9.16663H1.66683C1.44582 9.16663 1.23385 9.25442 1.07757 9.4107C0.921293 9.56698 0.833496 9.77895 0.833496 9.99996C0.833496 10.221 0.921293 10.4329 1.07757 10.5892C1.23385 10.7455 1.44582 10.8333 1.66683 10.8333H4.31683C4.46971 11.2657 4.73858 11.6477 5.09403 11.9375C5.44948 12.2273 5.87781 12.4138 6.33213 12.4765C6.78646 12.5392 7.24927 12.4757 7.66992 12.2929C8.09058 12.1102 8.45286 11.8153 8.71712 11.4405C8.98138 11.0656 9.13744 10.6253 9.16822 10.1677C9.19899 9.71012 9.1033 9.25287 8.89161 8.84602C8.67992 8.43917 8.36039 8.09839 7.968 7.86098C7.5756 7.62357 7.12546 7.49867 6.66683 7.49996ZM18.3335 9.16663H11.6668C11.4458 9.16663 11.2339 9.25442 11.0776 9.4107C10.9213 9.56698 10.8335 9.77895 10.8335 9.99996C10.8335 10.221 10.9213 10.4329 11.0776 10.5892C11.2339 10.7455 11.4458 10.8333 11.6668 10.8333H18.3335C18.5545 10.8333 18.7665 10.7455 18.9228 10.5892C19.079 10.4329 19.1668 10.221 19.1668 9.99996C19.1668 9.77895 19.079 9.56698 18.9228 9.4107C18.7665 9.25442 18.5545 9.16663 18.3335 9.16663ZM8.3335 15H1.66683C1.44582 15 1.23385 15.0878 1.07757 15.244C0.921293 15.4003 0.833496 15.6123 0.833496 15.8333C0.833496 16.0543 0.921293 16.2663 1.07757 16.4225C1.23385 16.5788 1.44582 16.6666 1.66683 16.6666H8.3335C8.55451 16.6666 8.76647 16.5788 8.92275 16.4225C9.07903 16.2663 9.16683 16.0543 9.16683 15.8333C9.16683 15.6123 9.07903 15.4003 8.92275 15.244C8.76647 15.0878 8.55451 15 8.3335 15ZM18.3335 15H15.6835C15.4869 14.4439 15.1001 13.9753 14.5914 13.6769C14.0828 13.3785 13.485 13.2696 12.9037 13.3693C12.3225 13.469 11.7952 13.771 11.4151 14.2219C11.035 14.6728 10.8265 15.2436 10.8265 15.8333C10.8265 16.423 11.035 16.9938 11.4151 17.4447C11.7952 17.8956 12.3225 18.1976 12.9037 18.2973C13.485 18.397 14.0828 18.288 14.5914 17.9897C15.1001 17.6913 15.4869 17.2226 15.6835 16.6666H18.3335C18.5545 16.6666 18.7665 16.5788 18.9228 16.4225C19.079 16.2663 19.1668 16.0543 19.1668 15.8333C19.1668 15.6123 19.079 15.4003 18.9228 15.244C18.7665 15.0878 18.5545 15 18.3335 15Z" fill="#0A8485"/>
+        </svg> Filter        
+      </button>
+    </div>
+  </div>
+
+  <section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/test_prep.png" alt="">
+            </div>
+            <h2>Mock Test</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="row">
+      <div class="col-12 pr-0 pr-sm-3">
+          <owl-carousel-o class="pro-slider" [options]="customOptions2">
+              <ng-container  *ngFor="let exams of examList">
+                <ng-template carouselSlide [id]="exams.id" [width]="exams.width">
+                      <div class="corseTopslide item">
+                          <!-- <a routerLink="/user/courses"> -->
+                          <a (click)="gotoTestPrepDetials(exams)">
+                            <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                              
+                                <!-- <div class="card-img">
+                                  <img src="{{baseImage+course.image}}" alt="">
+                                </div> -->
+                                <div class="upper">
+                                  <h4>{{exams.name}}</h4>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="lower">
+                                  <div class="inst-icon">
+                                    <img src="./assets/img/jamb_s_1.png" alt="">
+                                  </div>
+                                  <div class="inst-info">
+                                    <div class="title">JAMB CAPS</div>
+                                    <div class="location">Objective only</div>
+                                  </div>
+                                </div>
+                            </div>
+                          </a>          
+                      </div>
+                  </ng-template>
+              </ng-container>
+              
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="pro-mba" [ngClass]="i%2!=0?'pro-tech':''" *ngFor="let categories of coursesWithCategories; let i=index">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/Group_88.png" alt="">
+            </div>
+            <h2>{{categories.name}}</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <a (click)=goToCoursePage(categories.id) class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 pr-0 pr-sm-3">
+            <owl-carousel-o class="pro-slider" [options]="customOptions2">
+                <ng-container *ngFor="let course of categories.courses" >
+                    <ng-template carouselSlide [id]="course.id">
+                        <div class="corseTopslide item">
+                            <!-- <a routerLink="/user/courses"> -->
+                            <a (click)="goToCourseDetialsPage(course.id,course.is_prime)">
+                              <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                                  <div class="prime" *ngIf="course.is_prime==1">
+                                    <!-- <img src="./assets/img/crown.png" alt=""> -->
+                                    <span>Prime</span>
+                                  </div>
+                                  <div class="free" *ngIf="course.is_prime==0">
+                                    <span>Free</span>
+                                  </div>
+                                  <!-- <div class="card-img">
+                                    <img src="{{baseImage+course.image}}" alt="">
+                                  </div> -->
+                                  <div class="upper">
+                                    <h4>{{course.name}}</h4>
+                                  </div>
+                                  <div class="divider"></div>
+                                  <div class="lower">
+                                    <div class="inst-icon">
+                                      <img src="./assets/img/trine-university-new-logo.png" alt="">
+                                    </div>
+                                    <div class="inst-info">
+                                      <div class="title">ProU Education Lagos Nigeria</div>
+                                      <div class="location">Nigeria</div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </a>          
+                        </div>
+                    </ng-template>
+                </ng-container>
+                
+            </owl-carousel-o>
+           
+
+            <!-- <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>General Management</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div> -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/place.png" alt="">
+            </div>
+            <h2>Popular Places</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <a routerLink="/user/countrylist/" class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="row">
+      <div class="col-12 pr-0 pr-sm-3">
+          <owl-carousel-o class="pro-slider" [options]="customOptions2">
+              <ng-container  *ngFor="let list of countryList">
+                <ng-template carouselSlide [id]="list.id" [width]="list.width">
+                      <div class="corseTopslide item">
+                          <!-- <a routerLink="/user/courses"> -->
+                          <a routerLink="/user/country/{{list.id}}">
+                            <div class="pro-content image" data-aos="fade-up" data-aos-duration="1000">
+                                <img src="{{list.image}}">
+                                <div class="places_card_text">
+                                  <p class="ion-text-right"><span class="subscription_badge prime">Prime</span></p>
+                    
+                                  <h4>{{list.name}}</h4>
+                                  <p>{{list.no_of_partner_universities}} Universities</p>
+                                </div>
+                            </div>
+                          </a>          
+                      </div>
+                  </ng-template>
+              </ng-container>
+              
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/trend_sub.png" alt="">
+            </div>
+            <h2>Trending Subjects</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <a routerLink="/user/universities/" class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ul class="trend_subject">
+            <li *ngFor="let cat of coursesWithCategories" (click)=goToCoursePage(cat.id)>
+                {{cat.name}}
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <section class="pro-internship" *ngIf="userDetails?.is_prime == '0'">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 col-md-10 m-auto">
+          <div class="pro-internship-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="pro-intermship-img">
+              <img src="./assets/img/card_bg_img.png" alt="">
+            </div>
+            <div class="pro-internship-heading">
+              <div class="prime">
+                <!-- <img src="./assets/img/crown.png" alt=""> -->
+                <span>PRIME</span>
+              </div>
+              <h2>Global Remote Internships</h2>
+              <h5>Ready to showcase your new skills?</h5>
+              <p>Intern with companies in US, UK, Spain and Singapore</p>
+              <p class="text-left"><a href="/user/pricing" class="apply-btn">Apply now</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/institute.png" alt="">
+            </div>
+            <h2>Top Institutions</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <a routerLink="/user/universities/" class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="row">
+      <div class="col-12 pr-0 pr-sm-3">
+          <owl-carousel-o class="pro-slider" [options]="customOptions2">
+              <ng-container  *ngFor="let uni of university">
+                <ng-template carouselSlide [id]="uni.id" [width]="uni.width">
+                      <div class="corseTopslide item">
+                          <!-- <a routerLink="/user/courses"> -->
+                          <a  routerLink="/user/university/{{uni.id}}">
+                            
+                            <div class="pro-content before" data-aos="fade-up" data-aos-duration="1000">
+                              <img src="{{uni.image}}" class="uni_image">
+                                <!-- <div class="card-img">
+                                  <img src="{{uni.logo}}" alt="">
+                                </div>
+                                <div class="upper">
+                                  <h4>{{uni.name}}</h4>
+                                </div> -->
+                                <!-- <div class="divider"></div> -->
+                                <div class="lower bg">
+                                  <div class="inst-icon">
+                                    <img src="{{uni.logo}}" alt="">
+                                  </div>
+                                  <div class="inst-info">
+                                    <div class="title">{{uni.name}}</div>
+                                    <div class="location">{{uni.country}}</div>
+                                  </div>
+                                </div>
+                            </div>
+                          </a>          
+                      </div>
+                  </ng-template>
+              </ng-container>
+              
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <section class="pro-mba pro-tech">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <h2>Pro Technology</h2>
+            <a href="courses.html" class="view-all">view all</a>
+          </div>
+          <p>Transform your career with industry experts</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="owl-carousel owl-theme pro-slider">
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>UI Design</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>Python Programming</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>Python Programming</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  
+
+  <section class="listing-sec1 delivering-value" *ngIf="events.length>0">
+    <div class="container">
+        <div class="pro-top">
+            <div class="pro-mba-heading">
+              <div class="heading-icon">
+                <img src="./assets/img/workshop-icon.png" alt="">
+              </div>
+              <h2>Upcoming workshops</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 pr-0 pr-sm-3">
+                <owl-carousel-o class="listing-sec-slider workshop_slider" [options]="customOptions2">
+                    <ng-container *ngFor="let event of events">
+                        <ng-template carouselSlide>
+                            <div class="item">
+                                <div class="listing1-content delivering-content" data-aos="fade-up" data-aos-duration="1000">
+                                  <div class="workshop_image">
+                                    <img src="./assets/img/workshop.png" alt="">
+                                  </div>  
+                                  <div class="info">
+                                        <div class="workshop-mode">
+                                          <span>Online</span>
+                                        </div>
+                                        <h4>{{event.topic}}</h4>
+                                        <span>by {{event.event_by}}</span>
+                                        <p *ngIf="event.link_or_address!=''"><a href="{{event.link_or_address}}">{{event.link_or_address}}</a></p>
+                                        <div class="bottom-row">
+                                          <button class="apply-btn" (click)="signUP(event.id)">Apply Now</button>
+                                          <div class="date-time">
+                                            <div class="date">
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                                <g clip-path="url(#clip0_2282_671)">
+                                                <path d="M17.8125 2.5H16.25V1.875C16.25 1.54348 16.1183 1.22554 15.8839 0.991117C15.6495 0.756696 15.3315 0.625 15 0.625C14.6685 0.625 14.3505 0.756696 14.1161 0.991117C13.8817 1.22554 13.75 1.54348 13.75 1.875V2.5H11.25V1.875C11.25 1.54348 11.1183 1.22554 10.8839 0.991117C10.6495 0.756696 10.3315 0.625 10 0.625C9.66848 0.625 9.35054 0.756696 9.11612 0.991117C8.8817 1.22554 8.75 1.54348 8.75 1.875V2.5H6.25V1.875C6.25 1.54348 6.1183 1.22554 5.88388 0.991117C5.64946 0.756696 5.33152 0.625 5 0.625C4.66848 0.625 4.35054 0.756696 4.11612 0.991117C3.8817 1.22554 3.75 1.54348 3.75 1.875V2.5H2.1875C1.7731 2.5 1.37567 2.66462 1.08265 2.95765C0.78962 3.25067 0.625 3.6481 0.625 4.0625V16.5625C0.625 16.9769 0.78962 17.3743 1.08265 17.6674C1.37567 17.9604 1.7731 18.125 2.1875 18.125H10.9375C11.0204 18.125 11.0999 18.0921 11.1585 18.0335C11.2171 17.9749 11.25 17.8954 11.25 17.8125C11.25 17.7296 11.2171 17.6501 11.1585 17.5915C11.0999 17.5329 11.0204 17.5 10.9375 17.5H2.1875C1.93909 17.4993 1.70106 17.4002 1.52541 17.2246C1.34975 17.0489 1.25074 16.8109 1.25 16.5625V6.875H18.75V12.1875C18.75 12.2704 18.7829 12.3499 18.8415 12.4085C18.9001 12.4671 18.9796 12.5 19.0625 12.5C19.1454 12.5 19.2249 12.4671 19.2835 12.4085C19.3421 12.3499 19.375 12.2704 19.375 12.1875V4.0625C19.375 3.6481 19.2104 3.25067 18.9174 2.95765C18.6243 2.66462 18.2269 2.5 17.8125 2.5ZM14.375 1.875C14.375 1.70924 14.4408 1.55027 14.5581 1.43306C14.6753 1.31585 14.8342 1.25 15 1.25C15.1658 1.25 15.3247 1.31585 15.4419 1.43306C15.5592 1.55027 15.625 1.70924 15.625 1.875V3.75C15.625 3.91576 15.5592 4.07473 15.4419 4.19194C15.3247 4.30915 15.1658 4.375 15 4.375C14.8342 4.375 14.6753 4.30915 14.5581 4.19194C14.4408 4.07473 14.375 3.91576 14.375 3.75V1.875ZM9.375 1.875C9.375 1.70924 9.44085 1.55027 9.55806 1.43306C9.67527 1.31585 9.83424 1.25 10 1.25C10.1658 1.25 10.3247 1.31585 10.4419 1.43306C10.5592 1.55027 10.625 1.70924 10.625 1.875V3.75C10.625 3.91576 10.5592 4.07473 10.4419 4.19194C10.3247 4.30915 10.1658 4.375 10 4.375C9.83424 4.375 9.67527 4.30915 9.55806 4.19194C9.44085 4.07473 9.375 3.91576 9.375 3.75V1.875ZM4.375 1.875C4.375 1.70924 4.44085 1.55027 4.55806 1.43306C4.67527 1.31585 4.83424 1.25 5 1.25C5.16576 1.25 5.32473 1.31585 5.44194 1.43306C5.55915 1.55027 5.625 1.70924 5.625 1.875V3.75C5.625 3.91576 5.55915 4.07473 5.44194 4.19194C5.32473 4.30915 5.16576 4.375 5 4.375C4.83424 4.375 4.67527 4.30915 4.55806 4.19194C4.44085 4.07473 4.375 3.91576 4.375 3.75V1.875ZM18.75 6.25H1.25V4.0625C1.25074 3.81409 1.34975 3.57606 1.52541 3.40041C1.70106 3.22475 1.93909 3.12574 2.1875 3.125H3.75V3.75C3.75 4.08152 3.8817 4.39946 4.11612 4.63388C4.35054 4.8683 4.66848 5 5 5C5.33152 5 5.64946 4.8683 5.88388 4.63388C6.1183 4.39946 6.25 4.08152 6.25 3.75V3.125H8.75V3.75C8.75 4.08152 8.8817 4.39946 9.11612 4.63388C9.35054 4.8683 9.66848 5 10 5C10.3315 5 10.6495 4.8683 10.8839 4.63388C11.1183 4.39946 11.25 4.08152 11.25 3.75V3.125H13.75V3.75C13.75 4.08152 13.8817 4.39946 14.1161 4.63388C14.3505 4.8683 14.6685 5 15 5C15.3315 5 15.6495 4.8683 15.8839 4.63388C16.1183 4.39946 16.25 4.08152 16.25 3.75V3.125H17.8125C18.0609 3.12574 18.2989 3.22475 18.4746 3.40041C18.6502 3.57606 18.7493 3.81409 18.75 4.0625V6.25Z" fill="white"/>
+                                                <path d="M9.375 9.0625C9.375 8.89674 9.30915 8.73777 9.19194 8.62056C9.07473 8.50335 8.91576 8.4375 8.75 8.4375H7.5C7.33424 8.4375 7.17527 8.50335 7.05806 8.62056C6.94085 8.73777 6.875 8.89674 6.875 9.0625V10C6.875 10.1658 6.94085 10.3247 7.05806 10.4419C7.17527 10.5592 7.33424 10.625 7.5 10.625H8.75C8.91576 10.625 9.07473 10.5592 9.19194 10.4419C9.30915 10.3247 9.375 10.1658 9.375 10V9.0625ZM7.5 10V9.0625H8.75V10H7.5ZM5.625 9.0625C5.625 8.89674 5.55915 8.73777 5.44194 8.62056C5.32473 8.50335 5.16576 8.4375 5 8.4375H3.75C3.58424 8.4375 3.42527 8.50335 3.30806 8.62056C3.19085 8.73777 3.125 8.89674 3.125 9.0625V10C3.125 10.1658 3.19085 10.3247 3.30806 10.4419C3.42527 10.5592 3.58424 10.625 3.75 10.625H5C5.16576 10.625 5.32473 10.5592 5.44194 10.4419C5.55915 10.3247 5.625 10.1658 5.625 10V9.0625ZM3.75 10V9.0625H5V10H3.75ZM16.25 10.625C16.4158 10.625 16.5747 10.5592 16.6919 10.4419C16.8092 10.3247 16.875 10.1658 16.875 10V9.0625C16.875 8.89674 16.8092 8.73777 16.6919 8.62056C16.5747 8.50335 16.4158 8.4375 16.25 8.4375H15C14.8342 8.4375 14.6753 8.50335 14.5581 8.62056C14.4408 8.73777 14.375 8.89674 14.375 9.0625V10C14.375 10.1658 14.4408 10.3247 14.5581 10.4419C14.6753 10.5592 14.8342 10.625 15 10.625H16.25ZM15 9.0625H16.25V10H15V9.0625ZM9.375 11.875C9.375 11.7092 9.30915 11.5503 9.19194 11.4331C9.07473 11.3158 8.91576 11.25 8.75 11.25H7.5C7.33424 11.25 7.17527 11.3158 7.05806 11.4331C6.94085 11.5503 6.875 11.7092 6.875 11.875V12.8125C6.875 12.9783 6.94085 13.1372 7.05806 13.2544C7.17527 13.3717 7.33424 13.4375 7.5 13.4375H8.75C8.91576 13.4375 9.07473 13.3717 9.19194 13.2544C9.30915 13.1372 9.375 12.9783 9.375 12.8125V11.875ZM7.5 12.8125V11.875H8.75V12.8125H7.5ZM5.625 11.875C5.625 11.7092 5.55915 11.5503 5.44194 11.4331C5.32473 11.3158 5.16576 11.25 5 11.25H3.75C3.58424 11.25 3.42527 11.3158 3.30806 11.4331C3.19085 11.5503 3.125 11.7092 3.125 11.875V12.8125C3.125 12.9783 3.19085 13.1372 3.30806 13.2544C3.42527 13.3717 3.58424 13.4375 3.75 13.4375H5C5.16576 13.4375 5.32473 13.3717 5.44194 13.2544C5.55915 13.1372 5.625 12.9783 5.625 12.8125V11.875ZM3.75 12.8125V11.875H5V12.8125H3.75ZM8.75 14.0625H7.5C7.33424 14.0625 7.17527 14.1283 7.05806 14.2456C6.94085 14.3628 6.875 14.5217 6.875 14.6875V15.625C6.875 15.7908 6.94085 15.9497 7.05806 16.0669C7.17527 16.1842 7.33424 16.25 7.5 16.25H8.75C8.91576 16.25 9.07473 16.1842 9.19194 16.0669C9.30915 15.9497 9.375 15.7908 9.375 15.625V14.6875C9.375 14.5217 9.30915 14.3628 9.19194 14.2456C9.07473 14.1283 8.91576 14.0625 8.75 14.0625ZM7.5 15.625V14.6875H8.75V15.625H7.5ZM11.25 10.625H12.5C12.6658 10.625 12.8247 10.5592 12.9419 10.4419C13.0592 10.3247 13.125 10.1658 13.125 10V9.0625C13.125 8.89674 13.0592 8.73777 12.9419 8.62056C12.8247 8.50335 12.6658 8.4375 12.5 8.4375H11.25C11.0842 8.4375 10.9253 8.50335 10.8081 8.62056C10.6908 8.73777 10.625 8.89674 10.625 9.0625V10C10.625 10.1658 10.6908 10.3247 10.8081 10.4419C10.9253 10.5592 11.0842 10.625 11.25 10.625ZM11.25 9.0625H12.5V10H11.25V9.0625ZM10.625 12.8125C10.625 12.9783 10.6908 13.1372 10.8081 13.2544C10.9253 13.3717 11.0842 13.4375 11.25 13.4375C11.3329 13.4375 11.4124 13.4046 11.471 13.346C11.5296 13.2874 11.5625 13.2079 11.5625 13.125C11.5625 13.0421 11.5296 12.9626 11.471 12.904C11.4124 12.8454 11.3329 12.8125 11.25 12.8125V11.875H12.5C12.5829 11.875 12.6624 11.8421 12.721 11.7835C12.7796 11.7249 12.8125 11.6454 12.8125 11.5625C12.8125 11.4796 12.7796 11.4001 12.721 11.3415C12.6624 11.2829 12.5829 11.25 12.5 11.25H11.25C11.0842 11.25 10.9253 11.3158 10.8081 11.4331C10.6908 11.5503 10.625 11.7092 10.625 11.875V12.8125ZM5 14.0625H3.75C3.58424 14.0625 3.42527 14.1283 3.30806 14.2456C3.19085 14.3628 3.125 14.5217 3.125 14.6875V15.625C3.125 15.7908 3.19085 15.9497 3.30806 16.0669C3.42527 16.1842 3.58424 16.25 3.75 16.25H5C5.16576 16.25 5.32473 16.1842 5.44194 16.0669C5.55915 15.9497 5.625 15.7908 5.625 15.625V14.6875C5.625 14.5217 5.55915 14.3628 5.44194 14.2456C5.32473 14.1283 5.16576 14.0625 5 14.0625ZM3.75 15.625V14.6875H5V15.625H3.75Z" fill="white"/>
+                                                <path d="M15.3125 11.25C14.509 11.25 13.7236 11.4883 13.0555 11.9347C12.3874 12.381 11.8667 13.0155 11.5592 13.7578C11.2518 14.5002 11.1713 15.317 11.3281 16.1051C11.4848 16.8931 11.8717 17.617 12.4399 18.1851C13.008 18.7533 13.7319 19.1402 14.5199 19.2969C15.308 19.4537 16.1248 19.3732 16.8672 19.0658C17.6095 18.7583 18.244 18.2376 18.6903 17.5695C19.1367 16.9014 19.375 16.116 19.375 15.3125C19.3738 14.2354 18.9454 13.2028 18.1838 12.4412C17.4222 11.6797 16.3896 11.2512 15.3125 11.25ZM15.3125 18.75C14.6326 18.75 13.968 18.5484 13.4027 18.1707C12.8374 17.793 12.3968 17.2561 12.1367 16.628C11.8765 15.9999 11.8084 15.3087 11.9411 14.6419C12.0737 13.9751 12.4011 13.3626 12.8818 12.8818C13.3626 12.4011 13.9751 12.0737 14.6419 11.9411C15.3087 11.8084 15.9999 11.8765 16.628 12.1367C17.2561 12.3968 17.793 12.8374 18.1707 13.4027C18.5484 13.968 18.75 14.6326 18.75 15.3125C18.7489 16.2239 18.3864 17.0976 17.742 17.742C17.0976 18.3864 16.2239 18.7489 15.3125 18.75Z" fill="white"/>
+                                                <path d="M17.1181 14.0023L14.6875 16.4329L13.5828 15.3279C13.5239 15.271 13.4449 15.2395 13.363 15.2402C13.2811 15.2409 13.2027 15.2738 13.1448 15.3317C13.0868 15.3896 13.0539 15.468 13.0532 15.55C13.0525 15.6319 13.084 15.7108 13.1409 15.7698L14.4666 17.0957C14.5252 17.1543 14.6046 17.1872 14.6875 17.1872C14.7704 17.1872 14.8498 17.1543 14.9084 17.0957L17.56 14.4441C17.6169 14.3852 17.6484 14.3063 17.6477 14.2243C17.647 14.1424 17.6141 14.064 17.5562 14.0061C17.4983 13.9481 17.4199 13.9153 17.3379 13.9146C17.256 13.9139 17.1771 13.9453 17.1181 14.0023Z" fill="white"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_2282_671">
+                                                <rect width="20" height="20" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                              </svg>
+                                              <span>{{event.event_date | date :'dd MMM, yyyy'}}</span>
+                                            </div>
+                                            <div class="time">
+                                                <span>&nbsp;- {{event.event_time}}</span>
+                                            </div>
+                                          </div>
+                                      </div>
+                                      
+                                    </div>
+                                    <!-- <div class="img">
+                                        <img src="{{event.image}}" alt="">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>                
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="pro-mba pro-tech testimonials">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/tesimonials-icon.png" alt="">
+            </div>
+            <h2>Testimonials</h2>
+            <a href="javascript:void(0);" class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 pr-0 pr-sm-3">
+            <owl-carousel-o class="testi-slider" [options]="customOptions4">
+                <ng-container *ngFor="let testim of testimonials">
+                    <ng-template carouselSlide>
+
+                        <div class="testimonials-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                            <div class="testi-flex">
+                              <div class="info-block">
+                                <div class="testi-img">
+                                    <img src="{{testim.image}}" alt="">
+                                </div>
+                                <div class="testi-name">
+                                  <span class="name">{{testim.name}}</span> 
+                                  <span class="stream">{{testim.subject}}</span>
+                                </div>
+                              </div>
+                              <div class="testi-info">
+                                  <!-- <div class="list-unstyled">
+                                      <span *ngFor="let j of testim.rating"><i class="fas fa-star" ></i></span>
+                                  </div> -->
+                                  <p>{{testim.review}}</p>
+                              </div>
+                            </div>
+
+                            
+                        </div>
+                    </ng-template>
+                </ng-container>
+            </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="refer-friend">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 col-md-10 m-auto">
+          <div class="refer-friend-content" data-aos="fade-up" data-aos-duration="1000">
+            <!-- <div class="refer-friend-top">
+              <div class="refer-friend-top-flex">
+                <img src="./assets/img/gift.png" alt="">
+                <div class="top-info">
+                  <h5>Intern together with a Friend!</h5>
+                  <p class="mb-0">Refer ProU to a friend and unlock 1 Study Abroad free application.</p>
+                </div>
+              </div>
+            </div> -->
+
+            <div class="refer-friend-btm">
+              <h5>Refer and Earn!</h5>
+              <div class="share_option">
+                <div class="copy-btn">
+                  <div class="copy-icon" (click)="copyText(userDetails?.referral_code)">
+                    <span>{{userDetails?.referral_code}}</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+                      <path d="M10.4465 7.10547C10.7639 4.08417 12.2194 3.10547 15.877 3.10547C20.0829 3.10547 21.377 4.39959 21.377 8.60547C21.377 12.2631 20.3983 13.7186 17.377 14.0359M3.37695 15.6055C3.37695 11.3996 4.67107 10.1055 8.87695 10.1055C13.0828 10.1055 14.377 11.3996 14.377 15.6055C14.377 19.8114 13.0828 21.1055 8.87695 21.1055C4.67107 21.1055 3.37695 19.8114 3.37695 15.6055Z" stroke="#011F20" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="sharebtn">
+                  <a href="javascript:void(0)" class="wa_btn wa_btn_s" (click)="sharefacebookUrl(userDetails?.referral_code)">
+                    <img src="./assets/img/Facebook.png" alt="" />
+                  </a>
+                  <a href="https://api.whatsapp.com/send?text=Refer or Invite others using link: https://app.proueducation.com . Referral Code : {{userDetails?.referral_code}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Whatsapp.png" alt="" />
+                  </a>
+                  <a href="http://twitter.com/share?text=Refer or Invite others using link: https://app.proueducation.com . Referral Code : {{userDetails?.referral_code}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Twitter.png" alt="" />
+                  </a>
+                  <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://app.proueducation.com . Referral Code : {{userDetails?.referral_code}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" >
+                    <img src="./assets/img/Linkedin.png" alt="" />
+                  </a>
+                </div>
+              </div>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

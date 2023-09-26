@@ -1,0 +1,13 @@
+.payment_button {
+    display: flex;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+}
+.payment_button img {
+    max-width: 20px;
+    margin-right: 10px;
+}

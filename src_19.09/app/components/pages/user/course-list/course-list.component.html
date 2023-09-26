@@ -1,0 +1,181 @@
+<!-- <section class="pro-mba pro-tech course-sec pro-internship">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 pro-top mb-3">
+          <div class="pro-mba-heading"  (click)="segmentChanged(0)">
+            <h2>All Internships</h2>
+          </div>
+        </div>
+        <div class="col-12 pro-top" >
+          <div class="pro-mba-heading">
+            <p>{{category.name}}</p>
+          </div>
+          <ul class="course_category">
+            <li [ngClass]="{'active': type == 0}"(click)="segmentChanged(0)">All Internships</li>
+            <li [ngClass]="{'active': type == category.id}"  *ngFor="let category of coursesWithCategories;let i=index" (click)="segmentChanged(category.id)">{{category.name}}</li>
+          </ul>
+        </div>
+      </div>
+      </div>
+  </section> -->
+
+  <div class="search_area">
+    <div class="search_bar">
+      <input type="text" placeholder="Find courses and institute" name="searchTopic" class="searchTopic" routerLink="/user/search">
+      <span class="search_icon">
+        <img src="./assets/img/search.png" alt="">
+      </span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="filter_area">
+      <select class="filter_select" [(ngModel)]="type" (change)="segmentChanged($any($event).target.value)">
+        <option value="0">Subject</option>
+        <option *ngFor="let cat of coursesWithCategories" value="{{cat.id}}">{{cat.name}}</option>
+      </select>
+      <select class="filter_select" (change)="goToCountryDetails($any($event).target.value)">
+        <option>Country</option>
+        <option *ngFor="let list of countryList" value="{{list.id}}" >{{list.name}}</option>
+      </select>
+      <button class="filter_btn active" routerLink="/user/filter">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14.1668 4.16663C14.1668 3.67217 14.3135 3.18882 14.5882 2.7777C14.8629 2.36658 15.2533 2.04615 15.7101 1.85693C16.1669 1.66771 16.6696 1.6182 17.1546 1.71466C17.6395 1.81113 18.085 2.04923 18.4346 2.39886C18.7842 2.74849 19.0223 3.19395 19.1188 3.6789C19.2153 4.16385 19.1658 4.66652 18.9765 5.12334C18.7873 5.58015 18.4669 5.9706 18.0558 6.2453C17.6446 6.52 17.1613 6.66663 16.6668 6.66663C16.0038 6.66663 15.3679 6.40323 14.8991 5.93439C14.4302 5.46555 14.1668 4.82967 14.1668 4.16663ZM1.66683 4.99996H11.6668C11.8878 4.99996 12.0998 4.91216 12.2561 4.75588C12.4124 4.5996 12.5002 4.38764 12.5002 4.16663C12.5002 3.94561 12.4124 3.73365 12.2561 3.57737C12.0998 3.42109 11.8878 3.33329 11.6668 3.33329H1.66683C1.44582 3.33329 1.23385 3.42109 1.07757 3.57737C0.921293 3.73365 0.833496 3.94561 0.833496 4.16663C0.833496 4.38764 0.921293 4.5996 1.07757 4.75588C1.23385 4.91216 1.44582 4.99996 1.66683 4.99996ZM6.66683 7.49996C6.15104 7.50141 5.64833 7.66236 5.22761 7.96074C4.80689 8.25913 4.48876 8.68034 4.31683 9.16663H1.66683C1.44582 9.16663 1.23385 9.25442 1.07757 9.4107C0.921293 9.56698 0.833496 9.77895 0.833496 9.99996C0.833496 10.221 0.921293 10.4329 1.07757 10.5892C1.23385 10.7455 1.44582 10.8333 1.66683 10.8333H4.31683C4.46971 11.2657 4.73858 11.6477 5.09403 11.9375C5.44948 12.2273 5.87781 12.4138 6.33213 12.4765C6.78646 12.5392 7.24927 12.4757 7.66992 12.2929C8.09058 12.1102 8.45286 11.8153 8.71712 11.4405C8.98138 11.0656 9.13744 10.6253 9.16822 10.1677C9.19899 9.71012 9.1033 9.25287 8.89161 8.84602C8.67992 8.43917 8.36039 8.09839 7.968 7.86098C7.5756 7.62357 7.12546 7.49867 6.66683 7.49996ZM18.3335 9.16663H11.6668C11.4458 9.16663 11.2339 9.25442 11.0776 9.4107C10.9213 9.56698 10.8335 9.77895 10.8335 9.99996C10.8335 10.221 10.9213 10.4329 11.0776 10.5892C11.2339 10.7455 11.4458 10.8333 11.6668 10.8333H18.3335C18.5545 10.8333 18.7665 10.7455 18.9228 10.5892C19.079 10.4329 19.1668 10.221 19.1668 9.99996C19.1668 9.77895 19.079 9.56698 18.9228 9.4107C18.7665 9.25442 18.5545 9.16663 18.3335 9.16663ZM8.3335 15H1.66683C1.44582 15 1.23385 15.0878 1.07757 15.244C0.921293 15.4003 0.833496 15.6123 0.833496 15.8333C0.833496 16.0543 0.921293 16.2663 1.07757 16.4225C1.23385 16.5788 1.44582 16.6666 1.66683 16.6666H8.3335C8.55451 16.6666 8.76647 16.5788 8.92275 16.4225C9.07903 16.2663 9.16683 16.0543 9.16683 15.8333C9.16683 15.6123 9.07903 15.4003 8.92275 15.244C8.76647 15.0878 8.55451 15 8.3335 15ZM18.3335 15H15.6835C15.4869 14.4439 15.1001 13.9753 14.5914 13.6769C14.0828 13.3785 13.485 13.2696 12.9037 13.3693C12.3225 13.469 11.7952 13.771 11.4151 14.2219C11.035 14.6728 10.8265 15.2436 10.8265 15.8333C10.8265 16.423 11.035 16.9938 11.4151 17.4447C11.7952 17.8956 12.3225 18.1976 12.9037 18.2973C13.485 18.397 14.0828 18.288 14.5914 17.9897C15.1001 17.6913 15.4869 17.2226 15.6835 16.6666H18.3335C18.5545 16.6666 18.7665 16.5788 18.9228 16.4225C19.079 16.2663 19.1668 16.0543 19.1668 15.8333C19.1668 15.6123 19.079 15.4003 18.9228 15.244C18.7665 15.0878 18.5545 15 18.3335 15Z" fill="#0A8485"/>
+        </svg> Filter        
+      </button>
+    </div>
+  </div>
+  
+
+
+
+
+
+  <!-- <section class="pro-mba" [ngClass]="i%2!=0?'pro-tech':''" *ngFor="let categories of coursesWithCategories; let i=index">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <h2>{{categories.name}}</h2>
+            
+          </div>
+          <p>Transform your career with industry experts</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+            <owl-carousel-o class="pro-slider" [options]="customOptions2">
+                <ng-container *ngFor="let course of categories.courses" >
+                    <ng-template carouselSlide [id]="course.id" [width]="course.width">
+                        <div class="corseTopslide item">
+                            <a (click)="gotoDetailsPage(course.id, course.is_prime)">
+                            <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="prime" *ngIf="course.is_prime==1">
+                                <img src="./assets/img/crown.png" alt="">
+                                <span>PRIME</span>
+                                </div>
+                                <div class="free" *ngIf="course.is_prime==0">
+                                  <span>Free</span>
+                                </div>
+                                <h4>{{course.name}}</h4>
+                                <div class="card-img">
+                                <img src="{{baseImage+course.image}}" alt="">
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+            </owl-carousel-o>
+
+
+           
+
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <div class="proMba p-0 search_result" *ngIf="categorylist.length==0">
+      <div class="container">
+    <div class="proMbaslide">
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 search_card" size="6"  *ngFor="let cat of allCategoryList; let i=index">
+
+           <a (click)="gotoDetailsPage(cat.id)">
+            <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+              <div class="card-img">
+                <img src="{{cat.image}}" alt="">
+                <!-- <img src="./assets/img/data-science.jpg" alt=""> -->
+              </div>
+              <div class="card-content">
+                <div class="course_title">
+                  <h4>{{cat.name}}</h4>
+                  <!-- <div class="course-content" [innerHTML]="cat.description"></div> -->
+                  <div class="subscription_badge prime" *ngIf="cat.is_prime==1">
+                    Prime
+                  </div>
+                  <div class="subscription_badge free" *ngIf="cat.is_prime==0">
+                    Free
+                  </div>
+                </div>
+                <ul class="course-duration">
+                  <li>Postgraduate</li>
+                  <li>Full Time</li>
+                  <li>1 Years</li>
+                </ul>
+                <div class="course_info">
+                  <p>Internship at Meet7 Limited | 4 Weeks | 10 Topics</p>
+                </div>
+              </div>
+              
+            </div>
+          </a>
+          
+       </div>
+       </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="proMba p-0 search_result">
+    <div class="container-fluid">
+    <div class="proMbaslide">
+      <div class="row">
+        <div class="col-sm-4 search_card" size="6"  *ngFor="let cat of categorylist; let i=index">
+
+           <a (click)="gotoDetailsPage(cat.id)">
+            <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+              <div class="card-img">
+                <img src="{{baseImagePath+cat.image}}" alt="">
+              </div>
+              <div class="card-content">
+                <div class="course_title">
+                  <h4>{{cat.name}}</h4>
+                  <div class="subscription_badge prime" *ngIf="cat.is_prime==1">
+                    Prime
+                  </div>
+                  <div class="subscription_badge free" *ngIf="cat.is_prime==0">
+                    Free
+                  </div>
+                </div>
+                <ul class="course-duration">
+                  <li>Postgraduate</li>
+                  <li>Full Time</li>
+                  <li>1 Years</li>
+                </ul>
+                <div class="course_info">
+                  <p>Internship at Meet7 Limited | 4 Weeks | 10 Topics</p>
+                </div>
+              </div>
+              
+            </div>
+          </a>
+          
+       </div>
+      </div>
+       </div>
+    </div>
+  </div>

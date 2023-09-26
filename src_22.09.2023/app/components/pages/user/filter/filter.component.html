@@ -1,0 +1,105 @@
+<div class="container">
+    <!-- <div class="filter_block"><h3 class="filter_head">
+        Sort by
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <div>
+        <select interface="action-sheet" class="input_box">
+          <option value="most">Most Relevant</option>
+          <option value="lowtohigh">Fees (Low to High)</option>
+          <option value="hightolow">Fees (High to Low)</option>
+        </select>
+      </div>
+  
+      </div> -->
+      <div class="filter_block"><h3 class="filter_head">
+        Course Level
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <ul class="filter_list">
+        <!-- <li>Undergraduate</li>
+        <li class="active">Postgraduate</li> -->
+        <li *ngFor="let course of course_levels;let i = index" (click)="chooseCourse(course.value, i)" [ngClass]="{'active':(selectedIndex ==i)}">{{course.name}}</li>
+      </ul>
+  
+      </div><div class="filter_block"><h3 class="filter_head">
+        Subjects
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <div>
+        <input placeholder="Type keywords here" class="input_box" type="text" [(ngModel)]="typesubject" name="typesubject">
+      </div>
+      <ul class="filter_items">
+        <li *ngFor="let subject of subjects" (click)="selectSubject(subject.name)">{{subject.name}} 
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 4L12 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </li>
+      </ul>
+  
+  
+      </div><div class="filter_block"><h3 class="filter_head">
+        Course duration
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <ul class="filter_list">
+        <li *ngFor="let duration of course_durations;let j = index" (click)="chooseduration(duration.value, j)" [ngClass]="{'active':(selected ==j)}">{{duration.name}}</li>
+      </ul>
+  
+  
+      </div><div class="filter_block"><h3 class="filter_head">
+        Study destinations
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <div>
+        <input placeholder="Type keywords here" class="input_box" type="text"  [(ngModel)]="typecountry" name="typecountry">
+      </div>
+      <ul class="filter_items">
+        <li *ngFor="let country of countries;let j = index" (click)="selectcountry(country.name, j)" [ngClass]="{'active':(selectedCountryIndex ==j)}">{{country.name}}
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 4L12 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </li>
+        <!-- <li>Canada
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L4 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 4L12 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </li> -->
+      </ul>
+  
+      </div>
+      <!-- <div class="filter_block"><h3 class="filter_head">
+        Placements
+        <svg slot="end" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 6L8 10L12 6" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>      
+      </h3>
+      <div>
+        <ion-label>Placements are required</ion-label>
+        <ion-toggle [(ngModel)]="placements"></ion-toggle>
+      </div>
+      </div> -->
+</div>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+      <div class="col-sm-4">
+        <div class="form-group text-center">
+          <button type="submit" class="apply-filter-btn" (click)="applyFilter()">Apply Filters</button>
+        </div>
+      </div>
+    </div>
+</div>

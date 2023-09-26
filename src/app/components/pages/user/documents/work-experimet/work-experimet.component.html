@@ -1,0 +1,102 @@
+<section class="become-instructor-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000">
+                <h2 *ngIf="!edit">Add Work Experience</h2>
+                <h2 *ngIf="edit">Edit Work Experience</h2>
+            </div>
+        </div>
+        <div class="row mt-0 mt-sm-3">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1600">
+                <div class="become-instructor-form">
+                    <form #documnetForm="ngForm" (ngSubmit)="submitDocuments(documnetForm)" novalidate>
+                        <div class="row">
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <input type="text" [(ngModel)]="documents.organisation" #organisationCtrl="ngModel" name="organisation" required placeholder="Organization" pattern="[a-zA-Z ]{3,40}">
+                                  
+                                <div *ngIf="!organisationCtrl.valid && organisationCtrl.touched" >
+                                    <p class="alert alert-danger">Organization is required.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" [(ngModel)]="documents.isChecked" name="isChecked" (ngModelChange)="isCheck()" id="newsletterRadio">
+                                    <label class="form-check-label" for="newsletterRadio">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        This is the current company
+                                    </label>
+                                  </div>
+                                <!-- <label>This is the current company</label>
+                                <input type="checkbox" [(ngModel)]="documents.isChecked" name="isChecked" (ngModelChange)="isCheck()" /> -->
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <input type="text" [(ngModel)]="documents.designation" #designationCtrl="ngModel" name="designation" required placeholder="Designation" pattern="[a-zA-Z ]{3,40}">
+
+                                <div *ngIf="!designationCtrl.valid && designationCtrl.touched" >
+                                    <p class="alert alert-danger">Designation is required.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <input type="date" placeholder="Joining Date" class="form-control" [(ngModel)]="documents.jod" #jodCtrl="ngModel" name="jod" min="{{mindate}}" max="{{maxDate}}" (ngModelChange)="selectJoiningDate($event)" />
+
+                                <p *ngIf="jodData" class="alert alert-danger">
+                                    <span>Joining  Date is required</span>
+                                </p>
+
+                            </div>
+                            
+                            <ng-container *ngIf="release">
+                                <div class="col-12 col-sm-4 mb-3">
+                                    <input type="date" placeholder="Release Date" class="form-control" [(ngModel)]="documents.releaseDate" #releaseCtrl="ngModel" name="releaseDate" placeholder="Relieving Date" min="{{minDateforRelease}}"  max="{{maxDate}}" [readonly]="relaseDate"/>
+
+                                    <p *ngIf="releaseDateCtrl" class="alert alert-danger">
+                                        <span >Release Date is required</span>
+                                    </p>
+                                </div>
+                            </ng-container>
+
+                            <div class="col-12 col-sm-4 mb-3">
+                                <div class="form-group form_block">
+                                    <!-- <label position="stacked">Upload Resume <sup>*</sup></label> -->
+                                    <div class="upload_file">
+                                    <input type="file" accept=".pdf,.doc,.docx" id="uploadResume" class="form-control" (change)="onFileSelected($event)">
+                                    <!-- <input class="form-control" type="file" accept=".jpg,.jpeg, .png, .svg, .gif,.bmp"  (change)="onFileSelected($event)" class="form-control"> -->
+                                    <a *ngIf="uploadBtn" class="upload_btn" (click)="upload()">Upload</a>
+                                    </div>
+                                </div>
+                                <p *ngIf="docValid" class="alert alert-danger">Please upload document</p>
+                            </div>
+        
+                            <div class="col-12 col-sm-4 mb-3" *ngIf="documents.doc!==undefined">
+                                <div class="resumeData">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                    <p>{{documents.doc}}</p>
+                                    <div class="text-danger"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash-2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></div>
+                                </div>
+                            </div>
+</div>
+<div class="row">
+                         
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <button type="submit" class="become-instructor-btn">Save</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+                   
+            </div>
+        </div>
+    </div>
+</section>

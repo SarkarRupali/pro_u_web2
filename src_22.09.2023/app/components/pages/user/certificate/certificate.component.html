@@ -1,0 +1,138 @@
+<section class="topics my-classes-ongoing">
+    <div class="container fluid">
+        <!-- <div class="row">
+            <div class="col-12 top-heading aos-init" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                <h2>My Certificates</h2>
+            </div>
+        </div> -->
+
+        <div class="row mt-4">
+            <div class="col-12 aos-init" data-aos="fade-up" data-aos-duration="2000" data-delay="1100">
+                <div class="row" *ngIf="certificateList.length>0;else certificateBlock">
+                    <div class="col-lg-6 col-12 mb-3 mb-sm-4"  *ngFor="let certificate of certificateList">
+                        <div>
+                            <table id="content" style="width: 100%; max-width: 400px; height: auto; border-collapse: collapse; font-family: 'Arial'; background: #fff; margin: 0 auto;">
+                                <tr>
+                                <td colspan="5">
+                                    <img src="../../assets/border-top.png" style="width: 100%;">
+                                </td>
+                                </tr>
+                                
+                                <tr style="text-align: center;">
+                                <td colspan="5">
+                                <img src="../../assets/logo.png" style="display: block; margin: 0 auto 10px; width: 80px; height: auto;">
+                                <h3 style="font-size: 9px; font-weight: 400; text-align: center; text-transform: uppercase;">Global Learning Platform across Europe, Africa & Asia</h3>
+                                <h4 style="font-size: 8px; font-weight: 500; text-align: center; line-height: 1.4; margin: 3px 0;">BY THE RECOMMENDATION OF THE FACULTY<br/>WE HAVE CONFERRED UPON</h4>
+                                <span style="display: inline-block; vertical-align: top; border-bottom: 2px solid #111; margin: 5px auto 5px;">
+                                    <h1 style="text-align: center; font-size: 20px; font-weight: 300; margin:0;">{{certificate.user_name}}</h1>
+                                </span>
+                                <h4 style="font-size: 9px; font-weight: 400; text-align: center; margin-bottom: 0; line-height: 1.4; margin-bottom: 20px;">THE CERTIFICATE OF COMPLETION WITH DISTINCTION IN<br/> <strong>{{certificate.course_name}}</strong></h4>
+                                </td>
+                                </tr>
+                                <tr>
+                                <td width="20%">&nbsp;</td>
+                                <td width="20%" align="center">
+                                    <img src="../../assets/pj_sign.jpeg" style="display: inline-block; max-width: 110px; height: 30px; object-fit: scale-down;"><p style="text-align: center; font-size:8px; margin: 0">Dr. Piyush Jain</p>
+                                    <p style="display: inline-block; width: 110px; padding: 3px 0; border-top: 1px solid #111; text-align: center; font-size:8px; margin: 0">Director</p>
+                                </td>
+                                <td width="20%" align="center"><img src="../../assets/badge.png"></td>
+                                <td width="20%" align="center">
+                                    <img src="../../assets/sid_sign.png" style="display: inline-block; max-width: 110px; height: 30px; object-fit: scale-down;"><p style="text-align: center; font-size:8px; margin: 0">Siddharth Maheshwari</p>
+                                    <p style="display: inline-block; width: 110px; padding: 3px 0; border-top: 1px solid #111; text-align: center; font-size:8px; margin: 0;">Chief Academic Officer</p>
+                                </td>
+                                <td width="20%">&nbsp;</td>
+                                </tr>
+                            
+                                <tr>
+                                <td colspan="5">
+                                    <img src="../../assets/border-bottom.png" style="width: 100%;">
+                                </td>
+                                </tr>
+                            
+                            
+                            </table>
+                    
+                            <div class="btn_group">
+                                <div class="share_certificate">
+                                    <div class="share_certificate_text" *ngIf="isMobileDevice==false">
+                                        <a href="https://web.whatsapp.com/send?text=Your Certificate Link : https://backend.proueducation.com/assets/upload/pdf/{{certificate.certificate_name}}">
+                                            Share Your Certificate
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path fill="#388e3c" fill-rule="evenodd" d="M15.158 7.815a4 4 0 1 0-1.008-1.727L8.842 9.185a4 4 0 1 0 0 5.63l5.309 3.093A4.003 4.003 0 0 0 18 23a4 4 0 1 0-2.839-6.818l-5.31-3.095a4.003 4.003 0 0 0 0-2.175zM18 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM7.7 10.946a1.015 1.015 0 0 0 .056.095c.155.285.244.612.244.959a1.99 1.99 0 0 1-.3 1.055A1.999 1.999 0 0 1 4 12a2 2 0 0 1 3.7-1.055zM16 19c0-.325.078-.632.215-.904a1.012 1.012 0 0 0 .123-.209A2 2 0 1 1 16 19z" clip-rule="evenodd" data-original="#388e3c"></path>
+                                                </g>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="share_certificate_text"  *ngIf="isMobileDevice==true">
+                                        <a href="https://wa.me/?text=Your Certificate Link : https://backend.proueducation.com/assets/upload/pdf/{{certificate.certificate_name}}" data-action="share/whatsapp/share">Share Your Certificate</a></div>
+                                </div>
+                                <div class="share_certificate" (click)="certificateDownload(certificate.certificate_name)">
+                                <div class="share_certificate_text">
+                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-download">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>  -->
+                                    Download Certificate
+                                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                        <g>
+                                            <g data-name="Layer 2">
+                                                <path d="M12 15.75a.76.76 0 0 1-.75-.75V2a.75.75 0 0 1 1.5 0v13a.76.76 0 0 1-.75.75Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                                <path d="M12 16.25a.75.75 0 0 1-.53-.22L7 11.53a.75.75 0 0 1 1-1.06l4 4 4-4a.75.75 0 0 1 1 1.06L12.53 16a.75.75 0 0 1-.53.25Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                                <path d="M19 22.75H5A2.75 2.75 0 0 1 2.25 20V8A2.75 2.75 0 0 1 5 5.25h3a.75.75 0 0 1 0 1.5H5A1.25 1.25 0 0 0 3.75 8v12A1.25 1.25 0 0 0 5 21.25h14A1.25 1.25 0 0 0 20.25 20V8A1.25 1.25 0 0 0 19 6.75h-3a.75.75 0 0 1 0-1.5h3A2.75 2.75 0 0 1 21.75 8v12A2.75 2.75 0 0 1 19 22.75Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                                <path d="M12 16.13A1.13 1.13 0 0 1 10.88 15V2a1.13 1.13 0 0 1 2.25 0v13A1.14 1.14 0 0 1 12 16.13Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                                <path d="M12 16.63a1.15 1.15 0 0 1-.8-.33l-4.5-4.51a1.12 1.12 0 1 1 1.6-1.58l3.7 3.7 3.7-3.7a1.12 1.12 0 1 1 1.6 1.58l-4.5 4.51a1.15 1.15 0 0 1-.8.33Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                                <path d="M19 23.13H5A3.13 3.13 0 0 1 1.88 20V8A3.12 3.12 0 0 1 5 4.88h3a1.13 1.13 0 1 1 0 2.25H5a.87.87 0 0 0-.87.87v12a.88.88 0 0 0 .87.88h14a.89.89 0 0 0 .88-.88V8a.88.88 0 0 0-.88-.87h-3a1.13 1.13 0 0 1 0-2.25h3A3.13 3.13 0 0 1 22.13 8v12A3.14 3.14 0 0 1 19 23.13Z" fill="#388e3c" data-original="#388e3c" class=""></path>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <!-- <ion-icon name="download-outline"></ion-icon> -->
+                                </div>
+                            </div>
+
+                            <div class="modal-body text-center" *ngIf="alert">
+                               
+                                <!-- <a class="social-icon social-icon-facebook fab fa-facebook-f m-1"
+                                  href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank"
+                                  (click)="sharefacebookUrl(certificate.certificate_name)"></a>&nbsp;  -->
+                                  
+                                  <a class="social-icon social-icon-facebook fab fa-facebook-f m-1" target="_blank" title="Share on Facebook" (click)="sharefacebookUrl(certificate.certificate_name)"></a>&nbsp; 
+                                <!-- <a class="social-icon social-icon-twitter fab fa-twitter m-1" href="https://twitter.com/intent/tweet?"
+                                  target="_blank" title="Twitter" (click)="sharetweetUrl(certificate.certificate_name)"></a>&nbsp; -->
+                        
+                                <!-- <a class="social-icon social-icon-envelope fas fa-envelope m-1" href="mailto:?subject=&body=:%20"
+                                  target="_blank" title="Email" (click)="sharemailUrl(certificate.certificate_name)" click=""></a>&nbsp; -->
+                        
+                                <a class="social-icon social-icon-instagram fab fa-instagram m-1" href="https://instagram.com/accounts/login/?"
+                                  target="_blank" title="Instagram" (click)="shareinstaUrl(certificate.certificate_name)"></a>&nbsp;
+                                              
+                        
+                                  <!-- <a href="https://api.whatsapp.com/send?text=Your Certificate Link : https://backend.proueducation.om/assets/upload/pdf/{{certificate.certificate_name}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" ><i class="fab fa-whatsapp"></i></a> -->
+                                  <!-- <a href="https://web.whatsapp.com/send?text=Your Certificate Link : https://backend.proueducation.com/assets/upload/pdf/{{certificate.certificate_name}}" data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" ><i class="fab fa-whatsapp"></i></a> -->
+                                  <a data-text="Take a look at this awesome website:" class="wa_btn wa_btn_s" (click)="shareWhatsppUrl(certificate.certificate_name)"><i class="fab fa-whatsapp"></i></a>
+                              </div>
+
+                              <!-- <share-buttons theme="circles-dark"
+                              [include]="['copy', 'facebook', 'email', 'messenger', 'mix', 'line', 'linkedin', 'pinterest', 'print', 'reddit', 'sms', 'telegram', 'tumblr', 'twitter', 'viber', 'vk', 'xing', 'whatsapp']"
+                              [showIcon]="true"
+                              [showText]="false"
+                              url="https://rodrigo.kamada.com.br/"
+                              description="Angular Share Buttons"
+                              twitterAccount="rodrigokamada"
+                              class="pt-5">
+                            </share-buttons> -->
+                        </div>
+                    </div>
+                </div>
+                <ng-template #certificateBlock>
+                    <div class="container-fluid text-center">
+                        <p class="alert alert-success">There is no certificate for you.</p>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</section>
+

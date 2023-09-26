@@ -1,0 +1,83 @@
+<section class="course-details-header single-topic-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000">
+                <h2 [innerHtml]="topicDetials.topic"><a (click)="goToBack()"><i class="fas fa-arrow-left"></i></a></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="2000">
+                <div class="course-details-header-content single-topic-content test">
+                    <!-- <owl-carousel-o class="topic-slider" [options]="topiccustomOptions" (changed)="getData($event)">
+                        <ng-container *ngFor="let topicSlide of topicDetials.slides">
+                            <ng-template carouselSlide >
+                                <div class="item">
+                                    
+                                  <span  [innerHTML]="topicSlide.content"></span>    
+                                  <iframe #vimeoPlayer  src="https://vimeo.com/657781791" width="640" height="360" maxWidth="640" maxHeight="360" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" webkitallowfullscreen="true" *ngIf="topicSlide.video_link"></iframe>    
+                                            
+                                </div>  
+                           </ng-template>  
+                          
+                                                                          
+                        </ng-container>
+                        
+                        <ng-container *ngIf="topicDetials.assignment">
+                            <ng-template carouselSlide >
+                                <div class="item">
+                                <span [innerHTML]="topicDetials.assignment"></span>
+                                </div>  
+                                <a class="download-assignment" (click)="downLoadAssignment(topicDetials.assignment_file)">download assignment</a>
+                                
+                            </ng-template> 
+                        </ng-container>  
+                    
+                                
+                    </owl-carousel-o> -->
+                    
+                    <!-- <div *ngFor="let i of data">
+                        <iframe #vimeoPlayer  src="https://vimeo.com/657781791" width="640" height="360" maxWidth="640" maxHeight="360" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" webkitallowfullscreen="true" ></iframe>    
+                    </div> -->
+                    
+                    <!-- <ng-container *ngFor="let topicSlide of topicDetials.slides"> -->
+                      
+                            <div class="item">
+                                <!-- <div *ngIf="topicSlide[i]"> -->
+                                    <span  [innerHTML]="topicDetials.slides[currentIndex].content"></span>    
+                                    <iframe #vimeoPlayer  [src]="topicDetials.slides[currentIndex].video_link" width="640" height="360" maxWidth="640" maxHeight="360" frameborder="0" allowfullscreen="true" mozallowfullscreen="true" msallowfullscreen="true" webkitallowfullscreen="true" *ngIf="topicDetials.slides[currentIndex].video_link"></iframe>  
+                                <!-- </div> -->
+
+                                <div class="video_footer">
+                                    <div class="nav_btn">
+                                        <a class="prev-btn" (click) = "preSlide(topicDetials.slides[currentIndex].id)"  *ngIf="currentIndex > 0"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg> Back</a>
+                                    </div>
+                                    <!-- <a (click) = "finishButtonCall(topicDetials.id,topicDetials.topic)"  class="download-assignment finish-btn" *ngIf="finishBtn">Finish</a>    -->
+                                    <div class="nav_btn_submit">
+                                        <a (click) = "finishButtonCall(topicDetials.id,topicDetials.topic)"  class="finish-btn" *ngIf="currentIndex == topicDetials.slides.length-1">Finish</a>
+                                    </div>
+                                    <div class="nav_btn text-right">
+                                        <a class="next-btn" (click) = "nextSlide(topicDetials.slides[currentIndex].id)" *ngIf="currentIndex < topicDetials.slides.length - 1">Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>                     
+                    <!-- </ng-container> -->
+                     
+                    <ng-container *ngIf="topicDetials.assignment">
+                        <ng-template >
+                            <div class="item">
+                            <span [innerHTML]="topicDetials.assignment"></span>
+                            </div>  
+                            <a class="download-assignment" (click)="downLoadAssignment(topicDetials.assignment_file)">download assignment</a>
+                            
+                        </ng-template> 
+                    </ng-container>  
+
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

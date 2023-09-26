@@ -1,0 +1,32 @@
+<div class="container">
+    <figure class="country_banner">
+        <img src="{{module.image}}">
+    </figure>
+    
+    <div class="heading mb-0">
+        <!-- <div class="heading_image">
+        <img src="../../assets/Flag-United-Kingdom 1.png">
+        </div> -->
+        <div class="heading_content">
+            <div class="excerpt">
+                <div [innerHtml]="module.instruction"></div>
+            </div>
+            <!-- <p class="readmore"><a routerLink>Read more</a></p> -->
+        </div>
+    </div>
+
+    <div class="subject_list">
+        <h4>Choose any of 4 subjects here</h4>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-md-4" *ngFor="let sub of exam.subjects">
+                <label class="checkbox"><input type="checkbox" name="subject" value="{{sub.id}}" (change)="checkSub($event)"><span>{{sub.name}}</span></label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <button type="button" class="btn text-white btn-block btn-primary btn btn-view" (click)="testPrepExam()">Submit</button>
+        </div>
+    </div>
+</div>

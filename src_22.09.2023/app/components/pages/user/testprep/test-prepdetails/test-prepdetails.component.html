@@ -1,0 +1,123 @@
+<div class="test_wrapper">
+  <div class="container p-0">
+    <figure class="country_banner">
+      <img src="{{examDetails.image}}">
+    </figure>
+  
+    <div class="heading">
+      <!-- <div class="heading_image">
+        <img src="../../assets/Flag-United-Kingdom 1.png">
+      </div> -->
+      <div class="heading_content">
+        <h4>{{examDetails.full_name}}</h4>
+      </div>
+    </div>
+  
+    <div class="excerpt">
+      <p [innerHtml]="examDetails.description"></p>
+    </div>
+    <!-- <p [ngClass]="{'readmore':read==true}"><a (click)="readMode()">Read more</a></p> -->
+  </div>
+    
+</div>
+
+<section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/place.png" alt="">
+            </div>
+            <h2>Courses</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+    
+
+    <div class="row mt-3">
+      <div class="col-12 pr-0 pr-sm-3">
+          <owl-carousel-o class="pro-slider" [options]="customOptions2">
+              <ng-container  *ngFor="let module of examDetails?.modules">
+                <ng-template carouselSlide [id]="module.id" [width]="module.width">
+                      <div class="corseTopslide item">
+                        <div class="uni_card" (click)="modeuleDetials(module)">
+                            <img src="{{module.image}}">
+                            <div class="course_content">
+                              <div class="course_title">
+                                <h4>{{module.name}}</h4>
+                                <div class="subscription_badge hot">Hot</div>
+                                <!-- <div class="subscription_badge prime">Prime</div>
+                                <div class="subscription_badge free">Free</div>
+                                <div class="subscription_badge gold">Gold</div> -->
+                              </div>
+                              <ul>
+                                <!-- <li>Postgraduate</li> -->
+                                <li>Full Time</li>
+                                <li>1 Years</li>
+                              </ul>
+                              <div class="course_info">{{examDetails.full_name}}</div>
+                            </div>
+                          </div>       
+                      </div>
+                  </ng-template>
+              </ng-container>
+              
+          </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+</section>
+<section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/place.png" alt="">
+            </div>
+            <h2>Trending Subjects</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <ul class="search_list">
+            <li routerLink="/user/category" *ngFor="let sub of examDetails?.subjects">{{sub.name}}</li>
+          </ul>
+      </div>
+    </div>
+</section>
+
+<!-- <section class="pro-mba">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/place.png" alt="">
+            </div>
+            <h2>FAQs</h2>
+            <p>Transform your career with industry experts</p>
+            <a (click)=goToCoursePage(categories.id) class="view-all">view all</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+            <div class="accordian">
+                <div class="accordian_item" *ngFor="let faq of examDetails?.faqs">
+                    <h3>{{faq.question}}  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="faq.answer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section> -->

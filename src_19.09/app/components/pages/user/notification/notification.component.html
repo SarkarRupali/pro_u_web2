@@ -1,0 +1,13 @@
+
+<div class="forum_panel" *ngIf="notificationList && notificationList.length>0">
+    <div class="container-fluid">
+        <div class="forum_wrap">
+            <div class="forum_list" *ngFor="let notification of notificationList">
+                <div class="forum_title">
+                    <p>{{notification.notification}}</p>
+                    <!-- <small>{{notification.created_at| date:'dd.MM.yyyy'}}</small> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

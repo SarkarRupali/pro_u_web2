@@ -1,0 +1,102 @@
+
+    <section class="quiz-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center quiz-sec-heading" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 [innerHTML]="topic_name"></h2>
+                    <div class="quiz_meta">
+                        <div class="count_num"></div>
+                        <div class="quiz_time">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <g clip-path="url(#clip0_3036_1759)">
+                              <path d="M10 18.3334C14.6024 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6024 1.66669 10 1.66669C5.39763 1.66669 1.66667 5.39765 1.66667 10C1.66667 14.6024 5.39763 18.3334 10 18.3334Z" stroke="#E4AC17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M10 5V10L13.3333 11.6667" stroke="#E4AC17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </g>
+                              <defs>
+                              <clipPath id="clip0_3036_1759">
+                              <rect width="20" height="20" fill="white"/>
+                              </clipPath>
+                              </defs>
+                            </svg>    
+                            <span>{{formattedTime}}</span>  
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="col-12 col-lg-8 col-md-12 m-auto text-center" data-aos="fade-up" data-aos-duration="2000">
+                    <div [ngClass]="addClass==true? 'question-content hide_next_slide' : 'question-content'">
+                        <owl-carousel-o class="topic-slider" [options]="quizOptions" #owlCar (changed)="getlastSlide($event)">
+                            <ng-container *ngFor="let ques of quizlist; let i=index" >
+                                <ng-template carouselSlide [id]="ques.id">
+                                    
+                                    <div class="question-content-inner">
+
+                                        <div class="question-info">
+                                            <h4>{{ques.question}}</h4>
+                                        </div>
+
+                                        <div class="icon">
+                                            <img src="./assets/img/quiz_image.svg" alt="">
+                                        </div>
+
+
+                                        <div class="answer-content">
+                                            <span>Select the correct answer</span>
+                                            <div [ngClass]="addClass==true? 'answer-list-quiz disable_list':'answer-list-quiz'">
+                                                <div [ngClass]="{'is-correct': (ques.right_option == selectedval &&selectedval == 'a' && quiz||ques.right_option == 'a' && quiz),'wrong' : (ques.right_option != selectedval && selectedval == 'a'  && quiz)}">
+                                                    <input type="radio" id="option1" class="option" name="option"  value="a" (change)="optionsSelect(i,$event)" >
+                                                    <label for="option1">{{ques.option_a}}.</label>
+                                                </div>
+                                               <div [ngClass]="{'is-correct': (ques.right_option == selectedval &&selectedval == 'b' && quiz ||ques.right_option == 'b' && quiz),'wrong' : (ques.right_option != selectedval && selectedval == 'b'  && quiz)}">
+                                                    <input type="radio" id="option2" class="option" name="option" value="b" (change)="optionsSelect(i,$event)">
+                                                    <label for="option2" >{{ques.option_b}}.</label>
+                                               </div>
+                                               <div [ngClass]="{'is-correct': (ques.right_option == selectedval &&selectedval == 'c'  && quiz ||ques.right_option == 'c' && quiz), 'wrong' : (ques.right_option != selectedval && selectedval == 'c'  && quiz)}" *ngIf="ques.option_c!=''">
+                                                <input type="radio" id="option3" class="option" name="option" value="c" (change)="optionsSelect(i,$event)">
+                                                <label for="option3" >{{ques.option_c}}.</label>
+                                               </div>
+                                                <div  [ngClass]="{'is-correct': (ques.right_option == selectedval &&selectedval == 'd' && quiz || ques.right_option == 'd' && quiz), 'wrong' : (ques.right_option != selectedval && selectedval == 'd' && quiz)}" *ngIf="ques.option_d!=''">
+                                                    <input type="radio" id="option4" class="option" name="option" value="d" (change)="optionsSelect(i,$event)">
+                                                    <label for="option4" >{{ques.option_d}}.</label>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <!-- <div class="answer-progress">
+                                            <ul class="list-unstyled p-0 m-0">
+                                                <li class="progress-line active" data-progress="question1"></li>
+                                                <li class="progress-line" data-progress="question2"></li>
+                                                <li class="progress-line" data-progress="question3"></li>
+                                                <li class="progress-line" data-progress="question4"></li>
+                                                <li class="progress-line" data-progress="question5"></li>
+                                            </ul>
+                                        </div> -->
+                                        <div class="quesitonslide-note" *ngIf="afterSelect">
+                                            <h5>Explanation of the correct answer :</h5>
+                    
+                                            <p *ngIf="ques.explaination!=''"><span [innerHTML]="ques.explaination"></span></p>
+                                            <p>The correct answer is <strong>{{ques.right_answer}}</strong></p>
+                                        </div>
+                                    </div>
+                                 
+                                </ng-template>
+                            </ng-container>
+                        </owl-carousel-o>
+                        <!-- <a class="mt-4 btn btn-success nextBtnQuiz" (click)="owlCar.next()">Next</a> --> 
+                       
+                        <!-- <a class="mt-4 btn btn-success nextBtnQuiz" (click)="next()">Next</a> -->
+
+                        <div class="button_area">
+                            <div class="btn_block"></div>
+                            <!-- <div class="btn_block"><a class="mt-4 btn btn-success" (click)="done()" *ngIf="submitBtn">Done</a></div> -->
+                            <div class="btn_block button_submit"></div>
+                            <div class="btn_block"><a class=" btn btn-next" (click)="next()">Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a></div>
+                        </div>
+                                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

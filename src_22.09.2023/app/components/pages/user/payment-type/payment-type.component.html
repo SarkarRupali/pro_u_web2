@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <!-- <ul>
+        <li>Pay online using RazorPay</li>
+        <li (click)="goToPrice()">Payment using BudPay</li>
+    </ul> -->
+
+    <div class="row justify-content-center mb-3 mb-sm-5">
+        <div class="col-12 mb-2 mb-sm-3 text-center"><p>For Africa</p></div>
+        <div class="col-sm-4">
+            <a  class="payment_button" (click)="goToPrice()"><img src="../../../../../assets/img/budpay.png">Pay online using Budpay</a>
+            <!-- <a [href]="budpayUrl" *ngIf="budpay"></a> -->
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12 mb-2 mb-sm-3 text-center"><p>For all other countries</p></div>
+        <div class="col-sm-4">
+            <a href="https://pages.razorpay.com/ProUPrime" class="payment_button"><img src="../../../../../assets/img/razorpay-glyph.svg">Pay online using RazorPay</a>
+        </div>
+    </div>
+</div>

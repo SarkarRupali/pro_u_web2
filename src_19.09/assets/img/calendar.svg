@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Object / Calendar</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M15.0008859,11.9996456 L5.99964562,11.9996456 L5.99964562,3 C5.99964562,1.34231042 4.65831906,0 2.99911405,0 C1.34132656,0 0,1.34231042 0,3 L0,14.9996456 C0,16.6576896 1.34132656,18 2.99911405,18 L15.0008859,18 C16.6586734,18 18,16.6576896 18,14.9996456 C18,13.3419561 16.6586734,11.9996456 15.0008859,11.9996456 Z" id="path-1"></path>
+        <path d="M30,18 L30,30 L18,30 L18,18 L30,18 Z M12,18 L12,30 L0,30 L0,18 L12,18 Z M48,0 L48,12 L36,12 L36,0 L48,0 Z M30,0 L30,12 L18,12 L18,0 L30,0 Z M12,0 L12,12 L0,12 L0,0 L12,0 Z" id="path-3"></path>
+        <linearGradient x1="28.6759976%" y1="22.9570312%" x2="74.5078125%" y2="77.1875%" id="linearGradient-5">
+            <stop stop-color="#ED4B54" offset="0%"></stop>
+            <stop stop-color="#EE4E53" offset="6.80859375%"></stop>
+            <stop stop-color="#FF764C" offset="100%"></stop>
+        </linearGradient>
+        <path d="M5.92348056,58.5024778 L5.92348056,17.7273679 L71.0765194,17.7273679 L71.0765194,29.5452642 L77,29.5452642 L77,6.49822014 C77,2.90884344 74.130437,0 70.5846743,0 L68.1146043,0 L68.1146043,2.95456132 C68.1146043,6.20960424 65.4605295,8.86438194 62.192523,8.86438194 C58.9241666,8.86438194 56.2686926,6.20960424 56.2686926,2.95456132 L56.2686926,0 L20.7313074,0 L20.7313074,2.95456132 C20.7313074,6.20960424 18.0758334,8.86438194 14.807477,8.86438194 C11.5394705,8.86438194 8.88399647,6.20960424 8.88399647,2.95456132 L8.88399647,0 L6.41777443,0 C2.87236159,0 0,2.90884344 0,6.49822014 L0,58.5024778 C0,62.0803378 2.87236159,65 6.41777443,65 L41.4612156,65 L41.4612156,59.0905284 L6.41777443,59.0905284 C6.148414,59.0905284 5.92348056,58.8137782 5.92348056,58.5024778 Z" id="path-6"></path>
+        <path d="M23.9994685,0 C37.2536414,0 48,10.7463586 48,23.9994685 C48,37.2536414 37.2536414,48 23.9994685,48 C10.7463586,48 0,37.2536414 0,23.9994685 C0,10.7463586 10.7463586,0 23.9994685,0 Z M23.9999823,6 C14.0751161,6 6,14.075124 6,24 C6,33.9262934 14.0751161,42 23.9999823,42 C33.9262659,42 42,33.9262934 42,24 C42,14.0740609 33.9262659,6 23.9999823,6 Z" id="path-8"></path>
+        <path d="M50.0001772,0 C51.6577689,0 53,1.34231042 53,3 L53,3 L53,14.9996456 C53,16.6576896 51.6577689,18 50.0001772,18 C48.3422311,18 47,16.6576896 47,14.9996456 L47,14.9996456 L47,3 C47,1.34231042 48.3422311,0 50.0001772,0 Z M2.99982283,0 C4.65776885,0 6,1.34231042 6,3 L6,14.9996456 C6,16.6576896 4.65776885,18 2.99982283,18 C1.34223115,18 0,16.6576896 0,14.9996456 L0,3 C0,1.34231042 1.34223115,0 2.99982283,0 Z" id="path-10"></path>
+    </defs>
+    <g id="Object-/-Calendar" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Background" transform="translate(68.000000, 62.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#1A1919" xlink:href="#path-1"></use>
+            <g id="Colour-/-09-Indigo" mask="url(#mask-2)" fill="#5053A3" fill-rule="nonzero">
+                <g transform="translate(-68.000000, -62.000000)" id="Rectangle-2">
+                    <rect x="0" y="0" width="101" height="100"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Colour-/-24.-Gradient-/-Sunset" transform="translate(14.000000, 38.000000)">
+            <mask id="mask-4" fill="white">
+                <use xlink:href="#path-3"></use>
+            </mask>
+            <use id="Mask" fill="#1A1919" xlink:href="#path-3"></use>
+            <g id="Gradient-/-02-Sunset" mask="url(#mask-4)" fill="url(#linearGradient-5)" fill-rule="nonzero">
+                <g transform="translate(-1.000000, -21.000000)" id="Rectangle-2">
+                    <rect x="0" y="0" width="66" height="66"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Background" transform="translate(2.000000, 14.000000)">
+            <mask id="mask-7" fill="white">
+                <use xlink:href="#path-6"></use>
+            </mask>
+            <use id="Mask" fill="#1A1919" xlink:href="#path-6"></use>
+            <g id="Colour-/-06-Charcoal" mask="url(#mask-7)" fill="#1D1E2B" fill-rule="nonzero">
+                <g transform="translate(-2.000000, -14.000000)" id="Rectangle-2">
+                    <rect x="0" y="0" width="101" height="100"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Background" transform="translate(50.000000, 50.000000)">
+            <mask id="mask-9" fill="white">
+                <use xlink:href="#path-8"></use>
+            </mask>
+            <use id="Mask" fill="#1A1919" xlink:href="#path-8"></use>
+            <g id="Colour-/-18-Salmon" mask="url(#mask-9)" fill="#ED4B54" fill-rule="nonzero">
+                <g transform="translate(-50.000000, -50.000000)" id="Rectangle-2">
+                    <rect x="0" y="0" width="101" height="100"></rect>
+                </g>
+            </g>
+        </g>
+        <g id="Background" transform="translate(14.000000, 2.000000)">
+            <mask id="mask-11" fill="white">
+                <use xlink:href="#path-10"></use>
+            </mask>
+            <use id="Mask" fill="#1A1919" xlink:href="#path-10"></use>
+            <g id="Colour-/-21-Orange" mask="url(#mask-11)" fill="#FF764C" fill-rule="nonzero">
+                <g transform="translate(-20.000000, -19.000000)" id="Rectangle-2">
+                    <rect x="0" y="0" width="101" height="100"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,322 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+@import url('../src/assets/css/bootstrap.css');
+@import url('../node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.carousel.min.css');
+@import url('../node_modules/ngx-owl-carousel-o/lib/styles/prebuilt-themes/owl.theme.default.min.css');
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+
+  body,
+  html {
+    height: 100%;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+  }
+
+  a {
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    list-style: none;
+    font-size: 14px;
+    outline: none !important;
+    text-decoration: none !important;
+    color: #3880ff;
+  }
+
+  a:hover {
+    color: #0A8485;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 400;
+    margin-bottom: 0;
+    color: #282828;
+    font-family: "Poppins", sans-serif;
+  }
+
+  button:focus {
+    outline: 0;
+    outline: inherit !important;
+  }
+
+  label {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 0 12px 0;
+    position: relative;
+    letter-spacing: 0.8px;
+    color: #7b7f89;
+    font-family: "Poppins", sans-serif;
+  }
+
+.owl-theme .owl-dots .owl-dot span {
+    background: #b4e1ff;
+    -webkit-transition: all 0.35s ease-in-out;
+    transition: all 0.35s ease-in-out;
+    width: 20px;
+    height: 4px;
+  }
+
+  .owl-theme .owl-dots .owl-dot.active span,
+  .owl-theme .owl-dots .owl-dot:hover span {
+    background: #0A8485;
+    /* width: 30px; */
+    height: 4px;
+  }
+.loaderBox .ngx-overlay.loading-foreground.ngx-position-absolute{
+    position: fixed !important;
+}
+.topic-slider .owl-theme .owl-nav [class*=owl-] {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0A8485;
+  color: #fff;
+}
+.topic-slider .owl-theme .owl-nav [class*=owl-].owl-next{
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+}
+.topic-slider .owl-theme .owl-nav [class*=owl-].owl-prev{
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+}
+.topic-content-info-left-question h5 a p {
+  font-size: 20px;
+  color: #111;
+}
+.eurPrice {
+  display: flex;
+  justify-content: center;
+}
+.monthtext ul li {
+    padding-left: 30px;
+    margin-bottom: 15px;
+    background: url(assets/img/check-circle.svg) top left no-repeat;
+    background-size: 20px;
+}
+.monthtext ul li:last-child {
+  margin-bottom: 0;
+}
+.eurPrice span {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+.eurPrice span sub {
+  display: inline-block;
+  font-size: 30%;
+  line-height: 1;
+  position: absolute;
+  bottom: auto;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.price_block {
+  text-align: right;
+}
+
+.question-content .owl-prev, .question-content .owl-prev.disabled{
+  display: none !important;
+}
+
+.question-content:not(.hide_next_slide) .nextBtnQuiz {
+  display: none;
+}
+.question-content.hide_next_slide .nextBtnQuiz {
+  display: inline-block;
+}
+.course-slider .owl-theme .owl-nav {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.course-slider .owl-theme .owl-nav [class*=owl-] {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0A8485;
+  font-size: 30px;
+  line-height: 1;
+  padding: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 5px;
+}
+.course-slider .owl-theme .owl-nav .owl-next {
+  left: auto;
+  right: 0;
+}
+.owl-theme .owl-dots .owl-dot span {
+  margin: 0 2px;
+}
+.owl-theme .owl-dots .owl-dot {
+  vertical-align: top;
+}
+.owl-theme .owl-nav.disabled {
+  display: none;
+}
+.owl-theme .owl-nav+.owl-dots {
+  vertical-align: top;
+  height: 4px;
+  margin-top: 20px;
+}
+@media(max-width: 575px) {
+  .course-content p {
+    margin-bottom: 2px;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000;
+  }
+  .topic-content-info-left-question h5 a p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    margin: 0 0 8px;
+  }
+  .eurPrice span {
+    font-size: 36px;
+  }
+}
+.owl-carousel .owl-stage {
+  display: flex;
+}
+
+.workshop_slider .owl-carousel.owl-drag .owl-item .item {
+  height: 100%;
+}
+
+.topic-slider .owl-stage-outer {
+  padding-bottom: 40px !important;
+}
+
+.excerpt ol {
+  margin-left: 20px;
+}
+
+.excerpt p {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #808080;
+  margin-bottom: 24px;
+}
+
+
+.answer-list-quiz label p {
+  font-size: 16px;
+  line-height: 24px;
+}
+.answer-list-quiz > div.wrong p {
+  color:#fff;
+}
+.answer-list-quiz > div.is-correct p {
+  color:#fff;
+}
+.black_btn {
+  display: inline-flex;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+  text-transform: capitalize;
+  padding: 16px;
+}
+.black_btn svg {
+  margin-right: 6px;
+}
+
+.green_btn {
+  display: inline-flex;
+  align-items: center;
+  color: #0A8485;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; /* 100% */
+  text-transform: capitalize;
+  padding: 16px;
+}
+.green_btn svg {
+  margin-right: 6px;
+}
+.btn-view {
+  height: 60px;
+}
+.course-details-header .top-heading h2 p {
+  font-size: 16px;
+}
+.single-topic-content .item p {
+  font-size: 16px;
+}
+.quiz-sec-heading h2 p {
+  font-size: 16px;
+}
+.testi-slider .owl-theme .owl-nav.disabled+.owl-dots {
+  margin-left: -16px;
+}
+.owl-theme .owl-nav+.owl-dots {
+  height: 2px;
+}
+.owl-theme .owl-dots .owl-dot span {
+  height: 2px;
+  width: 10px;
+  background: #D9D9D9;
+}
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+  height: 2px;
+  background: #0A8485;
+}
+.accordian_item .content p {
+  font-size: 16px;
+}
+/* .pro-slider .owl-carousel.owl-drag .owl-item {
+  width: 335px !important;
+}
+.pro-slider .owl-carousel .owl-stage {
+  display: block;
+} */
+ 

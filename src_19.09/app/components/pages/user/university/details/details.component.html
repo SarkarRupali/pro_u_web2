@@ -1,0 +1,232 @@
+<section class="university_wrapper p-0">
+  <div class="container">
+    <figure class="country_banner">
+      <img src="{{universityDetails.image}}">
+    </figure>
+  
+    <div class="heading">
+      <div class="heading_image">
+        <img src="{{baseImgPath+universityDetails.logo}}">
+      </div>
+      <div class="heading_content">
+        <h4>{{universityDetails.name}}</h4>
+        <h5>{{universityDetails.country}}</h5>
+      </div>
+    </div>
+  
+    <div class="excerpt">
+      <p [innerHtml]="universityDetails.overview"></p>
+    </div>
+    <!-- <p class="readmore"><a routerLink>Read more</a></p> -->
+
+  </div>
+    
+
+    <section class="pro-mba">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 pro-top">
+              <div class="pro-mba-heading">
+                <div class="heading-icon">
+                  <img src="./assets/place.png" alt="">
+                </div>
+                <h2>Top Courses</h2>
+                <!-- <p>Transform your career with industry experts</p> -->
+                <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+              </div>
+            </div>
+          </div>
+        
+    
+        <div class="row">
+          <div class="col-12 pr-0 pr-sm-3">
+              <owl-carousel-o class="pro-slider" [options]="customOptions2">
+                  <ng-container *ngFor="let course of universityDetails?.courses">
+                    <ng-template carouselSlide [id]="course.id" [width]="course.width">
+                      <a (click)="courseDetails(course)">
+                        <div class="corseTopslide item">
+                          <div class="uni_card">
+                              <img src="{{course.image}}">
+                              <div class="course_content">
+                                <div class="course_title">
+                                  <h4>{{course.name}}</h4>
+                                  <div class="subscription_badge hot">Hot</div>
+                                  <!-- <div class="subscription_badge prime">Prime</div>
+                                  <div class="subscription_badge free">Free</div>
+                                  <div class="subscription_badge gold">Gold</div> -->
+                                </div>
+                                <ul>
+                                  <!-- <li>Postgraduate</li> -->
+                                  <li>Full Time</li>
+                                  <li>{{course.duration}}</li>
+                                </ul>
+                                <div class="course_info">University of Bolton, Bolton, United Kingdom</div>
+                              </div>
+                            </div>       
+                        </div>
+                      </a>
+                    </ng-template>
+                  </ng-container>
+                  
+              </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+    </section>
+</section>
+
+
+<section class="pro-mba">
+  <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/trend_sub.png" alt="">
+            </div>
+            <h2>Trending Subjects</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <ul class="search_list">
+            <li>Information Technology</li>
+            <li>Medicine</li>
+            <li>Data Sciences and Big Data</li>
+            <li>Business</li>
+            <li>Artificial Intelligence</li>
+          </ul>
+      </div>
+    </div>
+</section>
+
+<section class="pro-mba">
+  <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/facility.png" alt="">
+            </div>
+            <h2>Facilities</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+            <div class="accordian">
+                <div class="accordian_item" (click)="overview()" [ngClass]="overviewstatus ? 'show' : 'hide'">
+                    <h3>Overview <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="universityDetails.overview"></div>
+                    </div>
+                </div>
+                <div class="accordian_item" (click)="campuslife()" [ngClass]="campuslifestatus ? 'show' : 'hide'">
+                    <h3>Campus Life <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="universityDetails.campus_life"></div>
+                    </div>
+                </div>
+                <div class="accordian_item" (click)="accommodation()" [ngClass]="accommodationstatus ? 'show' : 'hide'">
+                    <h3>Accommodation <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="universityDetails.accomodation"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section class="pro-mba">
+  <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/gallery.png" alt="">
+            </div>
+            <h2>Gallery</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="row gallery_row">
+        <div class="col-6 col-sm-3 col-ms-4" *ngFor="let galler of universityDetails?.galleries"><img class="gallery_image" src="{{galler.image}}"></div>
+      </div>
+    </div>
+</section>
+
+
+<section class="pro-mba">
+  <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/employ.png" alt="">
+            </div>
+            <h2>Employability</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+            <div class="excerpt">
+                <p [innerHtml]="universityDetails?.employbility"></p>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+
+<section class="pro-mba">
+  <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <div class="heading-icon">
+              <img src="./assets/img/faq.png" alt="">
+            </div>
+            <h2>FAQs</h2>
+            <!-- <p>Transform your career with industry experts</p> -->
+            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+          </div>
+        </div>
+      </div>
+
+      <!-- <ion-accordion value="{{faq.id}}"  *ngFor="let faq of universityDetails?.faqs">
+        <ion-item slot="header" color="white">
+          <ion-label>{{faq.question}}</ion-label>
+        </ion-item>
+        <div class="ion-padding" slot="content" [innerHtml]="faq.answer"></div>
+      </ion-accordion> -->
+
+
+      <div class="row">
+        <div class="col-12">
+            <div class="accordian">
+                <div class="accordian_item" *ngFor="let faq of universityDetails?.faqs;let i=index" (click)="changeStatus(i)" [ngClass]="i==statenumber && showStatus ? 'show' : 'hide'">
+                    <h3>{{faq.question}}  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="faq.answer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+.forum_panel {
+    padding: 15px 0;
+}
+.forum_list {
+    background: #fff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 4px;
+}
+.forum_list p {
+    margin: 0;
+}
+
+@media(max-width: 992px) {
+    .forum_list p {
+        font-size: 12px;
+        line-height: 1.3;
+        color: #000;
+        font-weight: 300;
+    }
+}

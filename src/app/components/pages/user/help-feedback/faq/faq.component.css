@@ -1,0 +1,91 @@
+.faq-section {
+    padding: 16px 0;
+    /* background: url(../../../../../../assets/img/banner.png) no-repeat; */
+    background-size: cover;
+    background-position: center;
+  }
+  .faq-section h2 {
+    color: #111;
+    text-transform: capitalize;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .faq-section ul.accordion-list > li {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #FFF;
+    box-shadow: 2px 2px 10px 0px #EBECFF;
+    padding: 16px;
+    margin: 0 auto 15px auto;
+    /* border: 1px solid #388e3c93; */
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .faq-section ul.accordion-list > li ul {
+    list-style-type: disc;
+    padding-left: 30px;
+    margin: 15px 0;
+  }
+  .faq-section ul.accordion-list > li.active h3:after {
+    transform: rotate(45deg);
+  }
+
+  .faq-section ul.accordion-list li h3 {
+    font-weight: 700;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 0;
+    margin: 0 0 10px;
+    font-size: 16px;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+  }
+
+  .faq-section ul.accordion-list li h3:after {
+    background: url(../../../../../../assets/img/backwrrow.svg) no-repeat;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: #388e3c;
+    transition: all 0.3s ease-in-out;
+    font-size: 18px;
+    content: '';
+    display: block;
+    width: 8px;
+    height: 5px;
+  }
+
+  .faq-section ul.accordion-list li div.answer {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .faq-section ul.accordion-list li div.answer p {
+    position: relative;
+    display: block;
+    font-weight: 300;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1.6;
+    margin: 0 0  10px;
+    font-size: 16px;
+  }
+  .faq-section ul.accordion-list li div.answer p:last-child {
+    margin: 0;
+  }
+
+
+  .faq-section h2 {
+    color: #111;
+    font-weight: 600;
+  }

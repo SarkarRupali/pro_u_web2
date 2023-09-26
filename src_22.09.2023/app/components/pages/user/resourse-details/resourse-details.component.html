@@ -1,0 +1,47 @@
+
+    <section class="topics my-classes-complete design-inspiration-sec course-details-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000">
+                    <h2>
+                        <a (click)="goToBack()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left">
+                                <line x1="19" y1="12" x2="5" y2="12"></line>
+                                <polyline points="12 19 5 12 12 5"></polyline>
+                            </svg> 
+                            {{resourseDetails.name}}
+                        </a>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row mt-0 mt-sm-3">
+                <div class="col-12" data-aos="fade-up" data-aos-duration="1500">
+                    <div class="dribble-img">
+                        <!-- <i class="fas fa-basketball-ball"></i> -->
+                        <img src="{{resourseDetails.image}}">
+                    </div>
+                    <div class="dribble-content">
+                        <div class="dribble-info">
+                            <!-- <h4>{{resourseDetails.name}}</h4> -->
+                            <p [innerHTML]="resourseDetails.description"></p>
+                        </div>
+                        <div class="dribble-btm">
+                            <a href="{{resourseDetails.site_url}}">
+                                <i class="fas fa-link"></i> Visit Site
+                            </a>
+                            <!-- <a (click)="shareResourse(resourseDetails.name,resourseDetails.site_url)">
+                                <i class="fas fa-share-alt"></i> Share Site
+                            </a> -->
+                            <a href="https://web.whatsapp.com/send?text= Plesae check site for {{resourseDetails.name}} {{resourseDetails.site_url}}" *ngIf="isMobileDevice==false" class="share-link">
+                                <i class="fas fa-share-alt"></i> Share Site
+                            </a> 
+                            <a href="https://wa.me/?text= Plesae check site for {{resourseDetails.name}} {{resourseDetails.site_url}}" *ngIf="isMobileDevice==true" class="share-link">
+                                <i class="fas fa-share-alt"></i> Share Site
+                            </a> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

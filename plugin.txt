@@ -1,0 +1,19 @@
+npm install --save file-saver
+npm install @types/file-saver --save-dev
+https://www.geeksforgeeks.org/angular-file-upload/
+
+npm i ng2-tel-input
+
+// for showing mathjax equation
+
+npm install ngx-mathjax --save
+
+Credentials : 
+	priya@gmail.com
+  	Priya123#
+  	
+  	test@gmail.com
+  	User123#
+  	
+  	
+  	

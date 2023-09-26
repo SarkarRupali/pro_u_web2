@@ -1,0 +1,168 @@
+<section class="become-instructor-sec prou-executive-sec">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12 pro-top d-none d-sm-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="pro-mba-heading">
+                    <h2>Become an ProU Executive</h2>
+                    <span>All fields are mandetory to fill</span>
+                </div>
+
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="prou-executive-badge">
+                    <img src="./assets/img/star-black.png" alt="">
+                    <span>Earn 10% of each Prime membership sale.</span>
+                </div>
+
+                <p>As a Prime Executive, you are the primary growth driver of ProU learners and responsible for
+                    sales of prime membership, which unlocks all ProU courses and services</p>
+            </div>
+        </div>
+
+        <div class="row mt-0 mt-sm-3">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1600">
+                <div class="become-instructor-form">
+                    <form #executeF="ngForm" (ngSubmit)="submitExecutive(executeF)" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>First Name<sup>*</sup></label> -->
+                                <input type="text" placeholder="Enter First Name" class="form-control" [ngModel]="fname" #fnameCtrl="ngModel" pattern="[A-Za-z ]{2,30}" name="fname" required (ngModelChange)="addFirstName($event)">
+                                <div *ngIf="fnameValid">
+                                    <p class="color-danger">First name is required</p>
+                                </div>
+                                <div *ngIf="fnameCtrl.touched && fnameCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid name.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Last Name<sup>*</sup></label> -->
+                                <input type="text" placeholder="Enter Last Name" class="form-control" [ngModel]="lname" #lnameCtrl="ngModel" pattern="[A-Za-z ]{2,30}" name="lname" required (ngModelChange)="addLastName($event)">
+                                <div *ngIf="lnameValid">
+                                    <p class="color-danger">Last name is required</p>
+                                </div>
+                                <div *ngIf="lnameCtrl.touched && lnameCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid name.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Email<sup>*</sup></label> -->
+                                <input type="email" placeholder="Enter Email" class="form-control" [ngModel]="email" #emailCtrl="ngModel" name="email"  email="true"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,3}"
+                                required (ngModelChange)="addEmail($event)">
+                                <div *ngIf="emailvalid">
+                                    <p class="color-danger">Email is required</p>
+                                </div>
+                                <div *ngIf="emailCtrl.touched && emailCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid email.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <select name="" id="">
+                                    <option value="">+91</option>
+                                </select> -->
+                                <!-- <label>Phone<sup>*</sup></label>
+                                <input type="tel" placeholder="Enter Phone Number" class="form-control" [ngModel]="mobile" #phoneCtrl="ngModel" name="mobile" maxlength="10" pattern="[0-9]{10}" required (ngModelChange)="addph($event)"> -->
+                                <div class="phone_wrap">
+                                    <div class="contact_number">
+                                        <span data-toggle="modal" data-target="#countryModal">
+                                            <img src="{{countryImage}}"/>
+                                            <p>{{countryCode}}</p>
+                                        </span>
+                                        <input type="tel"  class="form-control input" id="number" [ngModel]="mobile" #phoneCtrl="ngModel" name="mobile" pattern="[0-9]{6,}" required (ngModelChange)="addph($event)">
+                                    </div>
+                                </div>
+                                
+                                <div *ngIf="phValid">
+                                    <p class="color-danger">Phone number is required</p>
+                                </div>
+                                <div *ngIf="phoneCtrl.touched && phoneCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid mobile number.</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row sign_row">
+
+                            
+                            <div class="col-6 col-md-6 mb-3 form_block">
+                                <!-- <label>City<sup>*</sup></label> -->
+                                <input type="text" placeholder="City" class="form-control" [ngModel]="city" #cityCtrl="ngModel" pattern="[A-Za-z ]{3,30}" name="city" required (ngModelChange)="addCity($event)">
+                                <div *ngIf="cityValid">
+                                    <p class="color-danger">City is required</p>
+                                </div>
+                                <div *ngIf="cityCtrl.touched && cityCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid mobile number.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-6 col-md-6 mb-4 form_block">
+                                <!-- <label>Country<sup>*</sup></label> -->
+                                <input type="text" placeholder="Country" class="form-control" [ngModel]="country" #cntryCtrl="ngModel" pattern="[A-Za-z ]{2,20}" name="country" required (ngModelChange)="addCountry($event)">
+                                <div *ngIf="countryValid">
+                                    <p class="color-danger">Country is required</p>
+                                </div>
+                                <div *ngIf="cntryCtrl.touched && cntryCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid country name.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-12 mb-4 form_block">
+                                <!-- <label>Age<sup>*</sup></label> -->
+                                <input type="text" placeholder="Age" class="form-control" type="tel" [ngModel]="age" #ageCtrl="ngModel" name="age" maxlength="2" pattern="[0-9]{2}" required (ngModelChange)="addAge($event)">
+                                <div *ngIf="ageValid">
+                                    <p class="color-danger">Age is required</p>
+                                </div>
+                                <div *ngIf="ageCheck">
+                                    <p class="color-danger">You must be 18 years or above to become an executive member.</p>
+                                </div>
+                                <div *ngIf="ageCtrl.touched && ageCtrl.errors?.['pattern']">
+                                    <p class="color-danger">Please enter valid age.</p>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row justify-content-center">
+                            <div class="col-12 col-sm-6 col-md-4 text-center">
+                                <p>So, what are you waiting for?<br/>Sign up now by visiting</p>
+                                <button type="submit" class="become-instructor-btn">Sign Up</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Country code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #countryModalClose>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="search_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" [(ngModel)]="searchinput" (keyup)="search($event)">
+            </div>
+            <ul class="flag_list">
+                <li *ngFor="let country of countryData" (click)="chooseCountry(country.phonecode, country.image)"><img src="{{country.image}}">{{country.name}} <span>+{{country.phonecode}}</span></li>
+                
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+  
+

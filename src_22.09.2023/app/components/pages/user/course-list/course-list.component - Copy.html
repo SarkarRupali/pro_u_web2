@@ -1,0 +1,202 @@
+<section class="pro-mba pro-tech course-sec pro-internship">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <h2>All Internships</h2>
+
+          </div>
+          <p>Transform your career with industry experts</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+
+        <div class="col-12 col-lg-8 mb-4 mb-lg-0">
+          <owl-carousel-o class="course-slider" [options]="customOptions">
+            <ng-container *ngFor="let allcategory of allCategoryList" >
+              <ng-template carouselSlide [id]="allcategory.id" [width]="allcategory.width">
+                <div class="item">
+
+                    <a (click)="gotoDetailsPage(allcategory.id, allcategory.is_prime)">
+                      <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="prime" *ngIf="allcategory.is_prime==1">
+                          <img src="./assets/img/crown.png" alt="">
+                          <span>Prime</span>
+                        </div>
+                        <div class="free" *ngIf="allcategory.is_prime==0">
+                          <span>Free</span>
+                        </div>
+                        <div class="card-img">
+                          <img src="{{allcategory.image}}" alt="">
+                        </div>
+                        <h4>{{allcategory.name}}</h4>
+                      </div>
+                    </a>
+
+                </div>
+              </ng-template>
+            </ng-container>
+          </owl-carousel-o>
+        </div>
+        <div class="col-12 col-lg-4" *ngIf="userDetails.is_prime == '0'">
+          <div class="pro-internship-content" data-aos="fade-up" data-aos-duration="2000">
+            <div class="pro-internship-heading">
+              <h2>Intern Abroad</h2>
+
+
+            </div>
+            <div class="prime">
+              <img src="./assets/img/crown.png" alt="">
+              <span>prime</span>
+            </div>
+            <p>Ready to showcase your new skills? Intern with companies in US, UK, Spain and Singapore</p>
+            <a href="/user/pricing" class="apply-btn">Avail now</a>
+            <div class="pro-intermship-img">
+              <img src="./assets/img/pro-internship.png" alt="">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </section>
+
+
+
+  <section class="pro-mba" [ngClass]="i%2!=0?'pro-tech':''" *ngFor="let categories of coursesWithCategories; let i=index">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <h2>{{categories.name}}</h2>
+            <!-- <a href="courses.html" class="view-all">view all</a> -->
+          </div>
+          <p>Transform your career with industry experts</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+            <owl-carousel-o class="pro-slider" [options]="customOptions2">
+                <ng-container *ngFor="let course of categories.courses" >
+                    <ng-template carouselSlide [id]="course.id" [width]="course.width">
+                        <div class="corseTopslide item">
+                            <a (click)="gotoDetailsPage(course.id, course.is_prime)">
+                            <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="prime" *ngIf="course.is_prime==1">
+                                <img src="./assets/img/crown.png" alt="">
+                                <span>PRIME</span>
+                                </div>
+                                <div class="free" *ngIf="course.is_prime==0">
+                                  <span>Free</span>
+                                </div>
+                                <h4>{{course.name}}</h4>
+                                <div class="card-img">
+                                <img src="{{baseImage+course.image}}" alt="">
+                                </div>
+                            </div>
+                            </a>
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+            </owl-carousel-o>
+
+
+            <!-- <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>General Management</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div> -->
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="pro-mba pro-tech">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top">
+          <div class="pro-mba-heading">
+            <h2>Pro Technology</h2>
+
+          </div>
+          <p>Transform your career with industry experts</p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <div class="col-12">
+          <div class="owl-carousel owl-theme pro-slider">
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>UI Design</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>Python Programming</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <div class="item">
+
+              <a href="">
+                <div class="pro-content" data-aos="fade-up" data-aos-duration="1000">
+                  <div class="prime">
+                    <img src="img/crown.png" alt="">
+                    <span>PRIME</span>
+                  </div>
+                  <h4>Python Programming</h4>
+                  <div class="card-img">
+                    <img src="img/pro-img1.png" alt="">
+                  </div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->

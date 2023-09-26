@@ -1,0 +1,330 @@
+<div class="subscription_box">
+    
+        <!-- <button routerLink="/home" class="closePrime" (click)="closePrice()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+        </button> -->
+
+
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-8">
+                    <owl-carousel-o class="pro-slider" [options]="customOptions2">
+                        <ng-container *ngFor="let package of packageList; let i=index">
+                          <ng-template carouselSlide>
+                                <div class="corseTopslide item">
+                                    <div class="pricing_card">
+                                        <div class="pricing_head">
+                                            <div class="recommended_tag">{{package.package_tag}}</div>
+                                            <figure>
+                                                <img src="../../assets/silver_package.png">
+                                            </figure>
+                                            <figcaption>
+                                                <h4>{{package.name}}</h4>
+                                                <div class="head_info">
+                                                    <div class="package_service">
+                                                        <span>{{package.on_of_service}}</span> service
+                                                    </div>
+                                                    <div class="package_price">
+                                                        <span *ngIf="package.offer_price==0">{{package.price}}</span>
+                                                        <span *ngIf="package.offer_price!==0">{{package.offer_price}}</span>
+                                                    </div>
+                                                </div>
+                                            </figcaption>
+                                        </div>
+                                        <ul [innerHTML]="package.description">
+                                            <!-- <li>All of Application Pack</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                            <li>Top 50 Ranked college preparation</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                            <li>Top 50 Ranked college preparation</li> -->
+                                        </ul>
+                                        <button type="button" class="pricing_btn" [ngClass]="{'active':i==selctedPrice}" (click)="priceChange(i)">Inclusions</button>
+                                    </div>    
+                                </div>
+                            </ng-template>
+                            <!-- <ng-template>
+                                <div class="corseTopslide item">
+                                    <div class="pricing_card">
+                                        <div class="pricing_head gold">
+                                            <div class="recommended_tag gold">Recommended</div>
+                                            <figure>
+                                                <img src="../../assets/gold_package.png">
+                                            </figure>
+                                            <figcaption>
+                                                <h4>Gold Package</h4>
+                                                <div class="head_info">
+                                                    <div class="package_service">
+                                                        <span>4</span> service
+                                                    </div>
+                                                    <div class="package_price">NGN 200k</div>
+                                                </div>
+                                            </figcaption>
+                                        </div>
+                                        <ul>
+                                            <li>All of Application Pack</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                            <li>Top 50 Ranked college preparation</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                        </ul>
+                                        <button type="button" class="pricing_btn">Inclusions</button>
+                                    </div>
+                                </div>
+                            </ng-template> -->
+                        </ng-container>
+                        <!-- <ng-container>
+                            <ng-template>
+                                <div class="corseTopslide item">
+                                    <div class="pricing_card">
+                                        <div class="pricing_head gold">
+                                            <div class="recommended_tag gold">Recommended</div>
+                                            <figure>
+                                                <img src="../../assets/gold_package.png">
+                                            </figure>
+                                            <figcaption>
+                                                <h4>Gold Package</h4>
+                                                <div class="head_info">
+                                                    <div class="package_service">
+                                                        <span>4</span> service
+                                                    </div>
+                                                    <div class="package_price">NGN 200k</div>
+                                                </div>
+                                            </figcaption>
+                                        </div>
+                                        <ul>
+                                            <li>All of Application Pack</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                            <li>Top 50 Ranked college preparation</li>
+                                            <li>Dedicated 4 hours with Internation coach</li>
+                                        </ul>
+                                        <button type="button" class="pricing_btn">Inclusions</button>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-container> -->
+                    </owl-carousel-o>
+
+                    <!-- <div class="package_addon">
+                        <h4>Package Addons</h4>
+                
+                        <ul class="addon_list">
+                            <li>
+                                <label class="addon_label">
+                                    <input type="checkbox" name="addon">
+                                    <span>
+                                        Earn certificates
+                                    </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="addon_label">
+                                    <input type="checkbox" name="addon">
+                                    <span>
+                                        Weekly Workshops
+                                    </span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="addon_label">
+                                    <input type="checkbox" name="addon">
+                                    <span>
+                                        1000+ Courses
+                                    </span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+                <div class="col-sm-4">
+                    <div class="coupon_wrap">
+                        <h4>Enter a coupon</h4>
+                
+                        <form>
+                            <div class="coupon_block">
+                                <input type="text" [ngModel]="couponText" name="couponText" (ngModelChange)="inputChange($event)">
+                                <button type="button" (click)="applyBtn()">Apply</button>
+                            </div>
+                        </form>
+                    </div>
+                
+                    <div class="pricing_wrap">
+                        <h4>Price Details</h4>
+                
+                        <ul class="pricing_list">
+                            <li>Prime Package <span>₹{{price}}</span></li>
+                            <li *ngIf="offerprice!==0">Offer Price <span>₹{{offerprice}}</span></li>
+                            <!-- <li>Earn certificates <span>₹504</span></li> -->
+                            <li>Discount <span>-₹{{discountPrice}}</span></li>
+                            <li>Total <span>₹{{totalPrice}}</span></li>
+                        </ul>
+                    </div>
+                
+                    <div class="pricing_wrap">
+                        <h4>Pay with</h4>
+                
+                        <ul class="payment_list">
+                            <li>
+                                <label>
+                                    <media>
+                                        <img src="../../../../../assets/budpay.png">
+                                    </media>
+                                    Pay using Budpay
+                                    <input type="radio" name="payment" value="1"  (click)="payment('1')"><i></i>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <media>
+                                        <img src="../../../../../assets/razorpay.png">
+                                    </media>
+                                    Pay using Razorpay
+                                    <input type="radio" name="payment" value="2"  (click)="payment('2')"><i></i>
+                                </label>
+                            </li>
+                        </ul>
+                        <button type="button" class="payment_btn" (click)="paymentData()">Confirm and pay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       <!--<div class="pricing_slide">
+         <ion-slides class="pricing_slide_wrap" pager="true" [options]="slideOpts">
+                <ion-slide>
+                    <div class="pricing_slide_item">
+                        <div class="pricing_slide_item_text">
+                            <h2>Stand out with Pro degrees and Pro Internships</h2>
+                        </div>
+                        <div class="pricing_slide_item_img">
+                            <img src="../../assets/icon/pricingImg.png" />
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="pricing_slide_item">
+                        <div class="pricing_slide_item_text">
+                            <h2>Access 50+ Pro Skills to unlock the best job for you</h2>
+                        </div>
+                        <div class="pricing_slide_item_img">
+                            <img src="../../assets/icon/pricingImg2.png" />
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="pricing_slide_item">
+                        <div class="pricing_slide_item_text">
+                            <h2>Get mentored by industury experts and learn from the best</h2>
+                        </div>
+                        <div class="pricing_slide_item_img">
+                            <img src="../../assets/icon/pricingImg3.png" />
+                        </div>
+                    </div>
+                </ion-slide>
+                <ion-slide>
+                    <div class="pricing_slide_item">
+                        <div class="pricing_slide_item_text">
+                            <h2>Apply for study abroad scholarships at top Universities</h2>
+                        </div>
+                        <div class="pricing_slide_item_img">
+                            <img src="../../assets/icon/pricingImg4.png" />
+                        </div>
+                    </div>
+                </ion-slide>
+            </ion-slides> 
+            
+        </div>-->
+
+
+    
+        <!--<div class="subscription_list">
+            <ul>
+                <li  *ngFor="let package of packageList">
+                    <div class="monthlyPricing">
+                        <div class="validity">Validity : <span>{{package.validity_in_days}}</span></div>
+                        <div class="offerTag">Best Deal 75% off</div>
+                        <!-- <div class="monthnumber">{{package.name}}</div> -->
+
+                        <!-- <div class="currency">
+                            <h5>Choose your currency</h5>
+                            <select class="" (change)="selectCountry($event)">
+                                <option value="usd">🇺🇸 USD</option>
+                                <option value="ind">🇮🇳 IND</option>
+                                <option value="naira">🇳🇬 NAIRA</option>
+                            </select>
+                        </div> -->
+
+                        <!-- <div class="eurPrice" *ngIf="package.offer_price!==0">
+                            <div class="price_block">
+                                <del>INR {{package.price}}</del><br/>
+                                <span *ngIf="showCountry=='ind'"><img src="../../../../../assets/img/Flag_of_India.svg.png"><sub>INR</sub> {{package.offer_price|currency:'INR': 'symbol':'4.0-0'}}</span>
+                                <span *ngIf="showCountry=='usd'"><img src="../../../../../assets/img/20151118161037!Flag_of_the_United_States.svg"><sub>USD</sub> 55</span>
+                                <span *ngIf="showCountry=='naira'"><img src="../../../../../assets/img/Flag_of_Nigeria.svg.png"><sub>NGN</sub> 25,000</span>
+                            </div>
+                        </div>
+                        <ng-template>
+                            <div class="eurPrice">₹ {{package.offer_price}}</div>
+                        </ng-template> -->
+
+                        <!--
+                        <div class="eurPrice">
+                            <div class="price_block">
+                                <span><img src="../../../../../assets/img/Flag_of_India.svg.png"><sub>INR</sub> {{package.offer_price|currency:'INR': 'symbol':'4.0-0'}}</span>
+                                <div class="border"></div>
+                                <span><img src="../../../../../assets/img/20151118161037!Flag_of_the_United_States.svg"><sub>USD</sub> $55</span>
+                                <div class="border"></div>
+                                <span><img src="../../../../../assets/img/Flag_of_Nigeria.svg.png"><sub>NGN</sub> ₦25,000</span>
+                            </div>
+                        </div>
+
+
+                        
+                        
+                        
+
+                        <!-- <a class="subscribe_btn" href="https://pages.razorpay.com/ProUPrime">Subscrime to Prime</a> -->
+                        <!-- <a class="subscribe_btn" (click)="goToPricingPage(package.id)">Subscrime to Prime</a> -->
+                        <!-- <a class="pay_btn budpay">Apply coupon</a> -->
+                        <!--<a (click)="goToPrice()" class="pay_btn budpay"><img src="../../../../../assets/img/budpay.png"> Pay using Budpay (Africa)</a>
+                        <!-- <a href="https://pages.razorpay.com/ProUPrime" class="pay_btn razorpay"><img src="../../../../../assets/img/razorpay.png"> Pay using Razorpay (Rest of World)</a> -->
+                        <!--<a (click)="createRzpayOrder(package)"  class="pay_btn razorpay"><img src="../../../../../assets/img/razorpay.png"> Pay using Razorpay (Rest of World)</a>
+                        <h4>What's included</h4>
+                        <div class="monthtext" [innerHTML]="package.description"></div>
+                    </div>
+                </li>
+                <!-- <li routerLink="/payinvoice"> -->
+                <!-- <li (click)="purchase('','3',9000)">
+                    <div class="monthlyPricing threeMonthlyPricing">
+                        <div class="monthlySave">Save 25%</div>
+                        <div class="monthnumber">3</div>
+                        <div class="monthtext">Months</div>
+                        <div class="eurPrice">EUR € 105</div>
+                        <div class="eurPrice">INR ₹ 9,000</div>
+                        <div class="eurPrice">NGN ₦ 47,000</div>
+                    </div>
+                </li>
+                <li (click)="purchase('','12',22500)">
+                    <div class="monthlyPricing twelveMonthlyPricing">
+                        <div class="monthlySave">Save 50%</div>
+                        <div class="monthnumber">12</div>
+                        <div class="monthtext">Months</div>
+                        <div class="eurPrice">EUR € 270</div>
+                        <div class="eurPrice">INR ₹ 22,500</div>
+                        <div class="eurPrice">NGN ₦ 120,000</div>
+                    </div>
+                </li> -->
+            <!--</ul>
+        </div>
+        <div class="subscription_disclaimer">
+            <p>By creating an account, you agree to our<br/><a routerLink="/user/help_feedback/terms & conditions">Terms of Service</a> and <a routerLink="/user/help_feedback/privacy policy">Privacy Policy</a></p>
+            <!-- <p>Checkout page to follow. You can pay by Card, Google Pay, Paypal or Direct Bank Transfer.</p>
+            <p>Subscriptions will automatically renew unless either auto renew is turned off or the payment method does not support it.</p> -->
+        <!--</div>
+    
+        <!-- <div class="subscription_footer">
+            <ul>
+                <li><span>Contact us</span></li>
+                <li><span>FAQs</span></li>
+                <li><span>Terms and Conditions</span></li>
+            </ul>
+        </div> -->
+  
+</div>

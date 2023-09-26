@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row">
+        <ng-container *ngFor="let list of countryList; let i=index">
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="course_card" (click)="goToCountryDetialsPage(list.id)">
+                  <img src="{{list.image}}" class="uni_bg">
+                  <div class="course_content">
+                    <div class="course_title">
+                      <h4>{{list.name}}</h4>
+                      <p>{{list.no_of_partner_universities}} Universities</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </ng-container>   
+    </div>
+</div>
+
+
+
+

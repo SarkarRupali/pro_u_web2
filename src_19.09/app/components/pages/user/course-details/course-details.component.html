@@ -1,0 +1,503 @@
+<section class="course-details-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000">
+                <h2>
+                    <a (click)="goToBack()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg> 
+                        Course Details
+                    </a>
+                </h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="2000">
+                <div class="course-details-header-content">
+                    <div class="content-image">
+                        <img src="./assets/img/data-science.jpg" alt="">
+                    </div>
+                    <div class="content-wrap">
+                        <div class="course-details-header-info">
+                            <h4>{{course_details.name}}</h4>
+                            <span>{{course_details.completion_percentage}}% complete</span>
+                            <div class="progress">
+                                <div class="progress-inner" [ngStyle]="{'width':course_details.completion_percentage+'%'}"></div>
+                            </div>
+                            <div class="d-sm-block description" [innerHtml]="course_details.description"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bio_card" data-aos="fade-up" data-aos-duration="2000">
+                <div class="bio_card_img">
+                    <img src="{{imagePath+course_details.author_image}}" alt="" class="img-fluid">
+                </div>
+                <div class="bio_card_text">
+                    <h2>{{course_details.author_name}}</h2>
+                    <div class="bio_card_content">
+                        <div class="d-sm-block" [innerHtml]="course_details.author_about"></div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<!-- 
+<section class="learning-reminder">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1000" data-delay="400">
+                <div class="learning-reminder-content">
+                    <div class="icon">
+                        <img src="./assets/img/calendar.svg" alt="">
+                    </div>
+                    <div class="reminder-info">
+                        <h5>Set a learning Reminder</h5>
+                        <span>It will help you acheive your daily goals</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+
+
+<!-- <section class="certification-benefits">
+    <div class="container">
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1000" data-delay="500">
+                <div class="certification-benefits-content">
+                    <div class="owl-carousel owl-theme benefits-slider">
+                        <div class="item">
+                            <div class="icon">
+                                <img src="img/benefits-icon.png" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Benefits of certification</h5>
+                                <span>Adds value and credibility to your portfolio</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <img src="img/benefits-icon.png" alt="">
+                            </div>
+                            <div class="info">
+                                <h5>Benefits of certification</h5>
+                                <span>Adds value and credibility to your portfolio</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
+<div class="container">
+    <ul class="course_tab">
+        <li [ngClass]="{'active': page=='tutor'}" (click)="changePage('tutor')">Tutor</li>
+        <li [ngClass]="{'active': page=='topics'}" (click)="changePage('topics')">Topics</li>
+        <li [ngClass]="{'active': page=='forum'}" (click)="changePage('forum')">Forum</li>
+    </ul>
+</div>
+<section class="tutor" *ngIf="page=='tutor'">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                <h2>Tutor</h2>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="tutor-content" data-aos="fade-up" data-aos-duration="1500" data-delay="1000">
+                    <div class="tutor_card">
+                        <div class="tutor_image">
+                            <img src="./assets/img/Ellipse_113.png">
+                        </div>
+                        <div class="tutor_content">
+                            <h4>Navina Reddy</h4>
+                            <p>Full Stack (Java Script, J Query, Node JS) and Python Programming</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="topics" *ngIf="page=='topics'">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                <h2>Topics</h2>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="2000" data-delay="1100">
+                <div class="topic-content">
+                    <div class="topic-content-header">
+                        <div class="right">
+                            <div class="info">
+                                <h5>{{course_details.name}}</h5>
+                                <!-- <span>{{alltopics.length}} Topics</span> -->
+                            </div>
+                        </div>
+                        <div class="left">
+                            <div class="free" *ngIf="course_details.is_prime==0">
+                                <span>Free</span>
+                            </div>
+                            <div class="prime" *ngIf="course_details.is_prime==1">
+                                <span>Prime</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="course_count">
+                        <span>{{alltopics.length}} Topics</span>
+                        <span>Total - 6 Slides</span>
+                    </div>
+
+                    <div class="topic-content-info">
+                        <ul class="list-unstyled p-0 m-0">
+                            <li [ngClass]="topics.assignment!='' && topics.isOpen == 1?'assignment':''" *ngFor="let topics of alltopics; let i = index">
+                                <div class="topic-content-info-left">
+                                    <span class="count" [ngClass]="topics.is_completed==1?'done':''">{{i+1}}</span>
+                                    <div class="topic-content-info-left-question">
+                                        <h5><a (click)="goToTopicSlide(i)" [innerHtml]="topics.topic"></a></h5>
+                                        <small>{{topics.slides.length}} slides</small>
+                                    </div>
+                                </div>
+                                <div class="topic-content-info-right">
+                                    <span class="complete"  *ngIf="topics.is_completed==1">
+                                        Complete
+                                    </span>
+                                    <span class="complete start" (click)="goToTopicSlide(i)" *ngIf="topics.isOpen==1 && topics.is_completed==0 && topics.assignment==''">Start</span>
+                                    <a class="complete download_btn" *ngIf="topics.assignment!='' && topics.isOpen == 1" [href]="topics.assignment_file" target="_blank">Download </a>
+                                    <span class="complete upload_btn" *ngIf="topics.assignment!='' && topics.isOpen == 1" (click)="goToAssignments(topics.topic,topics.course_id,topics.id)">
+                                        Upload 
+                                    </span>
+
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="forum" *ngIf="page=='forum'">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1000" data-delay="600">
+                <h2>Forum</h2>
+            </div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-12">
+                <div class="forum-content" data-aos="fade-up" data-aos-duration="1500" data-delay="1000">
+                    <!-- <div class="forum-content-form"> -->
+                        <form [formGroup]="forumForm" class="forum-content-form" (ngSubmit)="addForum()">
+                            <button type="submit"><img src="./assets/img/search.png" alt=""></button>
+                            <input type="text" formControlName="forumContent" placeholder="Ask your query" [ngClass]="{ 'is-invalid': submitted && f['forumContent'].errors }">
+                            <div *ngIf="submitted && f['forumContent'].errors" class="invalid-feedback">  
+                                <span class="danger" *ngIf="f['forumContent'].errors['required']">Enter your query</span>  
+                                <span class="danger" *ngIf="f['forumContent'].errors['cannotContainSpace']">Please enter valid query.</span>  
+                            </div>
+                        </form>
+                    <!-- </div> -->
+
+
+                    <div class="forum-discussion-area">
+                        <div class="discussion-area-heading">
+                            <h4>Discussion <span>({{forums.length}})</span></h4>
+                            <p>Converse with your instructor & resolve your queries</p>
+                        </div>
+                        <div class="discussion-wrap"  *ngFor="let forum of forums">
+                            <div class="discussion-area-content">
+                                <div class="img">
+                                    <img src="https://ui-avatars.com/api/?name={{forum.created_by_name}}" alt="" class="img-fluid">
+                                </div>
+                                <div class="info">
+                                    <h6>{{forum.topic}}</h6>
+                                    <div class="lower">
+                                        <a href="javascript:void(0);" class="name-date">{{forum.created_by_name}}</a>
+                                        <span>{{forum.daysAgo}}</span>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                            <div class="forum-answer-area">
+                                <div class="answer-area-heading">
+                                    <h5><span>Answer</span></h5>
+                                </div>
+                                <div class="answer-area-content">
+                                    <div class="answer-list" *ngFor="let ans of forum.anwsers">
+                                        <div class="img-details">
+                                            <img src="https://ui-avatars.com/api/?name={{ans.given_by_name}}" alt="">
+                                            <div class="forum_ryp">
+                                                <a href="javascript:void(0)" class="name-date">{{ans.given_by_name}}</a>
+                                                <span>{{ans.daysAgo}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="answer-content">    
+                                            <div class="answer-content-para">
+                                                <p>{{ans.answer}}</p>
+                                            </div>
+                                            <div class="answer-edit-del">
+                                                <button class="edit" data-toggle="modal" data-target="#editAnswerModal" (click)="editAnswer(ans.id,ans.answer)"  *ngIf="userId==ans.given_by">Edit</button>
+                                                <button class="del" (click)="deleteTopic(ans.id)" *ngIf="userId==ans.given_by">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editAnswerModal" tabindex="-1" aria-labelledby="editAnswerModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input class="form-control" [(ngModel)]="answer" type="text" placeholder="enter">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="saveEditReply()" id="closebutton" area>Save & Close</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="submit-answer-area">
+                                <!-- <form action=""> -->
+                                    <input type="text" placeholder="Submit your answer" [(ngModel)]="topicAnswer">
+                                    <button type="submit" (click)="submitAns(forum.id)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 2L11 13" stroke="#0A8485" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="#0A8485" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                        </button>
+                                <!-- </form> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pro-mba pro-tech testimonials course-details-testimonials" *ngIf="testimonials.length>0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pro-top" data-aos="fade-up" data-aos-duration="1000" data-delay="400">
+                <div class="pro-mba-heading">
+                    <div class="heading-icon">
+                        <img src="./assets/img/certificate_icon.png" alt="">
+                    </div>
+                    <h2>Completion Certificate</h2>
+                    <a href="javascript:void(0);" class="view-all">See all</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 pr-0 pr-sm-3">
+                <owl-carousel-o class="certification-slider" [options]="customOptions3">
+                    <ng-container *ngFor="let certificate of certificates">
+                        <ng-template carouselSlide>
+                            <div class="item">
+                                <div class="content">
+                                    <img src="{{certificate.certificate}}" alt="">
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="pro-mba pro-tech testimonials course-details-testimonials" *ngIf="testimonials.length>0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pro-top" data-aos="fade-up" data-aos-duration="1000" data-delay="400">
+                <div class="pro-mba-heading">
+                    <div class="heading-icon">
+                        <img src="./assets/img/tesimonials-icon.png" alt="">
+                    </div>
+                    <h2>Testimonials</h2>
+                    <a href="javascript:void(0);" class="view-all">See all</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 pr-0 pr-sm-3">
+                <owl-carousel-o class="testi-slider" [options]="customOptions2">
+                    <ng-container *ngFor="let testim of testimonials">
+                        <ng-template carouselSlide>
+
+                            <div class="testimonials-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+                                <div class="testi-flex">
+                                    <div class="info-block">
+                                        <div class="testi-img">
+                                            <img src="{{testim.image}}" alt="">
+                                        </div>
+                                        <div class="testi-name">
+                                            <span class="name">{{testim.name}}</span>
+                                            <span class="stream">{{testim.subject}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="testi-info">
+                                        <!-- <div class="list-unstyled">
+                                            <span *ngFor="let j of testim.rating"><i class="fas fa-star" ></i></span>
+                                        </div> -->
+                                        <p>{{testim.review}}</p>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- 
+<section class="pro-mba pro-tech testimonials course-details-testimonials course-details-certification">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center pro-top" data-aos="fade-up" data-aos-duration="1000" data-delay="400">
+                <div class="pro-mba-heading">
+                    <h2>Certificate</h2>
+                </div>
+                <p>Your certificate is waiting for you</p>
+            </div>
+        </div>
+
+        <div class="row mt-2 mt-md-3">
+            <div class="col-12 m-auto text-center" data-aos="fade-up" data-aos-duration="1500" data-delay="400">
+                <img src="./assets/img/certification.png" alt="" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section> -->
+
+
+<section class="pro-mba pro-tech" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 pro-top">
+                <div class="pro-mba-heading">
+                    <div class="heading-icon">
+                        <img src="./assets/img/Group_88.png" alt="">
+                    </div>
+                    <h2>Recommended Courses</h2>
+                        <!-- <p>Gain Skill and boost your career</p> -->
+                    <a routerLink="/user/recomended_course" class="view-all">See all</a>    
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 pr-0 pr-sm-2">
+                <owl-carousel-o class="testi-slider" [options]="customOptions">
+                    <ng-container *ngFor="let relateCourse of relatedCourse">
+                        <ng-template carouselSlide>
+                            <div class="item">
+
+                                <a (click)="goToCourseDetialsPage(relateCourse.id)">
+                                    <!-- <div class="pro-content recommended" >
+                                        <div class="prime" *ngIf="relateCourse.is_prime==1">
+                                            <img src="./assets/img/crown.png" alt="">
+                                            <span>PRIME</span>
+                                        </div>
+
+                                        <div class="free" *ngIf="relateCourse.is_prime==0">
+                                            <span>FREE</span>
+                                        </div>
+
+                                        <div class="card-img">
+                                            <img src="{{relateCourse.image}}" alt="">
+                                        </div>
+                                        <h4>{{relateCourse.name}}</h4>
+                                    </div> -->
+
+                                    <div class="pro-content recommended">
+                                        <div class="card-img">
+                                          <img src="./assets/img/data-science.jpg" alt="">
+                                        </div>
+                                        <div class="card-content">
+                                          <div class="course_title">
+                                            <h4>{{relateCourse.name}}</h4>
+                                            <div class="subscription_badge prime" *ngIf="relateCourse.is_prime==1">
+                                              Prime
+                                            </div>
+                                            <div class="subscription_badge free" *ngIf="relateCourse.is_prime==0">
+                                              Free
+                                            </div>
+                                          </div>
+                                          <ul class="course-duration">
+                                            <li>Postgraduate</li>
+                                            <li>Full Time</li>
+                                          </ul>
+                                          <div class="course_info">
+                                            <p>University of Liverpool, Liverpool, United...</p>
+                                          </div>
+                                        </div>
+                                        
+                                      </div>
+                                </a>
+
+                            </div>
+                        </ng-template>
+
+                    </ng-container>
+                </owl-carousel-o>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="about-pro-university">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 top-heading" data-aos="fade-up" data-aos-duration="1500" data-delay="400">
+                <h2>About <span>PROU-Education</span></h2>
+                <p>ProU Education's mission is to enable a smooth transition from education to professional life through global remote internships, tailored industry developed training curriculums and study abroad opportunities. ProU's team is made up of international counsellors and industry experts, who hand-built the programs to help adapt the next generation to fast-changing changing environments. In 2022, ProU aided over 2000+ students to become Pros by landing their dream careers and university, securing over $1 million in scholarships.</p>
+            </div>
+        </div>
+    </div>
+</div>
+

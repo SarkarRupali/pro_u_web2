@@ -1,0 +1,90 @@
+<section class="pro-mba pro-tech course-sec pro-internship">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 pro-top px-0 px-sm-3">
+          <ul class="course_category">
+            <li [ngClass]="{'active': type == exam?.subject?.id}"  *ngFor="let exam of allExams;let i=index" (click)="segmentChanged(exam?.subject?.id,i)">{{exam?.subject?.name}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+        <div class="text_meta">
+            <p class="text-right"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_3036_1759)">
+            <path d="M10 18.3334C14.6024 18.3334 18.3333 14.6024 18.3333 10C18.3333 5.39765 14.6024 1.66669 10 1.66669C5.39763 1.66669 1.66667 5.39765 1.66667 10C1.66667 14.6024 5.39763 18.3334 10 18.3334Z" stroke="#E4AC17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 5V10L13.3333 11.6667" stroke="#E4AC17" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_3036_1759">
+            <rect width="20" height="20" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+            <span>{{formatTime(countdown)}}</span>  </p>
+        </div>
+    </div>
+    
+</section>
+
+<section class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 m-auto text-center" data-aos="fade-up" data-aos-duration="2000">
+            <div class="question-content">
+                <ng-container *ngFor="let ques of quizlist; let i=index" >
+                    <div class="item" [ngClass]="{'active':i==indexnumber}">
+                        <div class="question-content-inner">
+                            <!-- <div class="question-info">
+                                <h4 [innerHTML]="ques.question"></h4> 
+                                <p>{{i+1}} of {{quizlist.length}}</p>
+                            </div> -->
+                            <!-- <app-math-render [mathExpression]="data"></app-math-render> <hr>-->
+                                                   
+                            <!-- <mathjax [content]="mathContent"></mathjax> -->
+                            <mathjax [content]="ques.question"></mathjax>
+                            
+                            
+                            <div class="answer-content">
+                                <!-- <span>Select the correct answer</span> -->
+                                <div [ngClass]="addClass==true? 'answer-list-quiz disable_list':'answer-list-quiz'">
+                                    <div [ngClass]="{'is-correct': (selectedval == 'a' && quiz)}">
+                                        <input type="radio" id="option1" class="option" name="option"  value="a" (change)="optionsSelect(ques.id,ques.subject_id,$event,i)" >
+                                        <label for="option1" [innerHTML]="ques.option_a"></label>
+                                    </div>
+                                    <div [ngClass]="{'is-correct': (selectedval == 'b' && quiz)}">
+                                        <input type="radio" id="option2" class="option" name="option" value="b" (change)="optionsSelect(ques.id,ques.subject_id,$event,i)">
+                                        <label for="option2" [innerHTML]="ques.option_b"></label>
+                                    </div>
+                                    <div [ngClass]="{'is-correct': (selectedval == 'c'  && quiz)}" *ngIf="ques.option_c!=''">
+                                    <input type="radio" id="option3" class="option" name="option" value="c" (change)="optionsSelect(ques.id,ques.subject_id,$event,i)">
+                                    <label for="option3" [innerHTML]="ques.option_c"></label>
+                                    </div>
+                                    <div  [ngClass]="{'is-correct': (selectedval == 'd' && quiz)}" *ngIf="ques.option_d!=''">
+                                        <input type="radio" id="option4" class="option" name="option" value="d" (change)="optionsSelect(ques.id,ques.subject_id,$event,i)">
+                                        <label for="option4" [innerHTML]="ques.option_d"></label>
+                                    </div> 
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="quesitonslide-note" *ngIf="afterSelect">
+                                <h5>Explanation of the correct answer :</h5>
+                                <mathjax [content]="ques.explaination"  *ngIf="ques.explaination!=''"></mathjax>
+
+                                <p>The correct answer is <strong>{{ques.right_option}}</strong></p>
+                                
+                            </div> -->
+
+                            <div class="button_area">
+                                <a class="btn btn-prev" (click)="prev(i)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-left"><polyline points="15 18 9 12 15 6"></polyline></svg> Back</a>
+                                <a class="btn btn-submit btn-success" (click)="submitAns()">Submit</a>
+                                <a class="btn btn-next" (click)="next(i)">Next <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg></a>
+                            </div> 
+                        </div>
+                    </div> 
+                   
+                    
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</section>

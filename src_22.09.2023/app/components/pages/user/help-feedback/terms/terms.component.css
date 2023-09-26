@@ -1,0 +1,28 @@
+.faq-section {
+  padding: 15px 0;
+}
+.faq-section h2 {
+  font-size: 20px;
+}
+.faq-section p {
+  margin-bottom: 20px;
+  font-size: 12px;
+  color: #6E6E6E;
+  font-weight: normal;
+  line-height: 1.6;
+}
+.faq-section ul {
+  margin-bottom: 20px;
+}
+.faq-section ul li {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+.custom_content ul {
+  margin: 0 0 15px;
+  list-style: disc;
+  padding-left: 20px;
+}

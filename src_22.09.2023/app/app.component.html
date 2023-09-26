@@ -1,0 +1,17 @@
+
+<ngx-ui-loader class="loaderBox" loaderId="loader"></ngx-ui-loader>
+<ng-container *ngIf="webBlock; else userBlock"> 
+  <app-header></app-header>
+    <router-outlet></router-outlet>
+  <!-- <app-footer></app-footer> -->
+</ng-container>
+
+ 
+
+<ng-template #userBlock>
+    <app-sidebar></app-sidebar>
+    <div class="dashboard-right">
+      <app-dashboard-header [title]="title"></app-dashboard-header>   
+      <router-outlet (activate)="setHeader()"></router-outlet>
+  </div>
+</ng-template>

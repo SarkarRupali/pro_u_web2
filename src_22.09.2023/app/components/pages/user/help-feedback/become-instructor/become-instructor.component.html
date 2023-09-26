@@ -1,0 +1,201 @@
+ <section class="become-instructor-sec">
+    <div class="container">
+        <!-- <div class="row">
+            <div class="col-12 pro-top d-none d-sm-block" data-aos="fade-up" data-aos-duration="1000">
+                <div class="pro-mba-heading">
+                    <h2>Become an instructor</h2>
+                    <span>All fields are mandetory to fill</span>
+                </div>
+
+            </div>
+        </div> -->
+
+        <div class="row mt-0 mt-sm-3">
+            <div class="col-12" data-aos="fade-up" data-aos-duration="1600">
+                <div class="become-instructor-form">
+                    <form #f="ngForm" (ngSubmit)="submitInstructor(f)" novalidate>
+                        <div class="row">
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Name <sup>*</sup></label> -->
+                                <input type="text" placeholder="Enter Name" class="form-control" [ngModel]="name" #nameCtrl="ngModel" name="name" required (ngModelChange)="addName($event)" pattern="[a-zA-Z ]{3,40}">
+                                <div *ngIf="nameValid">
+                                    <p class="alert alert-danger">Name is required</p>
+                                </div>
+                                <div *ngIf="nameCtrl.touched && nameCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid name.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Email <sup>*</sup></label> -->
+                                <input type="email" placeholder="Enter Email" class="form-control" [ngModel]="email" type="email" #emailCtrl="ngModel" name="email"  email="true"
+                                pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,3}"
+                                required (ngModelChange)="addEmail($event)">
+                                <div *ngIf="emailvalid">
+                                    <p class="alert alert-danger">Email is required</p>
+                                </div>
+                                <div *ngIf="emailCtrl.touched && emailCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid email id.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3 form_block">         <!-- phone-flex" -->
+                                <!-- <select name="" id="">
+                                    <option value="">+91</option>
+                                </select> -->
+                                <!-- <label>Phone Number <sup>*</sup></label> -->
+                                <div class="phone_wrap">
+                                    <div class="contact_number">
+                                        <span data-toggle="modal" data-target="#countryModal">
+                                            <img src="{{countryImage}}"/>
+                                            <p>{{countryCode}}</p>
+                                        </span>
+                                        <input type="tel"  class="form-control input" id="number" [ngModel]="mobile" #phoneCtrl="ngModel" name="mobile" pattern="[0-9]{6,}" required (ngModelChange)="addph($event)">
+                                    </div>
+                                </div>
+                                <div *ngIf="phValid">
+                                    <p class="alert alert-danger">Phone number is required</p>
+                                </div>
+                                <div *ngIf="phoneCtrl.touched && phoneCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid mobile number.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Designation <sup>*</sup></label> -->
+                                <input type="text" placeholder="Designation" class="form-control" [ngModel]="designation" #designatinCtrl="ngModel" name="designation" required pattern="[^\s].+[^\s]" (ngModelChange)="adddesignation($event)">
+                                <div *ngIf="designatinValid">
+                                    <p class="alert alert-danger">Designation is required</p>
+                                </div>
+                                <div *ngIf="designatinCtrl.touched && designatinCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter proper designation.</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-3 form_block">
+                                <!-- <label>Link to your Linkedin profile <sup>*</sup></label> -->
+                                <input type="text" placeholder="Link to your Linkedin profile" class="form-control" [ngModel]="linkdinProfile" #linkCtrl="ngModel" name="linkdinProfile" pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$" (ngModelChange)="addLink($event)" required>
+                                <div *ngIf="linkValid">
+                                    <p class="alert alert-danger">Link is required</p>
+                                </div>
+                                <div *ngIf="linkCtrl.touched && linkCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid link</p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 mb-4 form_block">
+                                <!-- <label>Topic of Choice <sup>*</sup></label> -->
+                                <input type="text" placeholder="Topic of choice" class="form-control" [ngModel]="topic_choice" #topicCtrl="ngModel" name="topic_choice" required pattern="[^\s].+[^\s]" (ngModelChange)="addTopic($event)">
+                                <div *ngIf="topicValid">
+                                    <p class="alert alert-danger">Topic of Choice is required</p>
+                                </div>
+                                <div *ngIf="topicCtrl.touched && topicCtrl.errors?.['pattern']">
+                                    <p class="alert alert-danger">Please enter valid topic</p>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3 form_block">
+                                <label>Where did you get to know about Becoming an Instructor? <sup>*</sup></label>
+                                <div class="radio-el">
+                                    <input type="radio" id="app" name="radio-btnn" [ngModel]="source"  name="source" (ngModelChange)="selectSource($event)" value="inapp">
+                                    <label for="app">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        In-App
+                                    </label>
+                                </div>
+                                <div class="radio-el">
+                                    <input type="radio" id="website" name="radio-btnn" [ngModel]="source"  name="source" (ngModelChange)="selectSource($event)" value="website">
+                                    <label for="website" >
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        Website
+                                    </label>
+                                </div>
+                                <div class="radio-el">
+                                    <input type="radio" id="team" name="radio-btnn" [ngModel]="source"  name="source" (ngModelChange)="selectSource($event)" value="proapp_team">
+                                    <label for="team" >
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        ProApp Team
+                                    </label>
+                                </div>
+                                <div class="radio-el">
+                                    <input type="radio" id="friend" name="radio-btnn" [ngModel]="source"  name="source" (ngModelChange)="selectSource($event)" value="freind">
+                                    <label for="friend">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        Friend / Colleague
+                                    </label>
+                                </div>
+                                <div class="radio-el">
+                                    <input type="radio" id="other" name="radio-btnn" [ngModel]="source"  name="source" (ngModelChange)="selectSource($event)" value="other">
+                                    <label for="other">
+                                        <span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="512" height="512" x="0" y="0" viewBox="0 0 78.369 78.369" style="enable-background:new 0 0 512 512" xml:space="preserve" class="">
+                                                <g>
+                                                    <path d="M78.049 19.015 29.458 67.606a1.094 1.094 0 0 1-1.548 0L.32 40.015a1.094 1.094 0 0 1 0-1.547l6.704-6.704a1.095 1.095 0 0 1 1.548 0l20.113 20.112 41.113-41.113a1.095 1.095 0 0 1 1.548 0l6.703 6.704a1.094 1.094 0 0 1 0 1.548z" fill="#ffffff" data-original="#ffffff" class=""></path>
+                                                </g>
+                                            </svg>
+                                        </span>
+                                        Other
+                                    </label>
+                                </div>
+                                <div *ngIf="sourcefield">
+                                    <p class="alert alert-danger">Please choose a option</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <button type="submit" class="become-instructor-btn">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  <!-- Modal -->
+  <div class="modal fade" id="countryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Country code</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" #countryModalClose>
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="search_box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" [(ngModel)]="searchinput" (keyup)="search($event)">
+            </div>
+            <ul class="flag_list">
+                <li *ngFor="let country of countryData" (click)="chooseCountry(country.phonecode, country.image)"><img src="{{country.image}}">{{country.name}} <span>+{{country.phonecode}}</span></li>
+                
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+  

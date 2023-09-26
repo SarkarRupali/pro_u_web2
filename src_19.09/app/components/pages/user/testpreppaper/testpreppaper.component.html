@@ -1,0 +1,69 @@
+<div class="container">
+
+    <div class="card">
+      <div class="card-body">
+        <div class="select_paper">
+          <label>Test duration</label>
+          <select interface="actsheet" [(ngModel)]="selectedTime">
+              <option value="120">120 mins</option>
+              <option value="60">60 mins</option>
+              <option value="30" selected>30 mins</option>
+              <option value="20">20 mins</option>
+              <option value="10">10 mins</option>
+              <option value="1">1 mins</option>
+          </select>
+        </div>
+      </div>  
+    </div>
+
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-4" *ngFor="let subject of allSubject">
+        <div class="card">
+          <div class="card-header">
+            {{subject.name}}
+          </div>
+          <div class="card-body">
+            <!-- <item>
+              <label>Select Topic</label>
+              <select interface="actsheet">
+                <select-option value="all">All Topics</select-option>
+                <select-option value="topic-1">Topic 1</select-option>
+                <select-option value="topic-2">Topic 2</select-option>
+                <select-option value="topic-3">Topic 3</select-option>
+                <select-option value="topic-4">Topic 4</select-option>
+              </select>
+            </item> -->
+            <div class="card-item">
+              <label>Select Year</label>
+              <select interface="actsheet" (change)="selectedYear(subject.id, $event)">
+                <option value="0">Random</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+                <option value="2019">2019</option>
+                <option value="2018">2018</option>
+              </select>
+          </div>
+          <div class="card-item">
+              <label>Select Difficulty</label>
+              <select interface="actsheet" (change)="selectedType(subject.id, $event)"> 
+                <!-- <option value="1">General</option> -->
+                <option value="0">Random</option>
+                <option value="1">Easy</option>
+                <option value="2">Medium</option>
+                <option value="3">Hard</option>
+              </select>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+
+      <!-- <button type="button" class="btn text-white btn-block btn-primary btn btn-view"  (click)="goToExam()">Continue</button> -->
+      <div class="row justify-content-center">
+        <div class="col-sm-4">
+            <button type="button" class="btn text-white btn-block btn-primary btn btn-view" (click)="goToExam()">Continue</button>
+        </div>
+      </div>
+    </div>

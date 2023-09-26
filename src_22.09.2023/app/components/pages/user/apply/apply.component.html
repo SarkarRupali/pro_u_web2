@@ -1,0 +1,100 @@
+<section class="university_wrapper">
+    
+      <div class="heading">
+        <div class="heading_image">
+            <img src="{{course.image}}">
+        </div>
+        <div class="heading_content">
+          <h4>{{course.name}}</h4>
+          <h5>{{course.university_name}}</h5>
+        </div>
+      </div>
+
+
+      <ul class="apply_list">
+        <li class="complete">
+            <div class="apply_item">
+                <span>1</span>
+                <div class="content_area">Initiated</div> 
+                <div class="btn_area" *ngIf="applied"><button type="button" class="apply_btn">Completed</button></div>
+            </div>
+        </li>
+        <li class="current">
+            <div class="apply_item">
+                <span>2</span>
+                <div class="content_area">Submit Document</div> 
+            </div>
+            <ul class="upload_list">
+                <li>
+                    <div class="upload_content">Undergraduate <p *ngIf="graduateDoc!==''">{{graduateDoc}}</p></div><div class="upload_btn" (click)="upload('undergraduate')" *ngIf="studyFile">Upload</div>
+                </li>
+                <li>
+                    <div class="upload_content">Higher Secondary <p *ngIf="hsDoc!==''">{{hsDoc}}</p></div><div class="upload_btn" (click)="upload('hs')" *ngIf="studyFile">Upload</div>
+                </li>
+                <button *ngIf="(hsDoc!=='' || graduateDoc!=='') && studyFile" (click)="submitFile()">Submit</button>
+            </ul>
+        </li>
+        <li>
+            <div class="apply_item">
+                <span>3</span>
+                <div class="content_area">Apply For Course</div> 
+            </div>
+            <ul class="upload_list" *ngIf="applicationStatus.is_study_file_approved==1">
+                <li>
+                    <div class="upload_content">{{applicationStatus.apply_course_file}} </div><a class="upload_btn" [href]="basePath+applicationStatus.apply_course_file" target="_blank">Download</a>
+                </li>
+                <li>
+                    <div class="upload_content">Upload Signed File <p *ngIf="applicationStatus.apply_course_file_signed!==''">{{applicationStatus.apply_course_file_signed}}</p></div><div class="upload_btn" (click)="upload('applycourse')" *ngIf="applicationStatus.apply_course_file_signed==''">Upload</div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="apply_item">
+                <span>4</span>
+                <div class="content_area">Offers for you</div> 
+            </div>
+            <ul class="upload_list" *ngIf="applicationStatus.is_course_apply_file_approved==1">
+                <img src="{{basePath+applicationStatus.offers_file}}">
+            </ul>
+        </li>
+
+        <li>
+            <div class="apply_item">
+                <span>5</span>
+                <div class="content_area">Deposit your amount</div> 
+            </div>
+             <ul class="upload_list" *ngIf="applicationStatus.is_course_apply_file_approved==1">
+                <li>
+                    <div class="upload_content">Upload amount File <p *ngIf="applicationStatus.deposit_amount_file!==''">{{applicationStatus.deposit_amount_file}}</p></div><div class="upload_btn" (click)="upload('amountFile')" *ngIf="applicationStatus.deposit_amount_file==''">Upload</div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="apply_item">
+                <span>6</span>
+                <div class="content_area">Apply for US Visa</div> 
+            </div>
+            <ul class="upload_list" *ngIf="applicationStatus.is_deposit_amount_file_approved==1">
+                <li>
+                    <div class="upload_content">Upload Visa File <p *ngIf="applicationStatus.apply_visa_file!==''">{{applicationStatus.apply_visa_file}}</p></div><div class="upload_btn" (click)="upload('applyVisa')" *ngIf="applicationStatus.apply_visa_file==''">Upload</div>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="apply_item">
+                <span>7</span>
+                <div class="content_area">Enroll For Education</div> 
+            </div>
+        </li>
+      </ul>
+</section>
+<div class="container-fluid" *ngIf="applicationStatus.is_visa_approved==1 && applicationStatus?.is_enrolled==0">
+    <div class="row justify-content-center">
+        <div class="col-sm-4">
+          <div class="form-group text-center">
+            <button type="submit" class="apply-filter-btn" (click)="finalSubmit()">Final Submit</button>
+          </div>
+        </div>
+      </div>
+</div>
