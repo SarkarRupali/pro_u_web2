@@ -84,5 +84,10 @@ export class DetailsComponent implements OnInit {
     this.showStatus = !this.showStatus;
   }
 
+  goToCoursePage(courseId: any) {
+    localStorage.setItem('coursename', courseId)
+    this.router.navigateByUrl("/user/internships")
+  }
+
 
 }

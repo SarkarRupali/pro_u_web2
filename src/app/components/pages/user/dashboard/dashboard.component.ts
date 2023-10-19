@@ -216,10 +216,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   ngAfterViewInit() {
     const swiper1 = new Swiper(this.swiperContainer1.nativeElement, {
-    //const examslider = new Swiper('.exam-slider', {
+      //const examslider = new Swiper('.exam-slider', {
       // Swiper configuration options
       slidesPerView: 1, // Adjust as needed
       spaceBetween: 15, // Adjust as needed
@@ -250,7 +250,7 @@ export class DashboardComponent implements OnInit {
     });
 
     const swiper2 = new Swiper(this.swiperContainer2.nativeElement, {
-    //var eventslider = new Swiper('.workshop_slider', {
+      //var eventslider = new Swiper('.workshop_slider', {
       // Swiper configuration options
       slidesPerView: 1, // Adjust as needed
       spaceBetween: 15, // Adjust as needed
@@ -338,7 +338,6 @@ export class DashboardComponent implements OnInit {
   }
 
   goToCoursePage(courseId: any) {
-    console.log('courseId', courseId)
     localStorage.setItem('coursename', courseId)
     this.router.navigateByUrl("/user/internships")
   }

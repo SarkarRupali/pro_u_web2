@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       console.log(res)
       console.log(res.user.image)
       this.userName = res.user.name
-      this.userImage = res.user.image == null ? '' : this.baseImage + res.user.image
+      this.userImage = res.user.image == 'null' ? '' : this.baseImage + res.user.image
       this.referral_code = res.user.referral_code
     })
 

@@ -388,6 +388,7 @@ export class EditProfileComponent implements OnInit {
               icon: 'success',
               title: 'Successfully updated profile'
             });
+            this._loader.stopLoader('loader');
           }
         })
     }

@@ -150,11 +150,27 @@
                         <h4>Price Details</h4>
                 
                         <ul class="pricing_list">
-                            <li>Prime Package <span>₹{{price}}</span></li>
-                            <li *ngIf="offerprice!==0">Offer Price <span>₹{{offerprice}}</span></li>
+                            <li>Prime Package 
+                                <span *ngIf="userDetails.country=='India'">₹{{price}}</span>
+                                <span *ngIf="userDetails.country=='Nigeria'">₦{{price}}</span>
+                                <span *ngIf="userDetails.country!='India' && userDetails.country!='Nigeria'">${{price}}</span>
+                            </li>
+                            <li *ngIf="offerprice!==0">Offer Price 
+                                <span *ngIf="userDetails.country=='India'">₹{{offerprice}}</span>
+                                <span *ngIf="userDetails.country=='Nigeria'">₦{{offerprice}}</span>
+                                <span *ngIf="userDetails.country!='India' && userDetails.country!='Nigeria'">${{offerprice}}</span>
+                            </li>
                             <!-- <li>Earn certificates <span>₹504</span></li> -->
-                            <li>Discount <span>-₹{{discountPrice}}</span></li>
-                            <li>Total <span>₹{{totalPrice}}</span></li>
+                            <li>Discount 
+                                <span *ngIf="userDetails.country=='India'">-₹{{discountPrice}}</span>
+                                <span *ngIf="userDetails.country=='Nigeria'">-₦{{discountPrice}}</span>
+                                <span *ngIf="userDetails.country!='India' && userDetails.country!='Nigeria'">-${{discountPrice}}</span>
+                            </li>
+                            <li>Total 
+                                <span *ngIf="userDetails.country=='India'">₹{{totalPrice}}</span>
+                                <span *ngIf="userDetails.country=='Nigeria'">₦{{totalPrice}}</span>
+                                <span *ngIf="userDetails.country!='India' && userDetails.country!='Nigeria'">${{totalPrice}}</span>
+                            </li>
                         </ul>
                     </div>
                 

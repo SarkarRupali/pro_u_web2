@@ -63,7 +63,7 @@ export class QuizStartComponent implements OnInit {
               this.router.navigate(['/user/coursedetails/' + this.courseId]);
             }
           }
-        } else this.router.navigateByUrl('/user/coursedetails/' + this.courseId)
+        } else this.router.navigate(['/']);
 
       })
     })
