@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
     } else if (path.includes('country')) {
       this.title = 'Country'
     } else if (path.includes('faq')) {
-      this.title = 'FAQ'
+      this.title = "FAQ'S"
     } else if (path.includes('university')) {
       this.title = 'University'
     } else {

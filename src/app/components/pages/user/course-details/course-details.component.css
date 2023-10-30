@@ -1018,8 +1018,8 @@
 }
 
 .tutor_image {
-  max-width: 40px;
-  max-height: 40px;
+  max-width: 120px;
+  max-height: 120px;
   flex: 0 0 100%;
   margin-right: 16px;
 }
@@ -1460,5 +1460,10 @@ color: #6e6e6e;
     max-width: 32px;
     flex: 0 0 100%;
     margin-right: 16px;
+  }
+  
+  .tutor_image {
+    max-width: 80px;
+    max-height: 80px;
   }
 }
