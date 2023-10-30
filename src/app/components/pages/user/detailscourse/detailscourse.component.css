@@ -496,3 +496,17 @@
 .row.gallery_row .col-6 img {
   border-radius: 10px;
 }
+.apply-filter-btn {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  background: #0A8485;
+  box-shadow: 0px 10px 12px rgba(119, 87, 255, 0.2);
+  border: none;
+  border-radius: 30px;
+  height: 60px;
+  text-transform: capitalize;
+  padding: 10px 50px;
+  margin-top: 32px;
+  width: 100%;
+}

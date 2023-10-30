@@ -254,7 +254,8 @@ export class SingleTopicComponent implements OnInit {
    */
   finishButtonCall(topicId: number, topicName: any) {
     localStorage.setItem('topicName', topicName)
-    this.router.navigateByUrl('/user/quiz/' + topicId, { skipLocationChange: true })
+    // this.router.navigateByUrl('/user/quiz/' + topicId, { skipLocationChange: true })
+    this.router.navigateByUrl('/user/quiz/' + topicId)
   }
   goToBack() {
     this.location.back();

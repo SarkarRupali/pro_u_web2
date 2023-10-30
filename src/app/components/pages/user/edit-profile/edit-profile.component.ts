@@ -92,7 +92,6 @@ export class EditProfileComponent implements OnInit {
     /* Using test() method to search regexp in details
     it returns boolean value*/
     this.isMobileDevice = regexp.test(details);
-    console.log('details', this.isMobileDevice)
     this.getProfile();
     this.getCertificateList();
 
@@ -103,7 +102,6 @@ export class EditProfileComponent implements OnInit {
    */
   getProfile() {
     this._api.prfileUser(this.userId).subscribe((res: any) => {
-      console.log(res);
       if (res.status == 1) {
         this.userData = res.user;
         this.countryCode = res.user.countryCode == null ? "+91" : res.user.countryCode;
@@ -119,8 +117,6 @@ export class EditProfileComponent implements OnInit {
           this.userData.country = 'Others';
           this.othersCountry = true;
         }
-        console.log('this.countryCode ', this.countryCode)
-
       }
     })
     this.getCountryCode();
@@ -130,7 +126,6 @@ export class EditProfileComponent implements OnInit {
   getCountryCode() {
     this._loader.startLoader('loader');
     this._api.getcountry().subscribe(res => {
-      console.log('country', res)
       if (res.status == '1') this.countryData = res.countries;
       this.countryData.unshift({
         'image': 'https://flagpedia.net/data/flags/normal/in.png',
@@ -143,8 +138,6 @@ export class EditProfileComponent implements OnInit {
         }
       })
       this.searchCountry = this.countryData
-      console.log('countryImage', this.countryImage)
-
     })
   }
   // Method call to choose a country and close a modal
@@ -160,9 +153,6 @@ export class EditProfileComponent implements OnInit {
   * Method call to select country 
  */
   selectCountry(event: any) {
-    console.log(event);
-    console.log(event.target.value);
-
     if (event.target.value == 'Others') {
       this.othersCountry = true;
     } else {
@@ -178,7 +168,6 @@ export class EditProfileComponent implements OnInit {
     if (searchData.includes('+')) searchData = searchData.slice(1);
     if (searchData.length > 0) {
       this.countryData = this.searchCountry.filter((el: any) => {
-        // console.log(this.countryData)
         return (el.phonecode.indexOf(searchData) > -1 || el.name.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
       })
     } else this.countryData = this.searchCountry
@@ -198,14 +187,11 @@ export class EditProfileComponent implements OnInit {
   * Method call to check if firstname input empty or not
  */
   addName(event: any) {
-    console.log(event);
-
     if (event == '') {
       this.nameValid = true;
     } else {
       this.nameValid = false;
     }
-    console.log('this.nameValid', this.nameValid);
 
   }
 
@@ -259,7 +245,6 @@ export class EditProfileComponent implements OnInit {
   getCollegeList() {
     this._loader.startLoader('loader');
     this._api.getCollageName().subscribe(res => {
-      console.log(res);
       if (res.status == '1') this.universityList = res.colleges;
       this._loader.stopLoader('loader');
     })
@@ -267,11 +252,7 @@ export class EditProfileComponent implements OnInit {
 
 
   onFileSelected(event: any) {
-    console.log('event', event);
-
     const file: File = event.target.files[0];
-    console.log(file);
-
 
     if (file) {
       this.uploadButn = true;
@@ -307,7 +288,6 @@ export class EditProfileComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.file, this.file.name);
     this._api.profileImage(formData).subscribe(res => {
-      console.log('image', res)
       if (res.status == '1') {
         this._loader.stopLoader('loader');
         this.Toast.fire({
@@ -401,7 +381,6 @@ export class EditProfileComponent implements OnInit {
     this._loader.startLoader('loader')
     this._api.certificateList(this.userId).subscribe(res => {
       if (res.status == 1) this.certificateList = res.certificates
-      console.log('this.certificateList', this.certificateList)
       this._loader.stopLoader('loader')
     })
   }
@@ -424,7 +403,6 @@ export class EditProfileComponent implements OnInit {
   }
 
   sharefacebookUrl(certificateURl: any) {
-    console.log('test facebook')
     // let searchParams = new URLSearchParams();
     let msg = `Your Certificate Link : https://backend.proueducation.com/assets/upload/pdf/${certificateURl}`
     // searchParams.set('u', msg);

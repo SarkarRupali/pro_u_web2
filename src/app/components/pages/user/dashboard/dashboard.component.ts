@@ -146,7 +146,6 @@ export class DashboardComponent implements OnInit {
     // this.userDetails = JSON.parse(localStorage.getItem('userData') || '{}')
     let date = new Date();
     this.today = this.datepipe.transform(date, 'yyyy-MM-dd');
-    console.log('userDetails', this.userDetails);
     // api call to get categories, testimonials and events data
     this._api.gethomePageData().subscribe((res: any) => {
       if (res.status == '1') {
@@ -187,7 +186,6 @@ export class DashboardComponent implements OnInit {
     })
 
     this._api.prfileUser(JSON.parse(localStorage.getItem('userData') || '{}').id).subscribe((res: any) => {
-      console.log(res);
       if (res.status == 1) {
         this.userDetails = res.user;
         localStorage.setItem('userData', JSON.stringify(res.user))
@@ -208,7 +206,6 @@ export class DashboardComponent implements OnInit {
     })
 
     this._api.getTestExamList().subscribe((res: any) => {
-      console.log(res)
       this.examList = res.exams
     })
   }
@@ -282,7 +279,6 @@ export class DashboardComponent implements OnInit {
   }
 
   search() {
-    console.log('jjksa')
     this.router.navigateByUrl('/user/search')
   }
 
@@ -343,18 +339,15 @@ export class DashboardComponent implements OnInit {
   }
 
   goToCountryDetails(countryId: any) {
-    console.log('countryId', countryId)
     this.router.navigateByUrl("/user/country/" + countryId)
   }
 
   gotoTestPrepDetials(exam: any) {
-    console.log('exam', exam)
     localStorage.setItem('detail', JSON.stringify(exam));
     this.router.navigateByUrl('/user/testPrep')
   }
 
   sharefacebookUrl(referralCode: any) {
-    console.log('test facebook')
     // let searchParams = new URLSearchParams();
     let msg = `Refer or Invite others using link: https://app.proueducation.com . Referral Code :${referralCode}`
     // searchParams.set('u', msg);

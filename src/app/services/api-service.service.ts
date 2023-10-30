@@ -230,9 +230,15 @@ export class ApiServiceService {
     return this._http.get<any>(addUrl + 'getUserPoints/' + userId);
   }
 
+
   /*     *************** Certificate ************** */
   certificateList(userId: string) {
     return this._http.get<any>(addUrl + 'fetchUserCertificates/' + userId);
+  }
+
+  /*     *************** Certificate based on course************** */
+  getCeritificateOnCourse(userId: string, courseId: number) {
+    return this._http.get<any>(addUrl + 'fetchUserCourseWiseCertificates/' + userId + '/' + courseId);
   }
 
   /*     *************** Feedback ************** */

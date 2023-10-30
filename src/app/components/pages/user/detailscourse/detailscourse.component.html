@@ -182,6 +182,16 @@
             </div>
         </div>
       </div>
-      <button routerLink="/user/apply">Apply</button>
     </div>
 </section>
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+      <div class="col-sm-4">
+        <div class="form-group text-center">
+          <button routerLink="/user/apply" class="apply-filter-btn" *ngIf="applicationStatus.is_enrolled==0"> Apply</button>
+          <button routerLink="/user/apply" class="apply-filter-btn" *ngIf="applicationStatus.is_enrolled==1"> Applied Document</button>
+        </div>
+      </div>
+    </div>
+</div>

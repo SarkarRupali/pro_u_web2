@@ -18,8 +18,6 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.userId = JSON.parse(localStorage.getItem('userData') || '{}').id;
     this._api.prfileUser(this.userId).subscribe(res => {
-      console.log(res)
-      console.log(res.user.image)
       this.userName = res.user.name
       this.userImage = res.user.image == 'null' ? '' : this.baseImage + res.user.image
       this.referral_code = res.user.referral_code

@@ -2,18 +2,20 @@
     <div class="row">
       <ng-container *ngFor="let list of filterList; let i=index">
         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-          <div class="course_card" (click)="goToDetialsPage(list)">
-            <img src="{{imagePath+list.image}}" class="uni_bg">
-  
-            
-            <div class="course_content">
-              <!-- <div class="course_icon">
-                <img src="{{list.logo}}" alt="">
-              </div> -->
-              <div class="course_title">
-                <h4>{{list.name}}</h4>
-              </div>
-              <ul>
+          
+
+
+
+        <div class="pro-content" data-aos="fade-up" data-aos-duration="1000" (click)="goToDetialsPage(list)">
+          <div class="card-img">
+            <img src="{{imagePath+list.cover_image}}" alt="">
+            <!-- <img src="./assets/img/data-science.jpg" alt=""> -->
+          </div>
+          <div class="card-content">
+            <div class="course_title">
+              <h4>{{list.name}}</h4>
+            </div>
+            <ul class="course-duration">
                 <li>
                   <span *ngIf="list.type==1">Undergraduate</span>
                   <span *ngIf="list.type==2">Postgraduate</span>
@@ -24,10 +26,14 @@
                   <span *ngIf="list.mode_of_study==1">Half Time</span>
                 </li>
                 <li *ngIf="list.duration!=''">{{list.duration}}</li>
-              </ul>
+            </ul>
+            <div class="course_info m_t">
+              <p>{{list.university_name}}</p>
             </div>
           </div>
+          
         </div>
+      </div>
       </ng-container>   
     </div>
       

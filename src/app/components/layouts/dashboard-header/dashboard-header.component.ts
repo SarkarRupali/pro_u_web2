@@ -24,7 +24,6 @@ export class DashboardHeaderComponent implements OnInit {
     // ionViewWillEnter(){
     this._api.notificationList(this.userId).subscribe(
       (res: any) => {
-        console.log(res);
         if (res.status == 1) {
           this.notificationLength = res.notifications.length;
         }
@@ -38,17 +37,15 @@ export class DashboardHeaderComponent implements OnInit {
     })
     this.menuService.currentStatus.subscribe(status => this.status = status)
     const currentUrl = window.location.href;
-    console.log(currentUrl)
   }
 
   ngOnChanges() {
     const currentUrl = window.location.href;
-    console.log(currentUrl);
     if (currentUrl.includes('dashboard')) {
       this.addclass = 'dashboard'
     } else this.addclass = ''
 
-    if (currentUrl.includes('dashboard') || currentUrl.includes('search') || currentUrl.includes('internships') || currentUrl.includes('menu') || currentUrl.includes('coursedetails') || currentUrl.includes('topicslide')) {
+    if (currentUrl.includes('dashboard') || currentUrl.includes('search') || currentUrl.includes('internships') || currentUrl.includes('menu') || currentUrl.includes('coursedetails') || currentUrl.includes('quiz')) {
       this.backClass = false
     } else this.backClass = true;
   }
@@ -56,12 +53,12 @@ export class DashboardHeaderComponent implements OnInit {
   clickEvent() {
 
     this.menuService.changeStatus(!this.status)
-
-    console.log('Enter', this.status)
   }
 
   backPage() {
     this._location.back()
   }
+
+  // || currentUrl.includes('topicslide')
 
 }

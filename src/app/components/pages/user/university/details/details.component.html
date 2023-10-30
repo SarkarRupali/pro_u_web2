@@ -50,17 +50,23 @@
                               <div class="course_content">
                                 <div class="course_title">
                                   <h4>{{course.name}}</h4>
-                                  <div class="subscription_badge hot">Hot</div>
+                                  <!-- <div class="subscription_badge hot">Hot</div> -->
                                   <!-- <div class="subscription_badge prime">Prime</div>
                                   <div class="subscription_badge free">Free</div>
                                   <div class="subscription_badge gold">Gold</div> -->
                                 </div>
                                 <ul>
                                   <!-- <li>Postgraduate</li> -->
-                                  <li>Full Time</li>
+                                  <li>
+                                    <span *ngIf="course.type==1">Undergraduate</span>
+                                    <span *ngIf="course.type==2">Postgraduate</span>
+                                    <span *ngIf="course.type==3">Diploma</span>
+                                  </li>
+                                  <li *ngIf="course.mode_of_study==2">Full Time</li>
+                                  <li *ngIf="course.mode_of_study==1">Half Time</li>
                                   <li>{{course.duration}}</li>
                                 </ul>
-                                <div class="course_info">University of Bolton, Bolton, United Kingdom</div>
+                                <div class="course_info">{{universityDetails.name}}</div>
                               </div>
                             </div>       
                         </div>
@@ -76,7 +82,7 @@
 </section>
 
 
-<section class="pro-mba">
+<!-- <section class="pro-mba">
   <div class="container">
       <div class="row">
         <div class="col-12 pro-top">
@@ -85,8 +91,7 @@
               <img src="./assets/img/trend_sub.png" alt="">
             </div>
             <h2>Trending Subjects</h2>
-            <!-- <p>Transform your career with industry experts</p> -->
-            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+        
           </div>
         </div>
       </div>
@@ -101,7 +106,7 @@
           </ul>
       </div>
     </div>
-</section>
+</section> -->
 
 <section class="pro-mba">
   <div class="container">

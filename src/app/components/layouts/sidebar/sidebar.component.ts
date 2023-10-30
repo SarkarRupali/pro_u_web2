@@ -24,7 +24,6 @@ export class SidebarComponent implements OnInit {
     /* Using test() method to search regexp in details
     it returns boolean value*/
     this.isMobileDevice = regexp.test(details);
-    console.log('details', this.isMobileDevice)
 
   }
 
@@ -41,9 +40,6 @@ export class SidebarComponent implements OnInit {
   }
   changeStatus: boolean = false;
   clickEvent() {
-    console.log('Enter')
     this.menu.changeStatus(!this.status)
-
-    console.log('Enter', this.status)
   }
 }

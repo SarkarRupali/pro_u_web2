@@ -46,16 +46,7 @@ export class CourseDetailsComponent implements OnInit {
     }
   });
 
-  certificates: any = [
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' },
-    { certificate: './assets/img/certification.png' }
-  ]
+  certificates: any = []
 
   customOptions: OwlOptions = {
     loop: false,
@@ -181,6 +172,7 @@ export class CourseDetailsComponent implements OnInit {
             }
           }
           this.getForum();
+          this.getCertificate();
           this._loader.stopLoader('loader');
           localStorage.setItem('rec_course', JSON.stringify(res.related_courses));
 
@@ -219,6 +211,18 @@ export class CourseDetailsComponent implements OnInit {
     })
   }
 
+  /**
+   * Method call to get certificate based on course of user
+   */
+  getCertificate() {
+    this._api.getCeritificateOnCourse(this.userId, this.courseId).subscribe(res => {
+      console.log(res);
+      if (res.status == 1) {
+        this.certificates = res.certificates
+      }
+    })
+
+  }
 
 
   /**

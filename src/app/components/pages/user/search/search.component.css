@@ -219,6 +219,7 @@
     line-height: 16px;
     color: #FFFFFF;
     border-top: 1px solid rgba(255, 255, 255, 0.25);
+    margin-top: 43px;
   }
   .card-content .course_info p {
     color: #ffffff;

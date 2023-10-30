@@ -40,8 +40,6 @@ export class ApplyComponent implements OnInit {
     this.userDetails = JSON.parse(localStorage.getItem('userData')!);
     this.applyCoursestatus();
 
-    console.log('123', localStorage.getItem('doc'))
-
     if (localStorage.getItem('hsdoc') !== null) {
       this.hsDoc = localStorage.getItem('hsdoc')
     }

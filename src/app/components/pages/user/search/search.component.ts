@@ -46,7 +46,6 @@ export class SearchComponent implements OnInit {
     })
 
     this._api.getsearchData().subscribe(res => {
-      console.log(res)
       if (res.status == 1) {
         this.commoncategories = res.categories;
         this.commonCountry = res.countries;
