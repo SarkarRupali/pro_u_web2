@@ -38,8 +38,10 @@ export class AppComponent implements OnInit {
 
     if (path.includes('coursedetails')) {
       this.title = 'course details'
-    } else if (path.includes('quiz') || path.includes('quizslide')) {
+    } else if (path.includes('quizslide')) {
       this.title = 'quiz'
+    } else if (path.includes('quiz')) {
+      this.title = ''
     } else if (path.includes('resources_details')) {
       this.title = 'resources details'
     } else if (path.includes('internships')) {

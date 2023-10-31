@@ -101,7 +101,7 @@
 </section> -->
 <div class="container">
     <ul class="course_tab">
-        <li [ngClass]="{'active': page=='tutor'}" (click)="changePage('tutor')">Tutor</li>
+        <li [ngClass]="{'active': page=='tutor'}" (click)="changePage('tutor')">Organisation</li>
         <li [ngClass]="{'active': page=='topics'}" (click)="changePage('topics')">Topics</li>
         <li [ngClass]="{'active': page=='forum'}" (click)="changePage('forum')">Forum</li>
     </ul>
@@ -163,7 +163,7 @@
 
                     <div class="course_count">
                         <span>{{alltopics.length}} Topics</span>
-                        <span>Total - 6 Slides</span>
+                        <span>Total - {{totalSlideLength}} Slides</span>
                     </div>
 
                     <div class="topic-content-info">
@@ -173,11 +173,12 @@
                                     <span class="count" [ngClass]="topics.is_completed==1?'done':''">{{i+1}}</span>
                                     <div class="topic-content-info-left-question">
                                         <h5><a (click)="goToTopicSlide(i)" [innerHtml]="topics.topic"></a></h5>
-                                        <small>{{topics.slides.length}} slides</small>
+                                        <small *ngIf="topics.slides.length!=0">{{topics.slides.length}} slides</small>
+                                        <small *ngIf="topics.slides.length==0">Project</small>
                                     </div>
                                 </div>
                                 <div class="topic-content-info-right">
-                                    <span class="complete"  *ngIf="topics.is_completed==1">
+                                    <span class="complete" *ngIf="topics.is_completed==1">
                                         Complete
                                     </span>
                                     <span class="complete start" (click)="goToTopicSlide(i)" *ngIf="topics.isOpen==1 && topics.is_completed==0 && topics.assignment==''">Start</span>

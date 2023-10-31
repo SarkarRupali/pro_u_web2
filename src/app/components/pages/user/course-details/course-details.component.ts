@@ -34,6 +34,7 @@ export class CourseDetailsComponent implements OnInit {
   public imagePath = environment.imageUrl;
   public userDetails: any;
   public page: any = 'tutor';
+  public totalSlideLength = 0;
   public Toast = Swal.mixin({
     toast: true,
     position: 'center',
@@ -159,7 +160,6 @@ export class CourseDetailsComponent implements OnInit {
           this.alltopics = res.topics; // get all topics of course
           this.relatedCourse = res.related_courses; // get related course
           this._loader.stopLoader('loader');
-          console.log(this.relatedCourse);
 
           //deactivte other topics
           for (let i = 0; i < this.alltopics.length; i++) {
@@ -170,6 +170,8 @@ export class CourseDetailsComponent implements OnInit {
               // } else {
               //   this.alltopics[i].isOpen = 0;
             }
+            this.totalSlideLength += this.alltopics[i].slides.length
+
           }
           this.getForum();
           this.getCertificate();

@@ -70,7 +70,7 @@
       </div>
     </div>
 </section>
-<section class="pro-mba">
+<!-- <section class="pro-mba">
     <div class="container">
       <div class="row">
         <div class="col-12 pro-top">
@@ -79,8 +79,7 @@
               <img src="./assets/place.png" alt="">
             </div>
             <h2>Trending Subjects</h2>
-            <!-- <p>Transform your career with industry experts</p> -->
-            <!-- <a (click)=goToCoursePage(categories.id) class="view-all">view all</a> -->
+            
           </div>
         </div>
       </div>
@@ -91,9 +90,9 @@
           </ul>
       </div>
     </div>
-</section>
+</section> -->
 
-<!-- <section class="pro-mba">
+<section class="pro-mba">
     <div class="container">
       <div class="row">
         <div class="col-12 pro-top">
@@ -101,13 +100,11 @@
             <div class="heading-icon">
               <img src="./assets/place.png" alt="">
             </div>
-            <h2>FAQs</h2>
-            <p>Transform your career with industry experts</p>
-            <a (click)=goToCoursePage(categories.id) class="view-all">view all</a>
+            <h2>FAQ's</h2>
           </div>
         </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-12">
             <div class="accordian">
                 <div class="accordian_item" *ngFor="let faq of examDetails?.faqs">
@@ -118,6 +115,18 @@
                 </div>
             </div>
         </div>
+      </div> -->
+      <div class="row">
+        <div class="col-12">
+            <div class="accordian">
+                <div class="accordian_item" *ngFor="let faq of examDetails?.faqs;let i=index" (click)="changeStatus(i)" [ngClass]="i==statenumber && showStatus ? 'show' : 'hide'">
+                    <h3>{{faq.question}}  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></h3>
+                    <div class="content">
+                        <div [innerHtml]="faq.answer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
       </div>
     </div>
-</section> -->
+</section>

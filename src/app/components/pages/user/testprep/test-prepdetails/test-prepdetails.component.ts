@@ -15,7 +15,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./test-prepdetails.component.css']
 })
 export class TestPrepdetailsComponent implements OnInit {
-
+  statenumber: any = 0;
+  showStatus: boolean = false;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private _api: ApiServiceService, private _loader: NgxUiLoaderService, private location: Location, private formBuilder: FormBuilder) {
     this.examDetails = JSON.parse(localStorage.getItem('detail')!)
   }
@@ -59,6 +60,11 @@ export class TestPrepdetailsComponent implements OnInit {
   modeuleDetials(module: any) {
     localStorage.setItem('module', JSON.stringify(module))
     this.router.navigateByUrl('/user/testprepsubject')
+  }
+
+  changeStatus(index: number) {
+    this.statenumber = index
+    this.showStatus = !this.showStatus;
   }
 
 }
