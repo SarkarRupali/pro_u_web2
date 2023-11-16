@@ -189,7 +189,7 @@
   <div class="row justify-content-center">
       <div class="col-sm-4">
         <div class="form-group text-center">
-          <button routerLink="/user/apply" class="apply-filter-btn" *ngIf="applicationStatus.is_enrolled==0"> Apply</button>
+          <button routerLink="/user/apply" class="apply-filter-btn" *ngIf="applicationStatus.is_enrolled==0 || this.status==1"> Apply</button>
           <button routerLink="/user/apply" class="apply-filter-btn" *ngIf="applicationStatus.is_enrolled==1"> Applied Document</button>
         </div>
       </div>

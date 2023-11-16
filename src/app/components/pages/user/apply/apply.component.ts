@@ -19,6 +19,7 @@ export class ApplyComponent implements OnInit {
   graduateDoc: any = ''
   applicationStatus: any = {};
   basePath = "https://backend.proueducation.com/assets/upload/users/"
+  imagePath: any = "https://backend.proueducation.com/assets/upload/countries/"
 
   public Toast = Swal.mixin({
     toast: true,

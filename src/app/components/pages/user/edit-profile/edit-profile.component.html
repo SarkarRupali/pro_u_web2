@@ -9,14 +9,14 @@
                 <div class="row align-items-center">
                     <div class="col-12">
                         
-                        <ng-container *ngIf="userData.image==null;else profileImage ">
+                        <ng-container *ngIf="userImage==null;else profileImage ">
                             <figure class="profile_image">
                               <img src="../../../../../assets/user.png">
                             </figure>
                           </ng-container>
                           <ng-template #profileImage>
                             <figure class="profile_image">
-                                <img src="{{profileImage+userData.image}}">
+                                <img src="{{userImage}}">
                             </figure>
                           </ng-template>
                     </div>

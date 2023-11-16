@@ -13,6 +13,7 @@ export class DetailscourseComponent implements OnInit {
   showStatus: boolean = false;
   showModuleStatus: boolean = false;
   applicationStatus: any = {};
+  status: any = 0;
   imagePath: any = "https://backend.proueducation.com/assets/upload/countries/"
   constructor(private _api: ApiServiceService) { }
 
@@ -45,7 +46,10 @@ export class DetailscourseComponent implements OnInit {
         //   localStorage.removeItem('hsdoc')
         // }
         // this.applied = true;
+      } else if (res.status == 0) {
+        this.status = 1
       }
+
     })
   }
 

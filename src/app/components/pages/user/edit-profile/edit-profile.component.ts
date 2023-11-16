@@ -42,6 +42,7 @@ export class EditProfileComponent implements OnInit {
   searchCountry: any = [];
   searchinput = '';
   isMobileDevice = false;
+  userImage: any
   customOptions2: OwlOptions = {
     loop: false,
     mouseDrag: true,
@@ -109,6 +110,7 @@ export class EditProfileComponent implements OnInit {
         this.study = res.user.is_interested_in_study_abroad == 1 ? true : false;
         this.privacy = res.user.is_agree_to_terms_and_conditions == 1 ? true : false;
         this.resumeData = res.user.resume;
+        this.userImage = res.user.image == 'null' ? '' : this.profileImage + res.user.image
         if (this.userData.country.match('India') || this.userData.country.match('Nigeria') || this.userData.country.match('UAE')) {
           this.userData.country = this.userData.country.trim();
           this.othersCountry = false;
